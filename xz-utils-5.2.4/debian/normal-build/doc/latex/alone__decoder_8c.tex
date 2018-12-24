@@ -1,0 +1,70 @@
+\section{liblzma/common/alone\+\_\+decoder.c File Reference}
+\label{alone__decoder_8c}\index{liblzma/common/alone\+\_\+decoder.\+c@{liblzma/common/alone\+\_\+decoder.\+c}}
+
+
+Decoder for L\+Z\+M\+A\+\_\+\+Alone files.  
+
+
+{\ttfamily \#include \char`\"{}alone\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lz\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+alone\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{alone__decoder_8c_add55b2a525dacc44ddf9b3130ecb5766}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries alone\+\_\+decode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+unused\+\_\+\+\_\+)), const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{alone__decoder_8c_a9ab1f6e8291327b0898f2c9897916948}} 
+static void {\bfseries alone\+\_\+decoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{alone__decoder_8c_a33b7090ea060e5a13d3d7194db8b413d}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries alone\+\_\+decoder\+\_\+memconfig} (void $\ast$coder\+\_\+ptr, uint64\+\_\+t $\ast$memusage, uint64\+\_\+t $\ast$old\+\_\+memlimit, uint64\+\_\+t new\+\_\+memlimit)
+\item 
+\mbox{\label{alone__decoder_8c_affc50b939621fc52326cc2f662775e14}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+alone\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, uint64\+\_\+t memlimit, bool picky)
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+alone\+\_\+decoder} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, uint64\+\_\+t memlimit)
+\begin{DoxyCompactList}\small\item\em Initialize .lzma decoder (legacy file format) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decoder for L\+Z\+M\+A\+\_\+\+Alone files. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{alone__decoder_8c_a557f24c908c5a192dc55f5f9e7674536}} 
+\index{alone\+\_\+decoder.\+c@{alone\+\_\+decoder.\+c}!lzma\+\_\+alone\+\_\+decoder@{lzma\+\_\+alone\+\_\+decoder}}
+\index{lzma\+\_\+alone\+\_\+decoder@{lzma\+\_\+alone\+\_\+decoder}!alone\+\_\+decoder.\+c@{alone\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+alone\+\_\+decoder()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+alone\+\_\+decoder (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{uint64\+\_\+t}]{memlimit }\end{DoxyParamCaption})}
+
+
+
+Initialize .lzma decoder (legacy file format) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} \\
+\hline
+{\em memlimit} & Memory usage limit as bytes. Use U\+I\+N\+T64\+\_\+\+M\+AX to effectively disable the limiter. liblzma 5.\+2.\+3 and earlier don\textquotesingle{}t allow 0 here and return L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR; later versions treat 0 as if 1 had been specified.\\
+\hline
+\end{DoxyParams}
+Valid `action\textquotesingle{} arguments to \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\+Z\+M\+A\+\_\+\+R\+UN and L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH. There is no need to use L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH, but it\textquotesingle{}s allowed because it may simplify certain types of applications.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+

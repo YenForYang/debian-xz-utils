@@ -1,0 +1,173 @@
+\section{xz/hardware.c File Reference}
+\label{hardware_8c}\index{xz/hardware.\+c@{xz/hardware.\+c}}
+
+
+Detection of available hardware resources.  
+
+
+{\ttfamily \#include \char`\"{}private.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ hardware\+\_\+threads\+\_\+set} (uint32\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Set the maximum number of worker threads. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ hardware\+\_\+threads\+\_\+get} (void)
+\begin{DoxyCompactList}\small\item\em Get the maximum number of worker threads. \end{DoxyCompactList}\item 
+void \textbf{ hardware\+\_\+memlimit\+\_\+set} (uint64\+\_\+t new\+\_\+memlimit, bool set\+\_\+compress, bool set\+\_\+decompress, bool is\+\_\+percentage)
+\item 
+uint64\+\_\+t \textbf{ hardware\+\_\+memlimit\+\_\+get} (enum operation\+\_\+mode mode)
+\begin{DoxyCompactList}\small\item\em Get the current memory usage limit for compression or decompression. \end{DoxyCompactList}\item 
+static void \textbf{ memlimit\+\_\+show} (const char $\ast$str, uint64\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Helper for \doxyref{hardware\+\_\+memlimit\+\_\+show()}{p.}{hardware_8c_a7b6901e0938a5a55c5724b4ac42ea3e4} to print one human-\/readable info line. \end{DoxyCompactList}\item 
+void \textbf{ hardware\+\_\+memlimit\+\_\+show} (void)
+\begin{DoxyCompactList}\small\item\em Display the amount of R\+AM and memory usage limits and exit. \end{DoxyCompactList}\item 
+void \textbf{ hardware\+\_\+init} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\+\_\+t \textbf{ threads\+\_\+max} = 1
+\item 
+static uint64\+\_\+t \textbf{ memlimit\+\_\+compress}
+\begin{DoxyCompactList}\small\item\em Memory usage limit for compression. \end{DoxyCompactList}\item 
+static uint64\+\_\+t \textbf{ memlimit\+\_\+decompress}
+\begin{DoxyCompactList}\small\item\em Memory usage limit for decompression. \end{DoxyCompactList}\item 
+static uint64\+\_\+t \textbf{ total\+\_\+ram}
+\begin{DoxyCompactList}\small\item\em Total amount of physical R\+AM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Detection of available hardware resources. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{hardware_8c_a339ea6948781e261447510faf7d46004}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+threads\+\_\+set@{hardware\+\_\+threads\+\_\+set}}
+\index{hardware\+\_\+threads\+\_\+set@{hardware\+\_\+threads\+\_\+set}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+threads\+\_\+set()}
+{\footnotesize\ttfamily void hardware\+\_\+threads\+\_\+set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{n }\end{DoxyParamCaption})}
+
+
+
+Set the maximum number of worker threads. 
+
+
+
+References lzma\+\_\+cputhreads(), and threads\+\_\+max.
+
+\mbox{\label{hardware_8c_a524ded1b672fa85fafd2c39c12c42366}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+threads\+\_\+get@{hardware\+\_\+threads\+\_\+get}}
+\index{hardware\+\_\+threads\+\_\+get@{hardware\+\_\+threads\+\_\+get}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+threads\+\_\+get()}
+{\footnotesize\ttfamily uint32\+\_\+t hardware\+\_\+threads\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the maximum number of worker threads. 
+
+
+
+References threads\+\_\+max.
+
+\mbox{\label{hardware_8c_a00d0e7d3dfbc21538d84a6fa4d0a70c0}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+memlimit\+\_\+set@{hardware\+\_\+memlimit\+\_\+set}}
+\index{hardware\+\_\+memlimit\+\_\+set@{hardware\+\_\+memlimit\+\_\+set}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+memlimit\+\_\+set()}
+{\footnotesize\ttfamily void hardware\+\_\+memlimit\+\_\+set (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{new\+\_\+memlimit,  }\item[{bool}]{set\+\_\+compress,  }\item[{bool}]{set\+\_\+decompress,  }\item[{bool}]{is\+\_\+percentage }\end{DoxyParamCaption})}
+
+Set the memory usage limit. There are separate limits for compression and decompression (the latter includes also --list), one or both can be set with a single call to this function. Zero indicates resetting the limit back to the defaults. The limit can also be set as a percentage of installed R\+AM; the percentage must be in the range [1, 100]. 
+
+Referenced by hardware\+\_\+init().
+
+\mbox{\label{hardware_8c_af8f63ad66d839bff50e46464f0ad630f}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+memlimit\+\_\+get@{hardware\+\_\+memlimit\+\_\+get}}
+\index{hardware\+\_\+memlimit\+\_\+get@{hardware\+\_\+memlimit\+\_\+get}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+memlimit\+\_\+get()}
+{\footnotesize\ttfamily uint64\+\_\+t hardware\+\_\+memlimit\+\_\+get (\begin{DoxyParamCaption}\item[{enum operation\+\_\+mode}]{mode }\end{DoxyParamCaption})}
+
+
+
+Get the current memory usage limit for compression or decompression. 
+
+
+
+Referenced by message\+\_\+mem\+\_\+needed().
+
+\mbox{\label{hardware_8c_ad56580adea56000e543fb4cda80fc003}} 
+\index{hardware.\+c@{hardware.\+c}!memlimit\+\_\+show@{memlimit\+\_\+show}}
+\index{memlimit\+\_\+show@{memlimit\+\_\+show}!hardware.\+c@{hardware.\+c}}
+\subsubsection{memlimit\+\_\+show()}
+{\footnotesize\ttfamily static void memlimit\+\_\+show (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{uint64\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Helper for \doxyref{hardware\+\_\+memlimit\+\_\+show()}{p.}{hardware_8c_a7b6901e0938a5a55c5724b4ac42ea3e4} to print one human-\/readable info line. 
+
+\mbox{\label{hardware_8c_a7b6901e0938a5a55c5724b4ac42ea3e4}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+memlimit\+\_\+show@{hardware\+\_\+memlimit\+\_\+show}}
+\index{hardware\+\_\+memlimit\+\_\+show@{hardware\+\_\+memlimit\+\_\+show}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+memlimit\+\_\+show()}
+{\footnotesize\ttfamily void hardware\+\_\+memlimit\+\_\+show (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Display the amount of R\+AM and memory usage limits and exit. 
+
+\mbox{\label{hardware_8c_a47191dfa6786da2498eb49ae28f8d361}} 
+\index{hardware.\+c@{hardware.\+c}!hardware\+\_\+init@{hardware\+\_\+init}}
+\index{hardware\+\_\+init@{hardware\+\_\+init}!hardware.\+c@{hardware.\+c}}
+\subsubsection{hardware\+\_\+init()}
+{\footnotesize\ttfamily void hardware\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize some hardware-\/specific variables, which are needed by other hardware\+\_\+$\ast$ functions. 
+
+References hardware\+\_\+memlimit\+\_\+set(), lzma\+\_\+physmem(), and total\+\_\+ram.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{hardware_8c_ab9596b097d7bb86b51dc754c1194a8ca}} 
+\index{hardware.\+c@{hardware.\+c}!threads\+\_\+max@{threads\+\_\+max}}
+\index{threads\+\_\+max@{threads\+\_\+max}!hardware.\+c@{hardware.\+c}}
+\subsubsection{threads\+\_\+max}
+{\footnotesize\ttfamily uint32\+\_\+t threads\+\_\+max = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+Maximum number of worker threads. This can be set with the --threads=N\+UM command line option. 
+
+Referenced by hardware\+\_\+threads\+\_\+get(), and hardware\+\_\+threads\+\_\+set().
+
+\mbox{\label{hardware_8c_a480d1795efd25be46715244fade38e34}} 
+\index{hardware.\+c@{hardware.\+c}!memlimit\+\_\+compress@{memlimit\+\_\+compress}}
+\index{memlimit\+\_\+compress@{memlimit\+\_\+compress}!hardware.\+c@{hardware.\+c}}
+\subsubsection{memlimit\+\_\+compress}
+{\footnotesize\ttfamily uint64\+\_\+t memlimit\+\_\+compress\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Memory usage limit for compression. 
+
+\mbox{\label{hardware_8c_adcc72cef875d7fdc985d66bf61f9de38}} 
+\index{hardware.\+c@{hardware.\+c}!memlimit\+\_\+decompress@{memlimit\+\_\+decompress}}
+\index{memlimit\+\_\+decompress@{memlimit\+\_\+decompress}!hardware.\+c@{hardware.\+c}}
+\subsubsection{memlimit\+\_\+decompress}
+{\footnotesize\ttfamily uint64\+\_\+t memlimit\+\_\+decompress\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Memory usage limit for decompression. 
+
+\mbox{\label{hardware_8c_a3bade126d9aa72b3e34532c13828c955}} 
+\index{hardware.\+c@{hardware.\+c}!total\+\_\+ram@{total\+\_\+ram}}
+\index{total\+\_\+ram@{total\+\_\+ram}!hardware.\+c@{hardware.\+c}}
+\subsubsection{total\+\_\+ram}
+{\footnotesize\ttfamily uint64\+\_\+t total\+\_\+ram\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Total amount of physical R\+AM. 
+
+
+
+Referenced by hardware\+\_\+init().
+

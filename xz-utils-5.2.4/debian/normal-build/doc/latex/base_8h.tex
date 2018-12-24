@@ -1,0 +1,417 @@
+\section{liblzma/api/lzma/base.h File Reference}
+\label{base_8h}\index{liblzma/api/lzma/base.\+h@{liblzma/api/lzma/base.\+h}}
+
+
+Data types and functions used in many places in liblzma A\+PI.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+allocator}
+\begin{DoxyCompactList}\small\item\em Custom functions for memory handling. \end{DoxyCompactList}\item 
+struct \textbf{ lzma\+\_\+stream}
+\begin{DoxyCompactList}\small\item\em Passing data to and from liblzma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em Initialization for \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \textbf{ lzma\+\_\+bool}
+\begin{DoxyCompactList}\small\item\em Boolean. \end{DoxyCompactList}\item 
+typedef struct \textbf{ lzma\+\_\+internal\+\_\+s} \textbf{ lzma\+\_\+internal}
+\begin{DoxyCompactList}\small\item\em Internal data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ lzma\+\_\+reserved\+\_\+enum} \{ {\bfseries L\+Z\+M\+A\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+E\+N\+UM} = 0
+ \}\begin{DoxyCompactList}\small\item\em Type of reserved enumeration variable in structures. \end{DoxyCompactList}
+\item 
+enum \textbf{ lzma\+\_\+ret} \{ \newline
+\textbf{ L\+Z\+M\+A\+\_\+\+OK} = 0, 
+\textbf{ L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND} = 1, 
+\textbf{ L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK} = 2, 
+\textbf{ L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK} = 3, 
+\newline
+\textbf{ L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK} = 4, 
+\textbf{ L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR} = 5, 
+{\bfseries L\+Z\+M\+A\+\_\+\+M\+E\+M\+L\+I\+M\+I\+T\+\_\+\+E\+R\+R\+OR} = 6, 
+\textbf{ L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR} = 7, 
+\newline
+\textbf{ L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR} = 8, 
+\textbf{ L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR} = 9, 
+\textbf{ L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR} = 10, 
+\textbf{ L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR} = 11
+ \}\begin{DoxyCompactList}\small\item\em Return values used by several functions in liblzma. \end{DoxyCompactList}
+\item 
+enum \textbf{ lzma\+\_\+action} \{ \newline
+\textbf{ L\+Z\+M\+A\+\_\+\+R\+UN} = 0, 
+\textbf{ L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH} = 1, 
+\textbf{ L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH} = 2, 
+\textbf{ L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER} = 4, 
+\newline
+\textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH} = 3
+ \}\begin{DoxyCompactList}\small\item\em The `action\textquotesingle{} argument for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+code} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, \textbf{ lzma\+\_\+action} action) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Encode or decode data. \end{DoxyCompactList}\item 
+void \textbf{ lzma\+\_\+end} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Free memory allocated for the coder data structures. \end{DoxyCompactList}\item 
+void \textbf{ lzma\+\_\+get\+\_\+progress} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, uint64\+\_\+t $\ast$progress\+\_\+in, uint64\+\_\+t $\ast$progress\+\_\+out) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Get progress information. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+memusage} (const \textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+pure
+\begin{DoxyCompactList}\small\item\em Get the memory usage of decoder filter chain. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+memlimit\+\_\+get} (const \textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+pure
+\begin{DoxyCompactList}\small\item\em Get the current memory usage limit. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+memlimit\+\_\+set} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, uint64\+\_\+t memlimit) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Set the memory usage limit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Data types and functions used in many places in liblzma A\+PI. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{base_8h_af31f0c8b6f14359cd082b9559f7f3e01}} 
+\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT@{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT}}
+\index{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT@{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT}!base.\+h@{base.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{ NULL, 0, 0, NULL, 0, 0, NULL, NULL, \(\backslash\)
+        NULL, NULL, NULL, NULL, 0, 0, 0, 0, \(\backslash\)
+        LZMA\_RESERVED\_ENUM, LZMA\_RESERVED\_ENUM \}
+\end{DoxyCode}
+
+
+Initialization for \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream}. 
+
+When you declare an instance of \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream}, you can immediately initialize it so that initialization functions know that no memory has been allocated yet\+: \begin{DoxyVerb}lzma_stream strm = LZMA_STREAM_INIT;
+\end{DoxyVerb}
+
+
+If you need to initialize a dynamically allocated \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream}, you can use memset(strm\+\_\+pointer, 0, sizeof(lzma\+\_\+stream)). Strictly speaking, this violates the C standard since N\+U\+LL may have different internal representation than zero, but it should be portable enough in practice. Anyway, for maximum portability, you can use something like this\+: \begin{DoxyVerb}lzma_stream tmp = LZMA_STREAM_INIT;
+*strm = tmp;\end{DoxyVerb}
+ 
+
+\subsection{Typedef Documentation}
+\mbox{\label{base_8h_abbc819c74b484c846825ae1388a50a59}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+bool@{lzma\+\_\+bool}}
+\index{lzma\+\_\+bool@{lzma\+\_\+bool}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+bool}
+{\footnotesize\ttfamily typedef unsigned char \textbf{ lzma\+\_\+bool}}
+
+
+
+Boolean. 
+
+This is here because C89 doesn\textquotesingle{}t have stdbool.\+h. To set a value for variables having type lzma\+\_\+bool, you can use
+\begin{DoxyItemize}
+\item C99\textquotesingle{}s `true\textquotesingle{} and `false\textquotesingle{} from stdbool.\+h;
+\item C++\textquotesingle{}s internal `true\textquotesingle{} and `false\textquotesingle{}; or
+\item integers one (true) and zero (false). 
+\end{DoxyItemize}\mbox{\label{base_8h_ab1a60127c640135687a5bcc232cec906}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+internal@{lzma\+\_\+internal}}
+\index{lzma\+\_\+internal@{lzma\+\_\+internal}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+internal}
+{\footnotesize\ttfamily typedef struct \textbf{ lzma\+\_\+internal\+\_\+s} \textbf{ lzma\+\_\+internal}}
+
+
+
+Internal data structure. 
+
+The contents of this structure is not visible outside the library. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{base_8h_a05805a07754b2aa22f7d443eb7ece41a}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+reserved\+\_\+enum@{lzma\+\_\+reserved\+\_\+enum}}
+\index{lzma\+\_\+reserved\+\_\+enum@{lzma\+\_\+reserved\+\_\+enum}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+reserved\+\_\+enum}
+{\footnotesize\ttfamily enum \textbf{ lzma\+\_\+reserved\+\_\+enum}}
+
+
+
+Type of reserved enumeration variable in structures. 
+
+To avoid breaking library A\+BI when new features are added, several structures contain extra variables that may be used in future. Since sizeof(enum) can be different than sizeof(int), and sizeof(enum) may even vary depending on the range of enumeration constants, we specify a separate type to be used for reserved enumeration variables. All enumeration constants in liblzma A\+PI will be non-\/negative and less than 128, which should guarantee that the A\+BI won\textquotesingle{}t break even when new constants are added to existing enumerations. \mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6e}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+ret@{lzma\+\_\+ret}}
+\index{lzma\+\_\+ret@{lzma\+\_\+ret}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+ret}
+{\footnotesize\ttfamily enum \textbf{ lzma\+\_\+ret}}
+
+
+
+Return values used by several functions in liblzma. 
+
+Check the descriptions of specific functions to find out which return values they can return. With some functions the return values may have more specific meanings than described here; those differences are described per-\/function basis. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+OK@{L\+Z\+M\+A\+\_\+\+OK}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+OK@{L\+Z\+M\+A\+\_\+\+OK}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6eac003781ccb81bbd5578e29abed8a8cfe}} 
+L\+Z\+M\+A\+\_\+\+OK&Operation completed successfully. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND@{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND@{L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea91ecc6fab14c13ad36224afbcb4e55c4}} 
+L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND&End of stream was reached. In encoder, L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH, or L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH was finished. In decoder, this indicates that all the data was successfully decoded.
+
+In all cases, when L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND is returned, the last output bytes should be picked from strm-\/$>$next\+\_\+out. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6eaa720d30092d504d7d138a320db1905ef}} 
+L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK&Input stream has no integrity check. This return value can be returned only if the L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK flag was used when initializing the decoder. L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK is just a warning, and the decoding can be continued normally.
+
+It is possible to call \doxyref{lzma\+\_\+get\+\_\+check()}{p.}{api_2lzma_2check_8h_a8d7c3ffabfd024485f03fa209536c746} immediately after lzma\+\_\+code has returned L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK. The result will naturally be L\+Z\+M\+A\+\_\+\+C\+H\+E\+C\+K\+\_\+\+N\+O\+NE, but the possibility to call \doxyref{lzma\+\_\+get\+\_\+check()}{p.}{api_2lzma_2check_8h_a8d7c3ffabfd024485f03fa209536c746} may be convenient in some applications. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea989f393a1772d85bf545a9da48fc7ac2}} 
+L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK&Cannot calculate the integrity check. The usage of this return value is different in encoders and decoders.
+
+Encoders can return this value only from the initialization function. If initialization fails with this value, the encoding cannot be done, because there\textquotesingle{}s no way to produce output with the correct integrity check.
+
+Decoders can return this value only from \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} and only if the L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK flag was used when initializing the decoder. The decoding can still be continued normally even if the check type is unsupported, but naturally the check will not be validated, and possible errors may go undetected.
+
+With decoder, it is possible to call \doxyref{lzma\+\_\+get\+\_\+check()}{p.}{api_2lzma_2check_8h_a8d7c3ffabfd024485f03fa209536c746} immediately after \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} has returned L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK. This way it is possible to find out what the unsupported Check ID was. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK@{L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6eaa5b648c18da0f584f621cfdf7fef1bdb}} 
+L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK&Integrity check type is now available. This value can be returned only by the \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} function and only if the decoder was initialized with the L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+A\+N\+Y\+\_\+\+C\+H\+E\+CK flag. L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK tells the application that it may now call \doxyref{lzma\+\_\+get\+\_\+check()}{p.}{api_2lzma_2check_8h_a8d7c3ffabfd024485f03fa209536c746} to find out the Check ID. This can be used, for example, to implement a decoder that accepts only files that have strong enough integrity check. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea567e1464feca03900a5425fb45b2f5b6}} 
+L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR&Cannot allocate memory. Memory allocation failed, or the size of the allocation would be greater than S\+I\+Z\+E\+\_\+\+M\+AX.
+
+Due to internal implementation reasons, the coding cannot be continued even if more memory were made available after L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea63b7a58949854eb9307f8e351358d56c}} 
+L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR&Memory usage limit was reached. Decoder would need more memory than allowed by the specified memory usage limit. To continue decoding, the memory usage limit has to be increased with \doxyref{lzma\+\_\+memlimit\+\_\+set()}{p.}{base_8h_afc49d4cf75b73128a167df3407505f7b}. File format not recognized
+
+The decoder did not recognize the input as supported file format. This error can occur, for example, when trying to decode .lzma format file with lzma\+\_\+stream\+\_\+decoder, because lzma\+\_\+stream\+\_\+decoder accepts only the .xz format. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6eaa9ff6dfee36b7aba4fae60706d37425f}} 
+L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR&Invalid or unsupported options. Invalid or unsupported options, for example
+\begin{DoxyItemize}
+\item unsupported filter(s) or filter options; or
+\item reserved bits set in headers (decoder only).
+\end{DoxyItemize}
+
+Rebuilding liblzma with more features enabled, or upgrading to a newer version of liblzma may help. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea3aa72729a844790e39b4e1101a731dfb}} 
+L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR&Data is corrupt. The usage of this return value is different in encoders and decoders. In both encoder and decoder, the coding cannot continue after this error.
+
+Encoders return this if size limits of the target file format would be exceeded. These limits are huge, thus getting this error from an encoder is mostly theoretical. For example, the maximum compressed and uncompressed size of a .xz Stream is roughly 8 EiB (2$^\wedge$63 bytes).
+
+Decoders return this error if the input data is corrupt. This can mean, for example, invalid C\+R\+C32 in headers or invalid check of uncompressed data. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea9ca0ecb62459bdc84d6af47d16b23ae5}} 
+L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR&No progress is possible. This error code is returned when the coder cannot consume any new input and produce any new output. The most common reason for this error is that the input stream being decoded is truncated or corrupt.
+
+This error is not fatal. Coding can be continued normally by providing more input and/or more output space, if possible.
+
+Typically the first call to \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} that can do no progress returns L\+Z\+M\+A\+\_\+\+OK instead of L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR. Only the second consecutive call doing no progress will return L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR. This is intentional.
+
+With zlib, Z\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR may be returned even if the application is doing nothing wrong, so apps will need to handle Z\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR specially. The above hack guarantees that liblzma never returns L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR to properly written applications unless the input file is truncated or corrupt. This should simplify the applications a little. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR@{L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{base_8h_a8494e0457e1463d6d2b6836018d87b6ea2dac8d451cb38da8550653d0d7be4ec2}} 
+L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR&Programming error. This indicates that the arguments given to the function are invalid or the internal state of the decoder is corrupt.
+\begin{DoxyItemize}
+\item Function arguments are invalid or the structures pointed by the argument pointers are invalid e.\+g. if strm-\/$>$next\+\_\+out has been set to N\+U\+LL and strm-\/$>$avail\+\_\+out $>$ 0 when calling \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\item lzma\+\_\+$\ast$ functions have been called in wrong order e.\+g. \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} was called right after \doxyref{lzma\+\_\+end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308}.
+\item If errors occur randomly, the reason might be flaky hardware.
+\end{DoxyItemize}
+
+If you think that your code is correct, this error code can be a sign of a bug in liblzma. See the documentation how to report bugs. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77e}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+action@{lzma\+\_\+action}}
+\index{lzma\+\_\+action@{lzma\+\_\+action}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+action}
+{\footnotesize\ttfamily enum \textbf{ lzma\+\_\+action}}
+
+
+
+The `action\textquotesingle{} argument for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} 
+
+After the first use of L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER, or L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH, the same `action\textquotesingle{} must is used until \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} returns L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. Also, the amount of input (that is, strm-\/$>$avail\+\_\+in) must not be modified by the application until \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} returns L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. Changing the `action\textquotesingle{} or modifying the amount of input will make \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} return L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+R\+UN@{L\+Z\+M\+A\+\_\+\+R\+UN}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+R\+UN@{L\+Z\+M\+A\+\_\+\+R\+UN}}}\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77ea868472b76492afcaef54020a481890b1}} 
+L\+Z\+M\+A\+\_\+\+R\+UN&Continue coding. Encoder\+: Encode as much input as possible. Some internal buffering will probably be done (depends on the filter chain in use), which causes latency\+: the input used won\textquotesingle{}t usually be decodeable from the output of the same \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} call.
+
+Decoder\+: Decode as much input as possible and produce as much output as possible. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH@{L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH@{L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH}}}\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77ea14d75152afcda85d215e877fdd9c4170}} 
+L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH&Make all the input available at output. Normally the encoder introduces some latency. L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH forces all the buffered data to be available at output without resetting the internal state of the encoder. This way it is possible to use compressed stream for example for communication over network.
+
+Only some filters support L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH. Trying to use L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH with filters that don\textquotesingle{}t support it will make \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} return L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR. For example, L\+Z\+M\+A1 doesn\textquotesingle{}t support L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH but L\+Z\+M\+A2 does.
+
+Using L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH very often can dramatically reduce the compression ratio. With some filters (for example, L\+Z\+M\+A2), fine-\/tuning the compression options may help mitigate this problem significantly (for example, match finder with L\+Z\+M\+A2).
+
+Decoders don\textquotesingle{}t support L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH@{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH@{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH}}}\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77eaab46f0d7c721f1ec377e9575eab2586f}} 
+L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH&Finish encoding of the current Block. All the input data going to the current Block must have been given to the encoder (the last bytes can still be pending in $\ast$next\+\_\+in). Call \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} with L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH until it returns L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. Then continue normally with L\+Z\+M\+A\+\_\+\+R\+UN or finish the Stream with L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH.
+
+This action is currently supported only by Stream encoder and easy encoder (which uses Stream encoder). If there is no unfinished Block, no empty Block is created. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER@{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER@{L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER}}}\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77eaf7bf60e3555a4d10ffad3ecc3d2e01f1}} 
+L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER&Finish encoding of the current Block. This is like L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH except that this doesn\textquotesingle{}t necessarily wait until all the input has been made available via the output buffer. That is, \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} might return L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND as soon as all the input has been consumed (avail\+\_\+in == 0).
+
+L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER is useful with a threaded encoder if one wants to split the .xz Stream into Blocks at specific offsets but doesn\textquotesingle{}t care if the output isn\textquotesingle{}t flushed immediately. Using L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER allows keeping the threads busy while L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH would make \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} wait until all the threads have finished until more data could be passed to the encoder.
+
+With a \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} initialized with the single-\/threaded \doxyref{lzma\+\_\+stream\+\_\+encoder()}{p.}{container_8h_a1a97aec94c9fedd7646cfa51c4f4cd52} or \doxyref{lzma\+\_\+easy\+\_\+encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER is an alias for L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH@{L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH}!base.\+h@{base.\+h}}\index{base.\+h@{base.\+h}!L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH@{L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH}}}\mbox{\label{base_8h_aa92efcbf3cecfcac79c81fc645fce77ea7d24fb3c6c144d13bcb091195b8ebec1}} 
+L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH&Finish the coding operation. All the input data must have been given to the encoder (the last bytes can still be pending in next\+\_\+in). Call \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} with L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH until it returns L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. Once L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH has been used, the amount of input must no longer be changed by the application.
+
+When decoding, using L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH is optional unless the L\+Z\+M\+A\+\_\+\+C\+O\+N\+C\+A\+T\+E\+N\+A\+T\+ED flag was used when the decoder was initialized. When L\+Z\+M\+A\+\_\+\+C\+O\+N\+C\+A\+T\+E\+N\+A\+T\+ED was not used, the only effect of L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH is that the amount of input must not be changed just like in the encoder. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+code@{lzma\+\_\+code}}
+\index{lzma\+\_\+code@{lzma\+\_\+code}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+code()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+code (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{\textbf{ lzma\+\_\+action}}]{action }\end{DoxyParamCaption})}
+
+
+
+Encode or decode data. 
+
+Once the \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} has been successfully initialized (e.\+g. with \doxyref{lzma\+\_\+stream\+\_\+encoder()}{p.}{container_8h_a1a97aec94c9fedd7646cfa51c4f4cd52}), the actual encoding or decoding is done using this function. The application has to update strm-\/$>$next\+\_\+in, strm-\/$>$avail\+\_\+in, strm-\/$>$next\+\_\+out, and strm-\/$>$avail\+\_\+out to pass input to and get output from liblzma.
+
+See the description of the coder-\/specific initialization function to find out what `action\textquotesingle{} values are supported by the coder. 
+
+References lzma\+\_\+stream\+::avail\+\_\+in, lzma\+\_\+stream\+::avail\+\_\+out, lzma\+\_\+next\+\_\+coder\+\_\+s\+::code, lzma\+\_\+stream\+::internal, L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX, L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, lzma\+\_\+internal\+\_\+s\+::next, lzma\+\_\+stream\+::next\+\_\+in, lzma\+\_\+stream\+::next\+\_\+out, and lzma\+\_\+internal\+\_\+s\+::supported\+\_\+actions.
+
+\mbox{\label{base_8h_a854ff37464ae1225febf14db1af43308}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+end@{lzma\+\_\+end}}
+\index{lzma\+\_\+end@{lzma\+\_\+end}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+end()}
+{\footnotesize\ttfamily void lzma\+\_\+end (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm }\end{DoxyParamCaption})}
+
+
+
+Free memory allocated for the coder data structures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} that is at least initialized with L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+I\+N\+IT.\\
+\hline
+\end{DoxyParams}
+After lzma\+\_\+end(strm), strm-\/$>$internal is guaranteed to be N\+U\+LL. No other members of the \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} structure are touched.
+
+\begin{DoxyNote}{Note}
+zlib indicates an error if application end()s unfinished stream structure. liblzma doesn\textquotesingle{}t do this, and assumes that application knows what it is doing. 
+\end{DoxyNote}
+
+
+References lzma\+\_\+stream\+::allocator, lzma\+\_\+stream\+::internal, lzma\+\_\+free(), lzma\+\_\+next\+\_\+end(), and lzma\+\_\+internal\+\_\+s\+::next.
+
+
+
+Referenced by coder\+\_\+free().
+
+\mbox{\label{base_8h_ab6447cd68eeecbd6b88f21daeb8ce751}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+get\+\_\+progress@{lzma\+\_\+get\+\_\+progress}}
+\index{lzma\+\_\+get\+\_\+progress@{lzma\+\_\+get\+\_\+progress}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+get\+\_\+progress()}
+{\footnotesize\ttfamily void lzma\+\_\+get\+\_\+progress (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{uint64\+\_\+t $\ast$}]{progress\+\_\+in,  }\item[{uint64\+\_\+t $\ast$}]{progress\+\_\+out }\end{DoxyParamCaption})}
+
+
+
+Get progress information. 
+
+In single-\/threaded mode, applications can get progress information from strm-\/$>$total\+\_\+in and strm-\/$>$total\+\_\+out. In multi-\/threaded mode this is less useful because a significant amount of both input and output data gets buffered internally by liblzma. This makes total\+\_\+in and total\+\_\+out give misleading information and also makes the progress indicator updates non-\/smooth.
+
+This function gives realistic progress information also in multi-\/threaded mode by taking into account the progress made by each thread. In single-\/threaded mode $\ast$progress\+\_\+in and $\ast$progress\+\_\+out are set to strm-\/$>$total\+\_\+in and strm-\/$>$total\+\_\+out, respectively. 
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder, lzma\+\_\+next\+\_\+coder\+\_\+s\+::get\+\_\+progress, lzma\+\_\+stream\+::internal, lzma\+\_\+internal\+\_\+s\+::next, lzma\+\_\+stream\+::total\+\_\+in, and lzma\+\_\+stream\+::total\+\_\+out.
+
+
+
+Referenced by progress\+\_\+pos().
+
+\mbox{\label{base_8h_a418b210cf206782a73cd9de7dc27f670}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+memusage@{lzma\+\_\+memusage}}
+\index{lzma\+\_\+memusage@{lzma\+\_\+memusage}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+memusage()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+memusage (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+stream} $\ast$}]{strm }\end{DoxyParamCaption})}
+
+
+
+Get the memory usage of decoder filter chain. 
+
+This function is currently supported only when $\ast$strm has been initialized with a function that takes a memlimit argument. With other functions, you should use e.\+g. \doxyref{lzma\+\_\+raw\+\_\+encoder\+\_\+memusage()}{p.}{filter_8h_a730f9391e85a5979bcd1b32643ae7176} or \doxyref{lzma\+\_\+raw\+\_\+decoder\+\_\+memusage()}{p.}{filter_8h_a58511249ae9206d7de7c5d1f05842297} to estimate the memory requirements.
+
+This function is useful e.\+g. after L\+Z\+M\+A\+\_\+\+M\+E\+M\+L\+I\+M\+I\+T\+\_\+\+E\+R\+R\+OR to find out how big the memory usage limit should have been to decode the input. Note that this may give misleading information if decoding .xz Streams that have multiple Blocks, because each Block can have different memory requirements.
+
+\begin{DoxyReturn}{Returns}
+How much memory is currently allocated for the filter decoders. If no filter chain is currently allocated, some non-\/zero value is still returned, which is less than or equal to what any filter chain would indicate as its memory requirement.
+\end{DoxyReturn}
+If this function isn\textquotesingle{}t supported by $\ast$strm or some other error occurs, zero is returned. 
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder, lzma\+\_\+stream\+::internal, L\+Z\+M\+A\+\_\+\+OK, lzma\+\_\+next\+\_\+coder\+\_\+s\+::memconfig, and lzma\+\_\+internal\+\_\+s\+::next.
+
+\mbox{\label{base_8h_ac871bc2ead5d482c6d6b3d51bfec365c}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+memlimit\+\_\+get@{lzma\+\_\+memlimit\+\_\+get}}
+\index{lzma\+\_\+memlimit\+\_\+get@{lzma\+\_\+memlimit\+\_\+get}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+memlimit\+\_\+get()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+memlimit\+\_\+get (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+stream} $\ast$}]{strm }\end{DoxyParamCaption})}
+
+
+
+Get the current memory usage limit. 
+
+This function is supported only when $\ast$strm has been initialized with a function that takes a memlimit argument.
+
+\begin{DoxyReturn}{Returns}
+On success, the current memory usage limit is returned (always non-\/zero). On error, zero is returned. 
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder, lzma\+\_\+stream\+::internal, L\+Z\+M\+A\+\_\+\+OK, lzma\+\_\+next\+\_\+coder\+\_\+s\+::memconfig, and lzma\+\_\+internal\+\_\+s\+::next.
+
+\mbox{\label{base_8h_afc49d4cf75b73128a167df3407505f7b}} 
+\index{base.\+h@{base.\+h}!lzma\+\_\+memlimit\+\_\+set@{lzma\+\_\+memlimit\+\_\+set}}
+\index{lzma\+\_\+memlimit\+\_\+set@{lzma\+\_\+memlimit\+\_\+set}!base.\+h@{base.\+h}}
+\subsubsection{lzma\+\_\+memlimit\+\_\+set()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+memlimit\+\_\+set (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{uint64\+\_\+t}]{memlimit }\end{DoxyParamCaption})}
+
+
+
+Set the memory usage limit. 
+
+This function is supported only when $\ast$strm has been initialized with a function that takes a memlimit argument.
+
+liblzma 5.\+2.\+3 and earlier has a bug where memlimit value of 0 causes this function to do nothing (leaving the limit unchanged) and still return L\+Z\+M\+A\+\_\+\+OK. Later versions treat 0 as if 1 had been specified (so \doxyref{lzma\+\_\+memlimit\+\_\+get()}{p.}{base_8h_ac871bc2ead5d482c6d6b3d51bfec365c} will return 1 even if you specify 0 here).
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: New memory usage limit successfully set.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+L\+I\+M\+I\+T\+\_\+\+E\+R\+R\+OR\+: The new limit is too small. The limit was not changed.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid arguments, e.\+g. $\ast$strm doesn\textquotesingle{}t support memory usage limit. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder, lzma\+\_\+stream\+::internal, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, lzma\+\_\+next\+\_\+coder\+\_\+s\+::memconfig, and lzma\+\_\+internal\+\_\+s\+::next.
+

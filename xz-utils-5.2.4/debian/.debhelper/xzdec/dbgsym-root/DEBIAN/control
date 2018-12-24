@@ -1,0 +1,12 @@
+Package: xzdec-dbgsym
+Source: xz-utils
+Version: 5.2.4-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Installed-Size: 97
+Depends: xzdec (= 5.2.4-1)
+Section: debug
+Priority: optional
+Description: debug symbols for xzdec
+Build-Ids: 57440292119a08f01c77eedf0f6768b52523d564 7f7c0e44c92f3eab434f892dfb254008f8fea520

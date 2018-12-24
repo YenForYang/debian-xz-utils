@@ -1,0 +1,29 @@
+\section{liblzma/delta/delta\+\_\+decoder.c File Reference}
+\label{delta__decoder_8c}\index{liblzma/delta/delta\+\_\+decoder.\+c@{liblzma/delta/delta\+\_\+decoder.\+c}}
+
+
+Delta filter decoder.  
+
+
+{\ttfamily \#include \char`\"{}delta\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}delta\+\_\+private.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{delta__decoder_8c_a546cba3189913ec756d75a7e5201b50a}} 
+static void {\bfseries decode\+\_\+buffer} (\textbf{ lzma\+\_\+delta\+\_\+coder} $\ast$coder, uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\item 
+\mbox{\label{delta__decoder_8c_acc766fe6e364a0da9d75284b556777a0}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries delta\+\_\+decode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{delta__decoder_8c_ac9375bb1064c5b6937486dc52fb3bdff}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+delta\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{delta__decoder_8c_a6a5d57421d63f10a659762b2938ff31d}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+delta\+\_\+props\+\_\+decode} (void $\ast$$\ast$options, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$props, size\+\_\+t props\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Delta filter decoder. 
+

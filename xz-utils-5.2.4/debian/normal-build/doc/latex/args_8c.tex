@@ -1,0 +1,72 @@
+\section{xz/args.c File Reference}
+\label{args_8c}\index{xz/args.\+c@{xz/args.\+c}}
+
+
+Argument parsing.  
+
+
+{\ttfamily \#include \char`\"{}private.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}getopt.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ parse\+\_\+memlimit} (const char $\ast$name, const char $\ast$name\+\_\+percentage, char $\ast$str, bool set\+\_\+compress, bool set\+\_\+decompress)
+\begin{DoxyCompactList}\small\item\em Parse and set the memory usage limit for compression and/or decompression. \end{DoxyCompactList}\item 
+\mbox{\label{args_8c_a5a6dcc2431d470835dba88e2c46fcbdc}} 
+static void {\bfseries parse\+\_\+block\+\_\+list} (char $\ast$str)
+\item 
+\mbox{\label{args_8c_a6f92e102186d8b31848c8b8852425e1c}} 
+static void {\bfseries parse\+\_\+real} (\textbf{ args\+\_\+info} $\ast$args, int argc, char $\ast$$\ast$argv)
+\item 
+\mbox{\label{args_8c_ac2260e5d00d9fdaeb2589cd2ffac21c4}} 
+static void {\bfseries parse\+\_\+environment} (\textbf{ args\+\_\+info} $\ast$args, char $\ast$argv0, const char $\ast$varname)
+\item 
+\mbox{\label{args_8c_a05c34191dc1aba862787f62481139730}} 
+void {\bfseries args\+\_\+parse} (\textbf{ args\+\_\+info} $\ast$args, int argc, char $\ast$$\ast$argv)
+\item 
+\mbox{\label{args_8c_a27ea51fc491cd85e4f9fc20f03bc273c}} 
+void {\bfseries args\+\_\+free} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{args_8c_a9adffaea369e78666c7b50bfce10c764}} 
+bool {\bfseries opt\+\_\+stdout} = false
+\item 
+\mbox{\label{args_8c_ae77f19014fc2e31a20d7e3e3a2224dc5}} 
+bool {\bfseries opt\+\_\+force} = false
+\item 
+\mbox{\label{args_8c_a631cfa4029ae02603ce134e84262fa23}} 
+bool {\bfseries opt\+\_\+keep\+\_\+original} = false
+\item 
+\mbox{\label{args_8c_a4048d9a6b2322c886d91932f63cb7c2b}} 
+bool {\bfseries opt\+\_\+robot} = false
+\item 
+\mbox{\label{args_8c_ae9c03bd3fee505dab3cfc2090e3a2466}} 
+bool {\bfseries opt\+\_\+ignore\+\_\+check} = false
+\item 
+\mbox{\label{args_8c_a634a0202402ef35c039505443288e738}} 
+const char {\bfseries stdin\+\_\+filename} [$\,$] = \char`\"{}(stdin)\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Argument parsing. 
+
+\begin{DoxyNote}{Note}
+Filter-\/specific options parsing is in \doxyref{options.\+c}{p.}{options_8c}. 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\mbox{\label{args_8c_a1a3fb962627ec1e052317c46a8b351ff}} 
+\index{args.\+c@{args.\+c}!parse\+\_\+memlimit@{parse\+\_\+memlimit}}
+\index{parse\+\_\+memlimit@{parse\+\_\+memlimit}!args.\+c@{args.\+c}}
+\subsubsection{parse\+\_\+memlimit()}
+{\footnotesize\ttfamily static void parse\+\_\+memlimit (\begin{DoxyParamCaption}\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{name\+\_\+percentage,  }\item[{char $\ast$}]{str,  }\item[{bool}]{set\+\_\+compress,  }\item[{bool}]{set\+\_\+decompress }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parse and set the memory usage limit for compression and/or decompression. 
+

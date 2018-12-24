@@ -1,0 +1,61 @@
+\section{lzma\+\_\+lz\+\_\+encoder Struct Reference}
+\label{structlzma__lz__encoder}\index{lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \textbf{ coder}
+\begin{DoxyCompactList}\small\item\em Data specific to the L\+Z-\/based encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret}($\ast$ \textbf{ code} )(void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Function to encode from $\ast$dict to out[]. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ end} )(void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Free allocated resources. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret}($\ast$ \textbf{ options\+\_\+update} )(void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+filter} $\ast$filter)
+\begin{DoxyCompactList}\small\item\em Update the options in the middle of the encoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__lz__encoder_aa7163d664cb708fb59ea10b78e6865a1}} 
+\index{lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}!coder@{coder}}
+\index{coder@{coder}!lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}}
+\subsubsection{coder}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+lz\+\_\+encoder\+::coder}
+
+
+
+Data specific to the L\+Z-\/based encoder. 
+
+\mbox{\label{structlzma__lz__encoder_a8d2e84b9a57757a6edbb53fc9201de72}} 
+\index{lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}!code@{code}}
+\index{code@{code}!lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}}
+\subsubsection{code}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+lz\+\_\+encoder\+::code) (void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)}
+
+
+
+Function to encode from $\ast$dict to out[]. 
+
+\mbox{\label{structlzma__lz__encoder_a8e2d9f291993304232baf193d759ae10}} 
+\index{lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}!end@{end}}
+\index{end@{end}!lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}}
+\subsubsection{end}
+{\footnotesize\ttfamily void($\ast$ lzma\+\_\+lz\+\_\+encoder\+::end) (void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)}
+
+
+
+Free allocated resources. 
+
+\mbox{\label{structlzma__lz__encoder_a91a5ad3e500c80920481a1a72db3c231}} 
+\index{lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}!options\+\_\+update@{options\+\_\+update}}
+\index{options\+\_\+update@{options\+\_\+update}!lzma\+\_\+lz\+\_\+encoder@{lzma\+\_\+lz\+\_\+encoder}}
+\subsubsection{options\+\_\+update}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+lz\+\_\+encoder\+::options\+\_\+update) (void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+filter} $\ast$filter)}
+
+
+
+Update the options in the middle of the encoding. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/\textbf{ lz\+\_\+encoder.\+h}\end{DoxyCompactItemize}

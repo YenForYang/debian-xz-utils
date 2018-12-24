@@ -1,0 +1,39 @@
+\section{liblzma/simple/x86.c File Reference}
+\label{x86_8c}\index{liblzma/simple/x86.\+c@{liblzma/simple/x86.\+c}}
+
+
+Filter for x86 binaries (B\+CJ filter)  
+
+
+{\ttfamily \#include \char`\"{}simple\+\_\+private.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+simple\+\_\+x86}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{x86_8c_a6297dcbe891ec71408be96c4bd80fb44}} 
+\#define {\bfseries Test86\+M\+S\+Byte}(b)~((b) == 0 $\vert$$\vert$ (b) == 0x\+F\+F)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{x86_8c_aaff9e51ca473be9f2ce98ef038f525e0}} 
+static size\+\_\+t {\bfseries x86\+\_\+code} (void $\ast$simple\+\_\+ptr, uint32\+\_\+t now\+\_\+pos, bool is\+\_\+encoder, uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\item 
+\mbox{\label{x86_8c_a094a4be7caca3610e4c36d5ae8646646}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries x86\+\_\+coder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters}, bool is\+\_\+encoder)
+\item 
+\mbox{\label{x86_8c_a232a17c84bf97656ad00ee3e3b17002f}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+simple\+\_\+x86\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{x86_8c_a5d78f5a48e0aac7e5148af990453f1b8}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+simple\+\_\+x86\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter for x86 binaries (B\+CJ filter) 
+

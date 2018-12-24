@@ -1,0 +1,33 @@
+\section{liblzma/check/crc\+\_\+macros.h File Reference}
+\label{crc__macros_8h}\index{liblzma/check/crc\+\_\+macros.\+h@{liblzma/check/crc\+\_\+macros.\+h}}
+
+
+Some endian-\/dependent macros for C\+R\+C32 and C\+R\+C64.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{crc__macros_8h_a3d7d1b6b25e26030cf09f680a1aa0e81}} 
+\#define {\bfseries A}(x)~((x) \& 0x\+F\+F)
+\item 
+\mbox{\label{crc__macros_8h_a7b96e3a863c6ef1b261c051574113e7c}} 
+\#define {\bfseries B}(x)~(((x) $>$$>$ 8) \& 0x\+F\+F)
+\item 
+\mbox{\label{crc__macros_8h_ac54ae397901fe700628cafadea3c5208}} 
+\#define {\bfseries C}(x)~(((x) $>$$>$ 16) \& 0x\+F\+F)
+\item 
+\mbox{\label{crc__macros_8h_afde8558db9d410d0f8b1930a5a369bdf}} 
+\#define {\bfseries D}(x)~((x) $>$$>$ 24)
+\item 
+\mbox{\label{crc__macros_8h_a4d7041a2f2d398dc49293e0638261315}} 
+\#define {\bfseries S8}(x)~((x) $>$$>$ 8)
+\item 
+\mbox{\label{crc__macros_8h_a216733d65bf68cb0eb4bcfc3188aee18}} 
+\#define {\bfseries S32}(x)~((x) $>$$>$ 32)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Some endian-\/dependent macros for C\+R\+C32 and C\+R\+C64. 
+

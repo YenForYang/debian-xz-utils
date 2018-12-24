@@ -1,0 +1,43 @@
+\section{liblzma/lzma/lzma\+\_\+encoder\+\_\+private.h File Reference}
+\label{lzma__encoder__private_8h}\index{liblzma/lzma/lzma\+\_\+encoder\+\_\+private.\+h@{liblzma/lzma/lzma\+\_\+encoder\+\_\+private.\+h}}
+
+
+Private definitions for L\+Z\+MA encoder.  
+
+
+{\ttfamily \#include \char`\"{}lz\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}range\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+length\+\_\+encoder}
+\item 
+struct \textbf{ lzma\+\_\+optimal}
+\item 
+struct \textbf{ lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__private_8h_a9e791f02547e7aa0572e899bba218a3f}} 
+\#define {\bfseries not\+\_\+equal\+\_\+16}(a,  b)~((a)[0] != (b)[0] $\vert$$\vert$ (a)[1] != (b)[1])
+\item 
+\mbox{\label{lzma__encoder__private_8h_a1e3bf8c87fd72574fee33e7bf0482892}} 
+\#define {\bfseries O\+P\+TS}~(1 $<$$<$ 12)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__private_8h_a98a5417f4d43aad0775c0a665dabb294}} 
+void {\bfseries lzma\+\_\+lzma\+\_\+optimum\+\_\+fast} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t $\ast$restrict len\+\_\+res)
+\item 
+\mbox{\label{lzma__encoder__private_8h_a7f0108fbce902f375db5a3e10cd3de13}} 
+void {\bfseries lzma\+\_\+lzma\+\_\+optimum\+\_\+normal} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t $\ast$restrict len\+\_\+res, uint32\+\_\+t position)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Private definitions for L\+Z\+MA encoder. 
+

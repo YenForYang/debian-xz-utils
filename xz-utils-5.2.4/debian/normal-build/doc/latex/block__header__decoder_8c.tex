@@ -1,0 +1,64 @@
+\section{liblzma/common/block\+\_\+header\+\_\+decoder.c File Reference}
+\label{block__header__decoder_8c}\index{liblzma/common/block\+\_\+header\+\_\+decoder.\+c@{liblzma/common/block\+\_\+header\+\_\+decoder.\+c}}
+
+
+Decodes Block Header from .xz files.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}check.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{block__header__decoder_8c_a7a4d9810f10b79ca79b93202124eba9f}} 
+static void {\bfseries free\+\_\+properties} (\textbf{ lzma\+\_\+block} $\ast$block, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+header\+\_\+decode} (\textbf{ lzma\+\_\+block} $\ast$block, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in)
+\begin{DoxyCompactList}\small\item\em Decode Block Header. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes Block Header from .xz files. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{block__header__decoder_8c_a6b2b5b3311fa940ebc80358c62421c8e}} 
+\index{block\+\_\+header\+\_\+decoder.\+c@{block\+\_\+header\+\_\+decoder.\+c}!lzma\+\_\+block\+\_\+header\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+decode}}
+\index{lzma\+\_\+block\+\_\+header\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+decode}!block\+\_\+header\+\_\+decoder.\+c@{block\+\_\+header\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+block\+\_\+header\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+header\+\_\+decode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in }\end{DoxyParamCaption})}
+
+
+
+Decode Block Header. 
+
+block-\/$>$version should (usually) be set to the highest value supported by the application. If the application sets block-\/$>$version to a value higher than supported by the current liblzma version, this function will downgrade block-\/$>$version to the highest value supported by it. Thus one should check the value of block-\/$>$version after calling this function if block-\/$>$version was set to a non-\/zero value and the application doesn\textquotesingle{}t otherwise know that the liblzma version being used is new enough to support the specified block-\/$>$version.
+
+The size of the Block Header must have already been decoded with \doxyref{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode()}{p.}{block_8h_ac025c940683a70f4c7f956bad814fd5f} macro and stored to block-\/$>$header\+\_\+size.
+
+The integrity check type from Stream Header must have been stored to block-\/$>$check.
+
+block-\/$>$filters must have been allocated, but they don\textquotesingle{}t need to be initialized (possible existing filter options are not freed).
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Destination for Block options. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() (and also free() if an error occurs). \\
+\hline
+{\em in} & Beginning of the input buffer. This must be at least block-\/$>$header\+\_\+size bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Decoding was successful. block-\/$>$header\+\_\+size bytes were read from the input buffer.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: The Block Header specifies some unsupported options such as unsupported filters. This can happen also if block-\/$>$version was set to a too low value compared to what would be required to properly represent the information stored in the Block Header.
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR\+: Block Header is corrupt, for example, the C\+R\+C32 doesn\textquotesingle{}t match.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid arguments, for example block-\/$>$header\+\_\+size is invalid or block-\/$>$filters is N\+U\+LL. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode, L\+Z\+M\+A\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+D\+\_\+\+M\+AX, lzma\+\_\+crc32(), L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, and L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN.
+

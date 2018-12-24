@@ -1,0 +1,190 @@
+\section{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s Struct Reference}
+\label{structlzma__lzma1__encoder__s}\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+range\+\_\+encoder} \textbf{ rc}
+\begin{DoxyCompactList}\small\item\em Range encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+lzma\+\_\+state} \textbf{ state}
+\begin{DoxyCompactList}\small\item\em State. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ reps} [R\+E\+PS]
+\begin{DoxyCompactList}\small\item\em The four most recent match distances. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+match} \textbf{ matches} [M\+A\+T\+C\+H\+\_\+\+L\+E\+N\+\_\+\+M\+AX+1]
+\begin{DoxyCompactList}\small\item\em Array of match candidates. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ matches\+\_\+count}
+\begin{DoxyCompactList}\small\item\em Number of match candidates in matches[]. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ longest\+\_\+match\+\_\+length}
+\item 
+bool \textbf{ fast\+\_\+mode}
+\begin{DoxyCompactList}\small\item\em True if using getoptimumfast. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+initialized}
+\item 
+bool \textbf{ is\+\_\+flushed}
+\item 
+uint32\+\_\+t \textbf{ pos\+\_\+mask}
+\begin{DoxyCompactList}\small\item\em (1 $<$$<$ pos\+\_\+bits) -\/ 1 \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a7074344d30ad3d8ed673e2e1fda68fc9}} 
+uint32\+\_\+t {\bfseries literal\+\_\+context\+\_\+bits}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_ab3efbc02948d684056a278272262186e}} 
+uint32\+\_\+t {\bfseries literal\+\_\+pos\+\_\+mask}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a0e0a3bd3ae4db8bb3fc60e7dbc82534f}} 
+\textbf{ probability} {\bfseries literal} [\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+S\+\_\+\+M\+AX}][\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+\_\+\+S\+I\+ZE}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_aef24e8ec7c8a3959b5e3c58cf463cab3}} 
+\textbf{ probability} {\bfseries is\+\_\+match} [\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a8a619166d32663545eb9162ebbad84d5}} 
+\textbf{ probability} {\bfseries is\+\_\+rep} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a369e3db7666a9d900e4b4d549abcbb99}} 
+\textbf{ probability} {\bfseries is\+\_\+rep0} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a1a8bde0fc886591ee0801af89a1a58b7}} 
+\textbf{ probability} {\bfseries is\+\_\+rep1} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a43d9523584c25496796727268f256c7a}} 
+\textbf{ probability} {\bfseries is\+\_\+rep2} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a0f5eb867e78bfcd3f398ce3a0faec040}} 
+\textbf{ probability} {\bfseries is\+\_\+rep0\+\_\+long} [\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_aba6c402c4d400cae9af492c71c5671b6}} 
+\textbf{ probability} {\bfseries dist\+\_\+slot} [D\+I\+S\+T\+\_\+\+S\+T\+A\+T\+ES][D\+I\+S\+T\+\_\+\+S\+L\+O\+TS]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a51b8e63cfadfddc2eb92dfbd66c8cf0e}} 
+\textbf{ probability} {\bfseries dist\+\_\+special} [F\+U\+L\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+ES -\/ D\+I\+S\+T\+\_\+\+M\+O\+D\+E\+L\+\_\+\+E\+ND]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_ad1bac439023e141829f60c60befac64e}} 
+\textbf{ probability} {\bfseries dist\+\_\+align} [A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a8f55075e84a33873ceb306a440db288b}} 
+\textbf{ lzma\+\_\+length\+\_\+encoder} {\bfseries match\+\_\+len\+\_\+encoder}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_af9ed4d9478e7cdb91c26c47024af167c}} 
+\textbf{ lzma\+\_\+length\+\_\+encoder} {\bfseries rep\+\_\+len\+\_\+encoder}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_ac3e8893b323dcb669218dde5c7b8af58}} 
+uint32\+\_\+t {\bfseries dist\+\_\+slot\+\_\+prices} [D\+I\+S\+T\+\_\+\+S\+T\+A\+T\+ES][D\+I\+S\+T\+\_\+\+S\+L\+O\+TS]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a95d05ddc83905635e2307ea9a00ca843}} 
+uint32\+\_\+t {\bfseries dist\+\_\+prices} [D\+I\+S\+T\+\_\+\+S\+T\+A\+T\+ES][F\+U\+L\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+ES]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a5932d3bec2a78b20a78277e22b029da3}} 
+uint32\+\_\+t {\bfseries dist\+\_\+table\+\_\+size}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a0b5e9abce1112ad2f31b3d622599e242}} 
+uint32\+\_\+t {\bfseries match\+\_\+price\+\_\+count}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a790955ebce2c394db9181674515bc98f}} 
+uint32\+\_\+t {\bfseries align\+\_\+prices} [A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE]
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a18e44dcf3f80d6a1d2e540f6037c98ca}} 
+uint32\+\_\+t {\bfseries align\+\_\+price\+\_\+count}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_aa538ea0b3fb16f357c8c6d9cbd20fb00}} 
+uint32\+\_\+t {\bfseries opts\+\_\+end\+\_\+index}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_ab055477af4538431d120f7ac6cecfd09}} 
+uint32\+\_\+t {\bfseries opts\+\_\+current\+\_\+index}
+\item 
+\mbox{\label{structlzma__lzma1__encoder__s_a881c5be6786f685b3b7760c7d87cbe99}} 
+\textbf{ lzma\+\_\+optimal} {\bfseries opts} [O\+P\+TS]
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__lzma1__encoder__s_a2d24bb4b2523888ca623fcaab2e08c28}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!rc@{rc}}
+\index{rc@{rc}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{rc}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+range\+\_\+encoder} lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::rc}
+
+
+
+Range encoder. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_abe1ae8a9ba4ad647a5481d44ceb1c5eb}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!state@{state}}
+\index{state@{state}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{state}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+lzma\+\_\+state} lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::state}
+
+
+
+State. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_a08a2dddeba9e6defb36069c51cfdba2d}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!reps@{reps}}
+\index{reps@{reps}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{reps}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::reps[R\+E\+PS]}
+
+
+
+The four most recent match distances. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_a0b712229e883f463248c28173b5a607e}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!matches@{matches}}
+\index{matches@{matches}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{matches}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+match} lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::matches[M\+A\+T\+C\+H\+\_\+\+L\+E\+N\+\_\+\+M\+AX+1]}
+
+
+
+Array of match candidates. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_ac5b04efffb3734124bfcc89424081af9}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!matches\+\_\+count@{matches\+\_\+count}}
+\index{matches\+\_\+count@{matches\+\_\+count}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{matches\+\_\+count}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::matches\+\_\+count}
+
+
+
+Number of match candidates in matches[]. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_a512f956efb598a9db99af9b43669cf72}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!longest\+\_\+match\+\_\+length@{longest\+\_\+match\+\_\+length}}
+\index{longest\+\_\+match\+\_\+length@{longest\+\_\+match\+\_\+length}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{longest\+\_\+match\+\_\+length}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::longest\+\_\+match\+\_\+length}
+
+Variable to hold the length of the longest match between calls to lzma\+\_\+lzma\+\_\+optimum\+\_\+$\ast$(). \mbox{\label{structlzma__lzma1__encoder__s_a3e68c7a1e1061113e33abe832dfc87b7}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!fast\+\_\+mode@{fast\+\_\+mode}}
+\index{fast\+\_\+mode@{fast\+\_\+mode}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{fast\+\_\+mode}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::fast\+\_\+mode}
+
+
+
+True if using getoptimumfast. 
+
+\mbox{\label{structlzma__lzma1__encoder__s_a90781da3dc0a90031abb587dfd70b27e}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!is\+\_\+initialized@{is\+\_\+initialized}}
+\index{is\+\_\+initialized@{is\+\_\+initialized}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{is\+\_\+initialized}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::is\+\_\+initialized}
+
+True if the encoder has been initialized by encoding the first byte as a literal. \mbox{\label{structlzma__lzma1__encoder__s_ac7f09f8a70f2722c1b54ccd41775891c}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!is\+\_\+flushed@{is\+\_\+flushed}}
+\index{is\+\_\+flushed@{is\+\_\+flushed}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{is\+\_\+flushed}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::is\+\_\+flushed}
+
+True if the range encoder has been flushed, but not all bytes have been written to the output buffer yet. \mbox{\label{structlzma__lzma1__encoder__s_a20e17fcaf416134fead2f7c62f235a22}} 
+\index{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}!pos\+\_\+mask@{pos\+\_\+mask}}
+\index{pos\+\_\+mask@{pos\+\_\+mask}!lzma\+\_\+lzma1\+\_\+encoder\+\_\+s@{lzma\+\_\+lzma1\+\_\+encoder\+\_\+s}}
+\subsubsection{pos\+\_\+mask}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+encoder\+\_\+s\+::pos\+\_\+mask}
+
+
+
+(1 $<$$<$ pos\+\_\+bits) -\/ 1 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lzma/\textbf{ lzma\+\_\+encoder\+\_\+private.\+h}\end{DoxyCompactItemize}

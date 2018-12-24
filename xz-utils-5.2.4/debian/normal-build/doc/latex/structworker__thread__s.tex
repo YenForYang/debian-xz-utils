@@ -1,0 +1,158 @@
+\section{worker\+\_\+thread\+\_\+s Struct Reference}
+\label{structworker__thread__s}\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structworker__thread__s_ac8797ed0eeb15e449e6a355244258225}} 
+\textbf{ worker\+\_\+state} {\bfseries state}
+\item 
+uint8\+\_\+t $\ast$ \textbf{ in}
+\item 
+size\+\_\+t \textbf{ in\+\_\+size}
+\item 
+\textbf{ lzma\+\_\+outbuf} $\ast$ \textbf{ outbuf}
+\item 
+\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$ \textbf{ coder}
+\item 
+const \textbf{ lzma\+\_\+allocator} $\ast$ \textbf{ allocator}
+\item 
+uint64\+\_\+t \textbf{ progress\+\_\+in}
+\begin{DoxyCompactList}\small\item\em Amount of uncompressed data that has already been compressed. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ progress\+\_\+out}
+\begin{DoxyCompactList}\small\item\em Amount of compressed data that is ready. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ block\+\_\+encoder}
+\begin{DoxyCompactList}\small\item\em Block encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+block} \textbf{ block\+\_\+options}
+\begin{DoxyCompactList}\small\item\em Compression options for this Block. \end{DoxyCompactList}\item 
+\textbf{ worker\+\_\+thread} $\ast$ \textbf{ next}
+\begin{DoxyCompactList}\small\item\em Next structure in the stack of free worker threads. \end{DoxyCompactList}\item 
+\mbox{\label{structworker__thread__s_a9b1ac3594fdab513a791c2ef25a16a11}} 
+mythread\+\_\+mutex {\bfseries mutex}
+\item 
+\mbox{\label{structworker__thread__s_ac9810503467cc8922b7fa67d5292b6db}} 
+mythread\+\_\+cond {\bfseries cond}
+\item 
+mythread \textbf{ thread\+\_\+id}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structworker__thread__s_a9336c5ef37f186713daba1f19913dcfe}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!in@{in}}
+\index{in@{in}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{in}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ worker\+\_\+thread\+\_\+s\+::in}
+
+Input buffer of coder-\/$>$block\+\_\+size bytes. The main thread will put new input into this and update in\+\_\+size accordingly. Once no more input is coming, state will be set to T\+H\+R\+\_\+\+F\+I\+N\+I\+SH. 
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_a0b93ced2ffbb252482594e6dbe5a58c4}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!in\+\_\+size@{in\+\_\+size}}
+\index{in\+\_\+size@{in\+\_\+size}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{in\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t worker\+\_\+thread\+\_\+s\+::in\+\_\+size}
+
+Amount of data available in the input buffer. This is modified only by the main thread. \mbox{\label{structworker__thread__s_a075a0fba337320812a5f1b62699d1e2e}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!outbuf@{outbuf}}
+\index{outbuf@{outbuf}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{outbuf}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+outbuf}$\ast$ worker\+\_\+thread\+\_\+s\+::outbuf}
+
+Output buffer for this thread. This is set by the main thread every time a new Block is started with this thread structure. \mbox{\label{structworker__thread__s_a3a88149bd8c15574512e490de1d22372}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!coder@{coder}}
+\index{coder@{coder}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{coder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+stream\+\_\+coder}$\ast$ worker\+\_\+thread\+\_\+s\+::coder}
+
+Pointer to the main structure is needed when putting this thread back to the stack of free threads. 
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_aad7a1d700a2c8a951fbd43f53fccb879}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!allocator@{allocator}}
+\index{allocator@{allocator}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{allocator}
+{\footnotesize\ttfamily const \textbf{ lzma\+\_\+allocator}$\ast$ worker\+\_\+thread\+\_\+s\+::allocator}
+
+The allocator is set by the main thread. Since a copy of the pointer is kept here, the application must not change the allocator before calling \doxyref{lzma\+\_\+end()}{p.}{base_8h_a854ff37464ae1225febf14db1af43308}. 
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_a2f9e488dd15624d630c8a2a5b5548b67}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!progress\+\_\+in@{progress\+\_\+in}}
+\index{progress\+\_\+in@{progress\+\_\+in}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{progress\+\_\+in}
+{\footnotesize\ttfamily uint64\+\_\+t worker\+\_\+thread\+\_\+s\+::progress\+\_\+in}
+
+
+
+Amount of uncompressed data that has already been compressed. 
+
+
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_ac05c708d81b5bbb59b7516e0c68f2e11}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!progress\+\_\+out@{progress\+\_\+out}}
+\index{progress\+\_\+out@{progress\+\_\+out}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{progress\+\_\+out}
+{\footnotesize\ttfamily uint64\+\_\+t worker\+\_\+thread\+\_\+s\+::progress\+\_\+out}
+
+
+
+Amount of compressed data that is ready. 
+
+
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_a8954c949f735420cec1fa844b9442d88}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!block\+\_\+encoder@{block\+\_\+encoder}}
+\index{block\+\_\+encoder@{block\+\_\+encoder}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{block\+\_\+encoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} worker\+\_\+thread\+\_\+s\+::block\+\_\+encoder}
+
+
+
+Block encoder. 
+
+
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+\mbox{\label{structworker__thread__s_a23113bf041e5f22c3ae327b88e03796d}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!block\+\_\+options@{block\+\_\+options}}
+\index{block\+\_\+options@{block\+\_\+options}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{block\+\_\+options}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+block} worker\+\_\+thread\+\_\+s\+::block\+\_\+options}
+
+
+
+Compression options for this Block. 
+
+\mbox{\label{structworker__thread__s_a0e768a237ce2b0c65cc1846e1c0b0ab2}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!next@{next}}
+\index{next@{next}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{next}
+{\footnotesize\ttfamily \textbf{ worker\+\_\+thread}$\ast$ worker\+\_\+thread\+\_\+s\+::next}
+
+
+
+Next structure in the stack of free worker threads. 
+
+\mbox{\label{structworker__thread__s_adebc6ecac099d8c4bce56919d5afce03}} 
+\index{worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}!thread\+\_\+id@{thread\+\_\+id}}
+\index{thread\+\_\+id@{thread\+\_\+id}!worker\+\_\+thread\+\_\+s@{worker\+\_\+thread\+\_\+s}}
+\subsubsection{thread\+\_\+id}
+{\footnotesize\ttfamily mythread worker\+\_\+thread\+\_\+s\+::thread\+\_\+id}
+
+The ID of this thread is used to join the thread when it\textquotesingle{}s not needed anymore. 
+
+Referenced by initialize\+\_\+new\+\_\+thread().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ stream\+\_\+encoder\+\_\+mt.\+c}\end{DoxyCompactItemize}

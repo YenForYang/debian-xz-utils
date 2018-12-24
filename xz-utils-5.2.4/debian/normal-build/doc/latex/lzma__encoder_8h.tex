@@ -1,0 +1,50 @@
+\section{liblzma/lzma/lzma\+\_\+encoder.h File Reference}
+\label{lzma__encoder_8h}\index{liblzma/lzma/lzma\+\_\+encoder.\+h@{liblzma/lzma/lzma\+\_\+encoder.\+h}}
+
+
+L\+Z\+MA encoder A\+PI.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder_8h_aa4fa7528675cb757121b65b949889b1a}} 
+typedef struct \textbf{ lzma\+\_\+lzma1\+\_\+encoder\+\_\+s} {\bfseries lzma\+\_\+lzma1\+\_\+encoder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder_8h_a077433cf89be07232e26627ff8e10831}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{lzma__encoder_8h_a69751f4a64caf8d24a2f94b0301e04c2}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+memusage} (const void $\ast$options)
+\item 
+\mbox{\label{lzma__encoder_8h_a5f00e852ffad77bfde90803a36752c24}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+props\+\_\+encode} (const void $\ast$options, uint8\+\_\+t $\ast$out)
+\item 
+bool \textbf{ lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode} (const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options, uint8\+\_\+t $\ast$byte)
+\begin{DoxyCompactList}\small\item\em Encodes lc/lp/pb into one byte. Returns false on success and true on error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+Z\+MA encoder A\+PI. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{lzma__encoder_8h_a24e42d27f537c4382fe298c9909b1a52}} 
+\index{lzma\+\_\+encoder.\+h@{lzma\+\_\+encoder.\+h}!lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode}}
+\index{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode}!lzma\+\_\+encoder.\+h@{lzma\+\_\+encoder.\+h}}
+\subsubsection{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode()}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$}]{options,  }\item[{uint8\+\_\+t $\ast$}]{byte }\end{DoxyParamCaption})}
+
+
+
+Encodes lc/lp/pb into one byte. Returns false on success and true on error. 
+
+
+
+References is\+\_\+lclppb\+\_\+valid(), lzma\+\_\+options\+\_\+lzma\+::lc, lzma\+\_\+options\+\_\+lzma\+::lp, and lzma\+\_\+options\+\_\+lzma\+::pb.
+

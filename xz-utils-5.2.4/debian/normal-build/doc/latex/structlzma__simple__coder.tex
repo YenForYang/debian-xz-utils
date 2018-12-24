@@ -1,0 +1,117 @@
+\section{lzma\+\_\+simple\+\_\+coder Struct Reference}
+\label{structlzma__simple__coder}\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ next}
+\begin{DoxyCompactList}\small\item\em Next filter in the chain. \end{DoxyCompactList}\item 
+bool \textbf{ end\+\_\+was\+\_\+reached}
+\begin{DoxyCompactList}\small\item\em True if the next coder in the chain has returned L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. \end{DoxyCompactList}\item 
+bool \textbf{ is\+\_\+encoder}
+\item 
+size\+\_\+t($\ast$ \textbf{ filter} )(void $\ast$\textbf{ simple}, uint32\+\_\+t \textbf{ now\+\_\+pos}, bool \textbf{ is\+\_\+encoder}, uint8\+\_\+t $\ast$\textbf{ buffer}, size\+\_\+t \textbf{ size})
+\item 
+void $\ast$ \textbf{ simple}
+\item 
+uint32\+\_\+t \textbf{ now\+\_\+pos}
+\item 
+size\+\_\+t \textbf{ allocated}
+\begin{DoxyCompactList}\small\item\em Size of the memory allocated for the buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ pos}
+\item 
+size\+\_\+t \textbf{ filtered}
+\item 
+size\+\_\+t \textbf{ size}
+\item 
+uint8\+\_\+t \textbf{ buffer} [$\,$]
+\begin{DoxyCompactList}\small\item\em Temporary buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__simple__coder_ace6711112b272b44fb8c2f833e84229b}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!next@{next}}
+\index{next@{next}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{next}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+simple\+\_\+coder\+::next}
+
+
+
+Next filter in the chain. 
+
+\mbox{\label{structlzma__simple__coder_ad747be5d54dba7b9bd0a4f9ecedf5d75}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!end\+\_\+was\+\_\+reached@{end\+\_\+was\+\_\+reached}}
+\index{end\+\_\+was\+\_\+reached@{end\+\_\+was\+\_\+reached}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{end\+\_\+was\+\_\+reached}
+{\footnotesize\ttfamily bool lzma\+\_\+simple\+\_\+coder\+::end\+\_\+was\+\_\+reached}
+
+
+
+True if the next coder in the chain has returned L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. 
+
+\mbox{\label{structlzma__simple__coder_a10a09f540f05d7dee407cac5ea031597}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!is\+\_\+encoder@{is\+\_\+encoder}}
+\index{is\+\_\+encoder@{is\+\_\+encoder}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{is\+\_\+encoder}
+{\footnotesize\ttfamily bool lzma\+\_\+simple\+\_\+coder\+::is\+\_\+encoder}
+
+True if \doxyref{filter()}{p.}{structlzma__simple__coder_a2fef38e8650cd6d48689b72346bff46e} should encode the data; false to decode. Currently all simple filters use the same function for encoding and decoding, because the difference between encoders and decoders is very small. \mbox{\label{structlzma__simple__coder_a2fef38e8650cd6d48689b72346bff46e}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!filter@{filter}}
+\index{filter@{filter}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{filter}
+{\footnotesize\ttfamily size\+\_\+t($\ast$ lzma\+\_\+simple\+\_\+coder\+::filter) (void $\ast$\textbf{ simple}, uint32\+\_\+t \textbf{ now\+\_\+pos}, bool \textbf{ is\+\_\+encoder}, uint8\+\_\+t $\ast$\textbf{ buffer}, size\+\_\+t \textbf{ size})}
+
+Pointer to filter-\/specific function, which does the actual filtering. \mbox{\label{structlzma__simple__coder_a875c01077696cd1436c89f8698830438}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!simple@{simple}}
+\index{simple@{simple}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{simple}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+simple\+\_\+coder\+::simple}
+
+Pointer to filter-\/specific data, or N\+U\+LL if filter doesn\textquotesingle{}t need any extra data. \mbox{\label{structlzma__simple__coder_afc6f814ce580f9dbc7ef279f97e869e7}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!now\+\_\+pos@{now\+\_\+pos}}
+\index{now\+\_\+pos@{now\+\_\+pos}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{now\+\_\+pos}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+simple\+\_\+coder\+::now\+\_\+pos}
+
+The lowest 32 bits of the current position in the data. Most filters need this to do conversions between absolute and relative addresses. \mbox{\label{structlzma__simple__coder_a59ec2413037e89bda083f827d48abc4d}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!allocated@{allocated}}
+\index{allocated@{allocated}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{allocated}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+simple\+\_\+coder\+::allocated}
+
+
+
+Size of the memory allocated for the buffer. 
+
+\mbox{\label{structlzma__simple__coder_acc858e72628eb8a8125a69228207de21}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+simple\+\_\+coder\+::pos}
+
+Flushing position in the temporary buffer. buffer[pos] is the next byte to be copied to out[]. \mbox{\label{structlzma__simple__coder_a58ef9d0dd943fe0ecbd03828542345f0}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!filtered@{filtered}}
+\index{filtered@{filtered}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{filtered}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+simple\+\_\+coder\+::filtered}
+
+buffer[filtered] is the first unfiltered byte. When pos is smaller than filtered, there is unflushed filtered data in the buffer. \mbox{\label{structlzma__simple__coder_a4ed1732a6a0db6d7d9851abc0fe2093c}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!size@{size}}
+\index{size@{size}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+simple\+\_\+coder\+::size}
+
+Total number of bytes (both filtered and unfiltered) currently in the temporary buffer. \mbox{\label{structlzma__simple__coder_a151340ded2984e15faf211394a50165d}} 
+\index{lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma\+\_\+simple\+\_\+coder@{lzma\+\_\+simple\+\_\+coder}}
+\subsubsection{buffer}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+simple\+\_\+coder\+::buffer[$\,$]}
+
+
+
+Temporary buffer. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/simple/\textbf{ simple\+\_\+private.\+h}\end{DoxyCompactItemize}

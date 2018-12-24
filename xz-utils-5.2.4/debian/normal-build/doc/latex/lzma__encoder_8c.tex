@@ -1,0 +1,126 @@
+\section{liblzma/lzma/lzma\+\_\+encoder.c File Reference}
+\label{lzma__encoder_8c}\index{liblzma/lzma/lzma\+\_\+encoder.\+c@{liblzma/lzma/lzma\+\_\+encoder.\+c}}
+
+
+L\+Z\+MA encoder.  
+
+
+{\ttfamily \#include \char`\"{}lzma2\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder\+\_\+private.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fastpos.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX}~(O\+P\+TS + 1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder_8c_a276c6d863c72ad4e56fa1034142fcb85}} 
+static void {\bfseries literal\+\_\+matched} (\textbf{ lzma\+\_\+range\+\_\+encoder} $\ast$rc, \textbf{ probability} $\ast$subcoder, uint32\+\_\+t match\+\_\+byte, uint32\+\_\+t symbol)
+\item 
+\mbox{\label{lzma__encoder_8c_a1a299da76090f5aa13a6c2960657a64a}} 
+static void {\bfseries literal} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, \textbf{ lzma\+\_\+mf} $\ast$mf, uint32\+\_\+t position)
+\item 
+\mbox{\label{lzma__encoder_8c_af7b06ec5cf3bb55193e2e3bcc236ee23}} 
+static void {\bfseries length\+\_\+update\+\_\+prices} (\textbf{ lzma\+\_\+length\+\_\+encoder} $\ast$lc, const uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder_8c_a3df350e3a724f22844bcfaca65620695}} 
+static void {\bfseries length} (\textbf{ lzma\+\_\+range\+\_\+encoder} $\ast$rc, \textbf{ lzma\+\_\+length\+\_\+encoder} $\ast$lc, const uint32\+\_\+t pos\+\_\+state, uint32\+\_\+t len, const bool fast\+\_\+mode)
+\item 
+\mbox{\label{lzma__encoder_8c_aa4e08b0417394ac7b3b704de9ade5b7b}} 
+static void {\bfseries match} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, const uint32\+\_\+t pos\+\_\+state, const uint32\+\_\+t distance, const uint32\+\_\+t len)
+\item 
+\mbox{\label{lzma__encoder_8c_aed31765f836deefce6d1ebcf2ef5b4fe}} 
+static void {\bfseries rep\+\_\+match} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, const uint32\+\_\+t pos\+\_\+state, const uint32\+\_\+t rep, const uint32\+\_\+t len)
+\item 
+\mbox{\label{lzma__encoder_8c_a5c8d5d755284c341a9d2e6b5e87b3e5a}} 
+static void {\bfseries encode\+\_\+symbol} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, \textbf{ lzma\+\_\+mf} $\ast$mf, uint32\+\_\+t back, uint32\+\_\+t len, uint32\+\_\+t position)
+\item 
+\mbox{\label{lzma__encoder_8c_a654304e689fe86c1e6783b2ed6c329da}} 
+static bool {\bfseries encode\+\_\+init} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, \textbf{ lzma\+\_\+mf} $\ast$mf)
+\item 
+\mbox{\label{lzma__encoder_8c_a9fe05befef8028d720ac11b6969b5543}} 
+static void {\bfseries encode\+\_\+eopm} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, uint32\+\_\+t position)
+\item 
+\mbox{\label{lzma__encoder_8c_a0b18beb1a24a7116046d2b41fb53a171}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+encode} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, uint32\+\_\+t limit)
+\item 
+\mbox{\label{lzma__encoder_8c_a5e61e552f6b38ffbfecc42e3a3d67fd0}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+encode} (void $\ast$coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\item 
+\mbox{\label{lzma__encoder_8c_a1426dd8519ffbb53ea746985452a9228}} 
+static bool {\bfseries is\+\_\+options\+\_\+valid} (const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options)
+\item 
+\mbox{\label{lzma__encoder_8c_a320e15eb89bf06c7d0bc3475ad7f799f}} 
+static void {\bfseries set\+\_\+lz\+\_\+options} (\textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options, const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options)
+\item 
+\mbox{\label{lzma__encoder_8c_a5cf00161eefbc2d476682c93a50909b5}} 
+static void {\bfseries length\+\_\+encoder\+\_\+reset} (\textbf{ lzma\+\_\+length\+\_\+encoder} $\ast$lencoder, const uint32\+\_\+t num\+\_\+pos\+\_\+states, const bool fast\+\_\+mode)
+\item 
+\mbox{\label{lzma__encoder_8c_a46b40295673635f6ec31fa93518607c6}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+reset} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options)
+\item 
+\mbox{\label{lzma__encoder_8c_adae8d35bb6472b2e8c188fa0689048d9}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+create} (void $\ast$$\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options, \textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options)
+\item 
+\mbox{\label{lzma__encoder_8c_ad00e82cc46428457f1c08bf70fe5e6c6}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+lz\+\_\+encoder} $\ast$lz, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const void $\ast$options, \textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options)
+\item 
+\mbox{\label{lzma__encoder_8c_a077433cf89be07232e26627ff8e10831}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{lzma__encoder_8c_a69751f4a64caf8d24a2f94b0301e04c2}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma\+\_\+encoder\+\_\+memusage} (const void $\ast$options)
+\item 
+bool \textbf{ lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode} (const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options, uint8\+\_\+t $\ast$byte)
+\begin{DoxyCompactList}\small\item\em Encodes lc/lp/pb into one byte. Returns false on success and true on error. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+bool} \textbf{ lzma\+\_\+mode\+\_\+is\+\_\+supported} (\textbf{ lzma\+\_\+mode} mode)
+\begin{DoxyCompactList}\small\item\em Test if given compression mode is supported. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+Z\+MA encoder. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{lzma__encoder_8c_a25303b6c550125f26a297dc0847e72a9}} 
+\index{lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}!L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX@{L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX}}
+\index{L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX@{L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX}!lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}}
+\subsubsection{L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX}
+{\footnotesize\ttfamily \#define L\+O\+O\+P\+\_\+\+I\+N\+P\+U\+T\+\_\+\+M\+AX~(O\+P\+TS + 1)}
+
+Number of bytes that a single encoding loop in lzma\+\_\+lzma\+\_\+encode() can consume from the dictionary. This limit comes from lzma\+\_\+lzma\+\_\+optimum() and may need to be updated if that function is significantly modified. 
+
+\subsection{Function Documentation}
+\mbox{\label{lzma__encoder_8c_a24e42d27f537c4382fe298c9909b1a52}} 
+\index{lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}!lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode}}
+\index{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode}!lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}}
+\subsubsection{lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode()}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma\+\_\+lclppb\+\_\+encode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$}]{options,  }\item[{uint8\+\_\+t $\ast$}]{byte }\end{DoxyParamCaption})}
+
+
+
+Encodes lc/lp/pb into one byte. Returns false on success and true on error. 
+
+
+
+References is\+\_\+lclppb\+\_\+valid(), lzma\+\_\+options\+\_\+lzma\+::lc, lzma\+\_\+options\+\_\+lzma\+::lp, and lzma\+\_\+options\+\_\+lzma\+::pb.
+
+\mbox{\label{lzma__encoder_8c_ac1ec0561a8ed9889cb8c049d484c2c5c}} 
+\index{lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}!lzma\+\_\+mode\+\_\+is\+\_\+supported@{lzma\+\_\+mode\+\_\+is\+\_\+supported}}
+\index{lzma\+\_\+mode\+\_\+is\+\_\+supported@{lzma\+\_\+mode\+\_\+is\+\_\+supported}!lzma\+\_\+encoder.\+c@{lzma\+\_\+encoder.\+c}}
+\subsubsection{lzma\+\_\+mode\+\_\+is\+\_\+supported()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+bool} lzma\+\_\+mode\+\_\+is\+\_\+supported (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+mode}}]{mode }\end{DoxyParamCaption}) const}
+
+
+
+Test if given compression mode is supported. 
+
+Return true if the given compression mode is supported by this liblzma build. Otherwise false is returned. It is safe to call this with a value that isn\textquotesingle{}t listed in lzma\+\_\+mode enumeration; the return value will be false.
+
+There is no way to list which modes are available in this particular liblzma version and build. It would be useless, because a new compression mode, which the application developer wasn\textquotesingle{}t aware, could require giving additional options to the encoder that the older modes don\textquotesingle{}t need. 
+
+References L\+Z\+M\+A\+\_\+\+M\+O\+D\+E\+\_\+\+F\+A\+ST, and L\+Z\+M\+A\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+R\+M\+AL.
+

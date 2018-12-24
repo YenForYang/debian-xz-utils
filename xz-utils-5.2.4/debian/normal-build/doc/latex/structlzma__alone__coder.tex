@@ -1,0 +1,111 @@
+\section{lzma\+\_\+alone\+\_\+coder Struct Reference}
+\label{structlzma__alone__coder}\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__alone__coder_a70cc8358882bc546b603ec93ca22a821}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+P\+R\+O\+P\+E\+R\+T\+I\+ES}, 
+{\bfseries S\+E\+Q\+\_\+\+D\+I\+C\+T\+I\+O\+N\+A\+R\+Y\+\_\+\+S\+I\+ZE}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+\+S\+I\+ZE}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+DE}
+ \}
+\item 
+\mbox{\label{structlzma__alone__coder_afe009517db68f4eefec5e7c567d69a4e}} 
+enum \{ {\bfseries S\+E\+Q\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+DE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__alone__coder_a6000aae3e9d15548a7b0370413fb4f5f}} 
+\textbf{ lzma\+\_\+next\+\_\+coder} {\bfseries next}
+\item 
+\mbox{\label{structlzma__alone__coder_a0ea0e22742353642ca4b0e790eb5942b}} 
+enum lzma\+\_\+alone\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+bool \textbf{ picky}
+\item 
+size\+\_\+t \textbf{ pos}
+\begin{DoxyCompactList}\small\item\em Position in the header fields. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ uncompressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size decoded from the header. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ memlimit}
+\begin{DoxyCompactList}\small\item\em Memory usage limit. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ memusage}
+\begin{DoxyCompactList}\small\item\em Amount of memory actually needed (only an estimate) \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+options\+\_\+lzma} \textbf{ options}
+\item 
+\mbox{\label{structlzma__alone__coder_a988c280b605c469dfab0f1312c963c1c}} 
+enum lzma\+\_\+alone\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+\mbox{\label{structlzma__alone__coder_a3f5e24f3d974c863fb4c55bf0bb2f257}} 
+size\+\_\+t {\bfseries header\+\_\+pos}
+\item 
+\mbox{\label{structlzma__alone__coder_aabb278d903d0c368f7b0626b7759b64c}} 
+uint8\+\_\+t {\bfseries header} [A\+L\+O\+N\+E\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE]
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__alone__coder_a6ed34033bee7ba2d029671109a652985}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!picky@{picky}}
+\index{picky@{picky}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{picky}
+{\footnotesize\ttfamily bool lzma\+\_\+alone\+\_\+coder\+::picky}
+
+If true, reject files that are unlikely to be .lzma files. If false, more non-\/.\+lzma files get accepted and will give L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR either immediately or after a few output bytes. \mbox{\label{structlzma__alone__coder_a00ad67ef535a014b88efa30a61218c64}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+alone\+\_\+coder\+::pos}
+
+
+
+Position in the header fields. 
+
+\mbox{\label{structlzma__alone__coder_a66a7c8e4fa56069ca609b712d728bb2d}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+alone\+\_\+coder\+::uncompressed\+\_\+size}
+
+
+
+Uncompressed size decoded from the header. 
+
+\mbox{\label{structlzma__alone__coder_a6358c47e6fc4c8a9657631fa57433b6b}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!memlimit@{memlimit}}
+\index{memlimit@{memlimit}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{memlimit}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+alone\+\_\+coder\+::memlimit}
+
+
+
+Memory usage limit. 
+
+\mbox{\label{structlzma__alone__coder_a1c20d87e58d50b1bd4888b1049735615}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{memusage}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+alone\+\_\+coder\+::memusage}
+
+
+
+Amount of memory actually needed (only an estimate) 
+
+\mbox{\label{structlzma__alone__coder_ad056c557eb89a30aae814efaa2f4ef3d}} 
+\index{lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}!options@{options}}
+\index{options@{options}!lzma\+\_\+alone\+\_\+coder@{lzma\+\_\+alone\+\_\+coder}}
+\subsubsection{options}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+options\+\_\+lzma} lzma\+\_\+alone\+\_\+coder\+::options}
+
+Options decoded from the header needed to initialize the L\+Z\+MA decoder 
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ alone\+\_\+decoder.\+c}\item 
+liblzma/common/alone\+\_\+encoder.\+c\end{DoxyCompactItemize}

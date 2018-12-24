@@ -1,0 +1,12 @@
+Package: xz-utils-dbgsym
+Source: xz-utils
+Version: 5.2.4-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Installed-Size: 142
+Depends: xz-utils (= 5.2.4-1)
+Section: debug
+Priority: optional
+Description: debug symbols for xz-utils
+Build-Ids: 00753e92806d1d3596e5691da7b6906b805212ae 33b76d71d46934635cef5559f8ae7b855169a725

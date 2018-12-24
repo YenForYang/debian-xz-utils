@@ -1,0 +1,56 @@
+\section{lzma\+\_\+filter\+\_\+info\+\_\+s Struct Reference}
+\label{structlzma__filter__info__s}\index{lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}}
+
+
+{\ttfamily \#include $<$common.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+vli} \textbf{ id}
+\item 
+\textbf{ lzma\+\_\+init\+\_\+function} \textbf{ init}
+\item 
+void $\ast$ \textbf{ options}
+\begin{DoxyCompactList}\small\item\em Pointer to filter\textquotesingle{}s options structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Raw coder validates and converts an array of \doxyref{lzma\+\_\+filter}{p.}{structlzma__filter} structures to an array of lzma\+\_\+filter\+\_\+info structures. This array is used with lzma\+\_\+next\+\_\+filter\+\_\+init to initialize the filter chain. 
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__filter__info__s_a748331bd1a36a9bf3cc57af69582a173}} 
+\index{lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}!id@{id}}
+\index{id@{id}!lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}}
+\subsubsection{id}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+filter\+\_\+info\+\_\+s\+::id}
+
+Filter ID. This is used only by the encoder with \doxyref{lzma\+\_\+filters\+\_\+update()}{p.}{filter_8h_a4a8fd969df001e449ebe4421ab33bba5}. 
+
+Referenced by lzma\+\_\+next\+\_\+filter\+\_\+init().
+
+\mbox{\label{structlzma__filter__info__s_ac5e483e8fcaa10f1c0a1111b36db1bac}} 
+\index{lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}!init@{init}}
+\index{init@{init}!lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}}
+\subsubsection{init}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+init\+\_\+function} lzma\+\_\+filter\+\_\+info\+\_\+s\+::init}
+
+Pointer to function used to initialize the filter. This is N\+U\+LL to indicate end of array. 
+
+Referenced by lzma\+\_\+next\+\_\+filter\+\_\+init().
+
+\mbox{\label{structlzma__filter__info__s_a12e1758fcf1860a633edfcd355529353}} 
+\index{lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}!options@{options}}
+\index{options@{options}!lzma\+\_\+filter\+\_\+info\+\_\+s@{lzma\+\_\+filter\+\_\+info\+\_\+s}}
+\subsubsection{options}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+filter\+\_\+info\+\_\+s\+::options}
+
+
+
+Pointer to filter\textquotesingle{}s options structure. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ common.\+h}\end{DoxyCompactItemize}

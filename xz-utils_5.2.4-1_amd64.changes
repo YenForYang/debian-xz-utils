@@ -1,0 +1,51 @@
+Format: 1.8
+Date: Sat, 22 Dec 2018 16:55:11 +0100
+Source: xz-utils
+Binary: liblzma5 xz-utils xzdec liblzma-dev liblzma-doc
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64 all
+Version: 5.2.4-1
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Changed-By: Richard Yang <richard@yenforyang.com>
+Description:
+ liblzma-dev - XZ-format compression library - development files
+ liblzma-doc - XZ-format compression library - API documentation
+ liblzma5   - XZ-format compression library
+ xz-utils   - XZ-format compression utilities
+ xzdec      - XZ-format compression utilities - tiny decompressors
+Changes:
+ xz-utils (5.2.4-1) UNRELEASED; urgency=medium
+ .
+   * New upstream release
+Checksums-Sha1:
+ 5180ee226c50df1f0a19ed1ec4be1db11e955584 1053188 liblzma-dev_5.2.4-1_amd64.deb
+ 59e9c96b3551ccdb92a0fada17766c29f85a379c 70744 liblzma-doc_5.2.4-1_all.deb
+ 7e418de3a29559f65fcb7c94d5b461752f9ba880 311184 liblzma5-dbgsym_5.2.4-1_amd64.deb
+ d1c894568a87778a3e7de0c7608da1c82b3d8eb6 249912 liblzma5_5.2.4-1_amd64.deb
+ a832e89034ea9bb5a51ecd6218f69f2f9fe426aa 111208 xz-utils-dbgsym_5.2.4-1_amd64.deb
+ 1473ae60eb1aeae475201da8c27d7e3abf82bca2 7274 xz-utils_5.2.4-1_amd64.buildinfo
+ 9f230d93a6d0c731ee565f0bf2027a9f6917c9df 199900 xz-utils_5.2.4-1_amd64.deb
+ ab1161d933a24e4b7db8b94805d0873ae99b679c 70152 xzdec-dbgsym_5.2.4-1_amd64.deb
+ b7de13ecf8622e927c4a6f0936aed7198a018af7 101180 xzdec_5.2.4-1_amd64.deb
+Checksums-Sha256:
+ bde7ad943292fbdc6ba7d72b46adddcde249ae52b2c3edad409073f013a6555d 1053188 liblzma-dev_5.2.4-1_amd64.deb
+ 983f442859754fa7648628f1210100187f70674791939e9307371c73d17a3b81 70744 liblzma-doc_5.2.4-1_all.deb
+ 3c1d1eabdbf266dae570408e0f3b28702809970ebc226d9b93887568e3424039 311184 liblzma5-dbgsym_5.2.4-1_amd64.deb
+ f7e7ecb3d0dffca184e5f5e44f7fab6101ee4b1c472f1d2d9023c8a146409848 249912 liblzma5_5.2.4-1_amd64.deb
+ 1c9db17e1ffa25aae1c0f77df55e941a3a6f61338bffa6a7949b5d9ba4f037c1 111208 xz-utils-dbgsym_5.2.4-1_amd64.deb
+ 660a98f5f47fdcfb9128b4775a79f6d105ef1356fbea3e32b31bad5306132674 7274 xz-utils_5.2.4-1_amd64.buildinfo
+ a8fb345096d1a48583784cde5f148a209cecbdcddcdf53a8e4ebe5cd71b1ceaa 199900 xz-utils_5.2.4-1_amd64.deb
+ 493b88d5564976b74b2b8079c33ac96f85efeffbd855dc39906a883371768f60 70152 xzdec-dbgsym_5.2.4-1_amd64.deb
+ ef7716ebf3877f84af6f2ccb48bfe456522016883a74671947fcc7595ff838f7 101180 xzdec_5.2.4-1_amd64.deb
+Files:
+ e0db3a5e6afdbe29d22496dd9db93b1f 1053188 libdevel optional liblzma-dev_5.2.4-1_amd64.deb
+ f6b92bbed46482d1bd12ae8e95dbb125 70744 doc optional liblzma-doc_5.2.4-1_all.deb
+ 0399dd566610460d7981145fef6bab5c 311184 debug optional liblzma5-dbgsym_5.2.4-1_amd64.deb
+ e85d71a4fda825bd63cd05ec117a011b 249912 libs required liblzma5_5.2.4-1_amd64.deb
+ b9f8cc0f3546832a3613291768b9056d 111208 debug optional xz-utils-dbgsym_5.2.4-1_amd64.deb
+ 10f4f267c6c838f5cc51f52462e26fb3 7274 utils required xz-utils_5.2.4-1_amd64.buildinfo
+ 36b23b2e49b04d05530f1a503dd7f2ae 199900 utils required xz-utils_5.2.4-1_amd64.deb
+ 32ad0b7a658d5f7cb9efb1ad00be66f5 70152 debug optional xzdec-dbgsym_5.2.4-1_amd64.deb
+ 642f3de4df78900d062ba8d0b480a0ce 101180 utils extra xzdec_5.2.4-1_amd64.deb

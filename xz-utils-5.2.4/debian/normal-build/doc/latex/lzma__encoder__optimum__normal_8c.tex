@@ -1,0 +1,56 @@
+\section{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+normal.c File Reference}
+\label{lzma__encoder__optimum__normal_8c}\index{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+normal.\+c@{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+normal.\+c}}
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder\+\_\+private.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fastpos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memcmplen.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_aad30c576663dea3caa04cc00438c0491}} 
+\#define {\bfseries is\+\_\+short\+\_\+rep}(optimal)~((optimal).back\+\_\+prev == 0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_a6949c0d48a239f17d18ebcb826babf42}} 
+static uint32\+\_\+t {\bfseries get\+\_\+literal\+\_\+price} (const \textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$const coder, const uint32\+\_\+t pos, const uint32\+\_\+t prev\+\_\+byte, const bool match\+\_\+mode, uint32\+\_\+t match\+\_\+byte, uint32\+\_\+t symbol)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_ae75cbe3127b0374907614a13ac391806}} 
+static uint32\+\_\+t {\bfseries get\+\_\+len\+\_\+price} (const \textbf{ lzma\+\_\+length\+\_\+encoder} $\ast$const lencoder, const uint32\+\_\+t len, const uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_af758d8b80ccdea7568c51f0f2e21d47a}} 
+static uint32\+\_\+t {\bfseries get\+\_\+short\+\_\+rep\+\_\+price} (const \textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$const coder, const \textbf{ lzma\+\_\+lzma\+\_\+state} state, const uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_aac818e973efc34f84e1f79c97da1c5e3}} 
+static uint32\+\_\+t {\bfseries get\+\_\+pure\+\_\+rep\+\_\+price} (const \textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$const coder, const uint32\+\_\+t rep\+\_\+index, const \textbf{ lzma\+\_\+lzma\+\_\+state} state, uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_ab6f0f0310b0680b4112baadd53a87a95}} 
+static uint32\+\_\+t {\bfseries get\+\_\+rep\+\_\+price} (const \textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$const coder, const uint32\+\_\+t rep\+\_\+index, const uint32\+\_\+t len, const \textbf{ lzma\+\_\+lzma\+\_\+state} state, const uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_a6fbc169a50c9331a0740f0626420db65}} 
+static uint32\+\_\+t {\bfseries get\+\_\+dist\+\_\+len\+\_\+price} (const \textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$const coder, const uint32\+\_\+t dist, const uint32\+\_\+t len, const uint32\+\_\+t pos\+\_\+state)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_ab9203e21f43c21c5daf056443dafc5e5}} 
+static void {\bfseries fill\+\_\+dist\+\_\+prices} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_aa333be07f488c9d8aa81389ed9f119df}} 
+static void {\bfseries fill\+\_\+align\+\_\+prices} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_a56dff23e3ac332b61a652c6001a2238c}} 
+static void {\bfseries make\+\_\+literal} (\textbf{ lzma\+\_\+optimal} $\ast$optimal)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_a7a5bf4462c330ea617215115064f97da}} 
+static void {\bfseries make\+\_\+short\+\_\+rep} (\textbf{ lzma\+\_\+optimal} $\ast$optimal)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_adec3a21ff24b9fa355e6ee0da2214c09}} 
+static void {\bfseries backward} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, uint32\+\_\+t $\ast$restrict len\+\_\+res, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t cur)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_ad86c30a13259f4597092f52ef1b86095}} 
+static uint32\+\_\+t {\bfseries helper1} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t $\ast$restrict len\+\_\+res, uint32\+\_\+t position)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_aa6d506c22b5cb25dcc64b2d55c6f5b05}} 
+static uint32\+\_\+t {\bfseries helper2} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$coder, uint32\+\_\+t $\ast$reps, const uint8\+\_\+t $\ast$buf, uint32\+\_\+t len\+\_\+end, uint32\+\_\+t position, const uint32\+\_\+t cur, const uint32\+\_\+t nice\+\_\+len, const uint32\+\_\+t buf\+\_\+avail\+\_\+full)
+\item 
+\mbox{\label{lzma__encoder__optimum__normal_8c_a7f0108fbce902f375db5a3e10cd3de13}} 
+void {\bfseries lzma\+\_\+lzma\+\_\+optimum\+\_\+normal} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t $\ast$restrict len\+\_\+res, uint32\+\_\+t position)
+\end{DoxyCompactItemize}

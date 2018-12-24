@@ -1,0 +1,271 @@
+\section{liblzma/common/stream\+\_\+encoder\+\_\+mt.c File Reference}
+\label{stream__encoder__mt_8c}\index{liblzma/common/stream\+\_\+encoder\+\_\+mt.\+c@{liblzma/common/stream\+\_\+encoder\+\_\+mt.\+c}}
+
+
+Multithreaded .xz Stream encoder.  
+
+
+{\ttfamily \#include \char`\"{}filter\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}easy\+\_\+preset.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}block\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}block\+\_\+buffer\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}index\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}outqueue.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ worker\+\_\+thread\+\_\+s}
+\item 
+struct \textbf{ lzma\+\_\+stream\+\_\+coder\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}~(U\+I\+N\+T64\+\_\+\+M\+AX / \textbf{ L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX})
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{stream__encoder__mt_8c_a4697e74c9bce1ad1bb5063722a21f3bc}} 
+typedef struct \textbf{ lzma\+\_\+stream\+\_\+coder\+\_\+s} {\bfseries lzma\+\_\+stream\+\_\+coder}
+\item 
+\mbox{\label{stream__encoder__mt_8c_a10206e4a2c064af4fda6974c6f88df4c}} 
+typedef struct \textbf{ worker\+\_\+thread\+\_\+s} {\bfseries worker\+\_\+thread}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ worker\+\_\+state} \{ \newline
+\textbf{ T\+H\+R\+\_\+\+I\+D\+LE}, 
+\textbf{ T\+H\+R\+\_\+\+R\+UN}, 
+\textbf{ T\+H\+R\+\_\+\+F\+I\+N\+I\+SH}, 
+\textbf{ T\+H\+R\+\_\+\+S\+T\+OP}, 
+\newline
+\textbf{ T\+H\+R\+\_\+\+E\+X\+IT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ worker\+\_\+error} (\textbf{ worker\+\_\+thread} $\ast$thr, \textbf{ lzma\+\_\+ret} ret)
+\begin{DoxyCompactList}\small\item\em Tell the main thread that something has gone wrong. \end{DoxyCompactList}\item 
+\mbox{\label{stream__encoder__mt_8c_a38a22798bfc0630059309cb0bd445a3a}} 
+static \textbf{ worker\+\_\+state} {\bfseries worker\+\_\+encode} (\textbf{ worker\+\_\+thread} $\ast$thr, \textbf{ worker\+\_\+state} state)
+\item 
+\mbox{\label{stream__encoder__mt_8c_aaa15b238ffcb4aec2519494f51f0c2a0}} 
+static M\+Y\+T\+H\+R\+E\+A\+D\+\_\+\+R\+E\+T\+\_\+\+T\+Y\+PE {\bfseries worker\+\_\+start} (void $\ast$thr\+\_\+ptr)
+\item 
+static void \textbf{ threads\+\_\+stop} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, bool wait\+\_\+for\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Make the threads stop but not exit. Optionally wait for them to stop. \end{DoxyCompactList}\item 
+static void \textbf{ threads\+\_\+end} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+static \textbf{ lzma\+\_\+ret} \textbf{ initialize\+\_\+new\+\_\+thread} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Initialize a new worker\+\_\+thread structure and create a new thread. \end{DoxyCompactList}\item 
+\mbox{\label{stream__encoder__mt_8c_a3fdf5305942de605d270a86d5964df89}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries get\+\_\+thread} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{stream__encoder__mt_8c_ab4509823cd2b731fbbcca049b06a9ac6}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encode\+\_\+in} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+static bool \textbf{ wait\+\_\+for\+\_\+work} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, mythread\+\_\+condtime $\ast$wait\+\_\+abs, bool $\ast$has\+\_\+blocked, bool has\+\_\+input)
+\item 
+\mbox{\label{stream__encoder__mt_8c_a351fcab5736f5dd9f8ab927b10327c49}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encode\+\_\+mt} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{stream__encoder__mt_8c_a3909cdb82a163a7ff4b7d39954df50e6}} 
+static void {\bfseries stream\+\_\+encoder\+\_\+mt\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+static \textbf{ lzma\+\_\+ret} \textbf{ get\+\_\+options} (const \textbf{ lzma\+\_\+mt} $\ast$options, \textbf{ lzma\+\_\+options\+\_\+easy} $\ast$opt\+\_\+easy, const \textbf{ lzma\+\_\+filter} $\ast$$\ast$\textbf{ filters}, uint64\+\_\+t $\ast$block\+\_\+size, uint64\+\_\+t $\ast$outbuf\+\_\+size\+\_\+max)
+\item 
+\mbox{\label{stream__encoder__mt_8c_a81208de6a161a491e42947ed22dff18d}} 
+static void {\bfseries get\+\_\+progress} (void $\ast$coder\+\_\+ptr, uint64\+\_\+t $\ast$progress\+\_\+in, uint64\+\_\+t $\ast$progress\+\_\+out)
+\item 
+\mbox{\label{stream__encoder__mt_8c_a02280fca59cabeaa7516fa04873a84fe}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encoder\+\_\+mt\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+mt} $\ast$options)
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+encoder\+\_\+mt} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, const \textbf{ lzma\+\_\+mt} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Initialize multithreaded .xz Stream encoder. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage} (const \textbf{ lzma\+\_\+mt} $\ast$options)
+\begin{DoxyCompactList}\small\item\em Calculate approximate memory usage of multithreaded .xz encoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Multithreaded .xz Stream encoder. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{stream__encoder__mt_8c_a8962c0c33f3a491970b7fdfa6802e231}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX@{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}}
+\index{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX@{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}
+{\footnotesize\ttfamily \#define B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX~(U\+I\+N\+T64\+\_\+\+M\+AX / \textbf{ L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX})}
+
+Maximum supported block size. This makes it simpler to prevent integer overflows if we are given unusually large block size. 
+
+Referenced by get\+\_\+options().
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!worker\+\_\+state@{worker\+\_\+state}}
+\index{worker\+\_\+state@{worker\+\_\+state}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{worker\+\_\+state}
+{\footnotesize\ttfamily enum \textbf{ worker\+\_\+state}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+H\+R\+\_\+\+I\+D\+LE@{T\+H\+R\+\_\+\+I\+D\+LE}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!T\+H\+R\+\_\+\+I\+D\+LE@{T\+H\+R\+\_\+\+I\+D\+LE}}}\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6aa23408cf7964bbe8b98062b369b23fca}} 
+T\+H\+R\+\_\+\+I\+D\+LE&Waiting for work. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+H\+R\+\_\+\+R\+UN@{T\+H\+R\+\_\+\+R\+UN}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!T\+H\+R\+\_\+\+R\+UN@{T\+H\+R\+\_\+\+R\+UN}}}\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6a30b31f6ecc244de344d77d437fd9e1a2}} 
+T\+H\+R\+\_\+\+R\+UN&Encoding is in progress. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+H\+R\+\_\+\+F\+I\+N\+I\+SH@{T\+H\+R\+\_\+\+F\+I\+N\+I\+SH}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!T\+H\+R\+\_\+\+F\+I\+N\+I\+SH@{T\+H\+R\+\_\+\+F\+I\+N\+I\+SH}}}\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6a4bef75b4f5c194996e8b1faf5ff0b334}} 
+T\+H\+R\+\_\+\+F\+I\+N\+I\+SH&Encoding is in progress but no more input data will be read. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+H\+R\+\_\+\+S\+T\+OP@{T\+H\+R\+\_\+\+S\+T\+OP}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!T\+H\+R\+\_\+\+S\+T\+OP@{T\+H\+R\+\_\+\+S\+T\+OP}}}\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6a880b5579f4a338319ef3f9748a409331}} 
+T\+H\+R\+\_\+\+S\+T\+OP&The main thread wants the thread to stop whatever it was doing but not exit. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+H\+R\+\_\+\+E\+X\+IT@{T\+H\+R\+\_\+\+E\+X\+IT}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!T\+H\+R\+\_\+\+E\+X\+IT@{T\+H\+R\+\_\+\+E\+X\+IT}}}\mbox{\label{stream__encoder__mt_8c_a74d6a8e9b05f036ec5b86d00abaffea6a45ceedea4e2506fe5aa76e99940fbb8f}} 
+T\+H\+R\+\_\+\+E\+X\+IT&The main thread wants the thread to exit. We could use cancellation but since there\textquotesingle{}s stopped anyway, this is lazier. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{stream__encoder__mt_8c_a528c907bfb43baabb3b520f1fcb75df7}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!worker\+\_\+error@{worker\+\_\+error}}
+\index{worker\+\_\+error@{worker\+\_\+error}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{worker\+\_\+error()}
+{\footnotesize\ttfamily static void worker\+\_\+error (\begin{DoxyParamCaption}\item[{\textbf{ worker\+\_\+thread} $\ast$}]{thr,  }\item[{\textbf{ lzma\+\_\+ret}}]{ret }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tell the main thread that something has gone wrong. 
+
+\mbox{\label{stream__encoder__mt_8c_a0be48acf6ea63a31557648d7241930b5}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!threads\+\_\+stop@{threads\+\_\+stop}}
+\index{threads\+\_\+stop@{threads\+\_\+stop}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{threads\+\_\+stop()}
+{\footnotesize\ttfamily static void threads\+\_\+stop (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$}]{coder,  }\item[{bool}]{wait\+\_\+for\+\_\+threads }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Make the threads stop but not exit. Optionally wait for them to stop. 
+
+
+
+References T\+H\+R\+\_\+\+I\+D\+LE, and T\+H\+R\+\_\+\+S\+T\+OP.
+
+\mbox{\label{stream__encoder__mt_8c_a9bbcc33333e445cd1b2f58567c3b50a7}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!threads\+\_\+end@{threads\+\_\+end}}
+\index{threads\+\_\+end@{threads\+\_\+end}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{threads\+\_\+end()}
+{\footnotesize\ttfamily static void threads\+\_\+end (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$}]{coder,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Stop the threads and free the resources associated with them. Wait until the threads have exited. 
+
+References T\+H\+R\+\_\+\+E\+X\+IT.
+
+\mbox{\label{stream__encoder__mt_8c_a8eecf683f4621bd503be1b46300f0054}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!initialize\+\_\+new\+\_\+thread@{initialize\+\_\+new\+\_\+thread}}
+\index{initialize\+\_\+new\+\_\+thread@{initialize\+\_\+new\+\_\+thread}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{initialize\+\_\+new\+\_\+thread()}
+{\footnotesize\ttfamily static \textbf{ lzma\+\_\+ret} initialize\+\_\+new\+\_\+thread (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$}]{coder,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initialize a new worker\+\_\+thread structure and create a new thread. 
+
+
+
+References worker\+\_\+thread\+\_\+s\+::allocator, worker\+\_\+thread\+\_\+s\+::block\+\_\+encoder, worker\+\_\+thread\+\_\+s\+::coder, worker\+\_\+thread\+\_\+s\+::in, lzma\+\_\+alloc(), L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT, worker\+\_\+thread\+\_\+s\+::progress\+\_\+in, worker\+\_\+thread\+\_\+s\+::progress\+\_\+out, T\+H\+R\+\_\+\+I\+D\+LE, and worker\+\_\+thread\+\_\+s\+::thread\+\_\+id.
+
+\mbox{\label{stream__encoder__mt_8c_aac7c1ca834337e92df3a0a048ac63512}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!wait\+\_\+for\+\_\+work@{wait\+\_\+for\+\_\+work}}
+\index{wait\+\_\+for\+\_\+work@{wait\+\_\+for\+\_\+work}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{wait\+\_\+for\+\_\+work()}
+{\footnotesize\ttfamily static bool wait\+\_\+for\+\_\+work (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$}]{coder,  }\item[{mythread\+\_\+condtime $\ast$}]{wait\+\_\+abs,  }\item[{bool $\ast$}]{has\+\_\+blocked,  }\item[{bool}]{has\+\_\+input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Wait until more input can be consumed, more output can be read, or an optional timeout is reached. 
+
+References L\+Z\+M\+A\+\_\+\+OK, lzma\+\_\+outq\+\_\+has\+\_\+buf(), and lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+\mbox{\label{stream__encoder__mt_8c_ad604ebedc1e6378d9ea187caab98e742}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!get\+\_\+options@{get\+\_\+options}}
+\index{get\+\_\+options@{get\+\_\+options}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{get\+\_\+options()}
+{\footnotesize\ttfamily static \textbf{ lzma\+\_\+ret} get\+\_\+options (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+mt} $\ast$}]{options,  }\item[{\textbf{ lzma\+\_\+options\+\_\+easy} $\ast$}]{opt\+\_\+easy,  }\item[{const \textbf{ lzma\+\_\+filter} $\ast$$\ast$}]{filters,  }\item[{uint64\+\_\+t $\ast$}]{block\+\_\+size,  }\item[{uint64\+\_\+t $\ast$}]{outbuf\+\_\+size\+\_\+max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Options handling for lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+init() and \doxyref{lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage()}{p.}{stream__encoder__mt_8c_a1cba3ebf762c9c5eca7721db365d4439} 
+
+References lzma\+\_\+mt\+::block\+\_\+size, B\+L\+O\+C\+K\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX, lzma\+\_\+options\+\_\+easy\+::filters, lzma\+\_\+mt\+::filters, lzma\+\_\+mt\+::flags, lzma\+\_\+easy\+\_\+preset(), L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX, lzma\+\_\+mt\+::preset, and lzma\+\_\+mt\+::threads.
+
+
+
+Referenced by lzma\+\_\+outq\+\_\+memusage(), and lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage().
+
+\mbox{\label{stream__encoder__mt_8c_a78e5d297f2b9aa439b69312a0e0fdf88}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!lzma\+\_\+stream\+\_\+encoder\+\_\+mt@{lzma\+\_\+stream\+\_\+encoder\+\_\+mt}}
+\index{lzma\+\_\+stream\+\_\+encoder\+\_\+mt@{lzma\+\_\+stream\+\_\+encoder\+\_\+mt}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+encoder\+\_\+mt()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+encoder\+\_\+mt (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{const \textbf{ lzma\+\_\+mt} $\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+Initialize multithreaded .xz Stream encoder. 
+
+This provides the functionality of \doxyref{lzma\+\_\+easy\+\_\+encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4} and \doxyref{lzma\+\_\+stream\+\_\+encoder()}{p.}{container_8h_a1a97aec94c9fedd7646cfa51c4f4cd52} as a single function for multithreaded use.
+
+The supported actions for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\+Z\+M\+A\+\_\+\+R\+UN, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH, L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER, and L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH. Support for L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH might be added in the future.
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} \\
+\hline
+{\em options} & Pointer to multithreaded compression options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+
+\mbox{\label{stream__encoder__mt_8c_a1cba3ebf762c9c5eca7721db365d4439}} 
+\index{stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}!lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage@{lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage}}
+\index{lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage@{lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage}!stream\+\_\+encoder\+\_\+mt.\+c@{stream\+\_\+encoder\+\_\+mt.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+stream\+\_\+encoder\+\_\+mt\+\_\+memusage (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+mt} $\ast$}]{options }\end{DoxyParamCaption})}
+
+
+
+Calculate approximate memory usage of multithreaded .xz encoder. 
+
+Since doing the encoding in threaded mode doesn\textquotesingle{}t affect the memory requirements of single-\/threaded decompressor, you can use lzma\+\_\+easy\+\_\+decoder\+\_\+memusage(options-\/$>$preset) or lzma\+\_\+raw\+\_\+decoder\+\_\+memusage(options-\/$>$filters) to calculate the decompressor memory requirements.
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Compression options\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of bytes of memory required for encoding with the given options. If an error occurs, for example due to unsupported preset or filter chain, U\+I\+N\+T64\+\_\+\+M\+AX is returned. 
+\end{DoxyReturn}
+
+
+References filters, get\+\_\+options(), and L\+Z\+M\+A\+\_\+\+OK.
+

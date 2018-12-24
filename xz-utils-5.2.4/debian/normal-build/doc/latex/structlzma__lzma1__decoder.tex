@@ -1,0 +1,300 @@
+\section{lzma\+\_\+lzma1\+\_\+decoder Struct Reference}
+\label{structlzma__lzma1__decoder}\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+N\+O\+R\+M\+A\+L\+I\+ZE}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+M\+A\+T\+CH}, 
+{\bfseries seq\+\_\+8} =(S\+E\+Q\+\_\+\+L\+I\+T\+E\+R\+AL), 
+{\bfseries seq\+\_\+8} =(S\+E\+Q\+\_\+\+L\+I\+T\+E\+R\+AL), 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+L\+I\+T\+E\+R\+A\+L\+\_\+\+W\+R\+I\+TE}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+R\+EP}, 
+{\bfseries seq\+\_\+len} =(S\+E\+Q\+\_\+\+M\+A\+T\+C\+H\+\_\+\+L\+EN), 
+{\bfseries seq\+\_\+6} =(S\+E\+Q\+\_\+\+D\+I\+S\+T\+\_\+\+S\+L\+OT), 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+D\+I\+S\+T\+\_\+\+M\+O\+D\+EL}, 
+{\bfseries S\+E\+Q\+\_\+\+D\+I\+R\+E\+CT}, 
+{\bfseries seq\+\_\+4} =(S\+E\+Q\+\_\+\+A\+L\+I\+GN), 
+{\bfseries S\+E\+Q\+\_\+\+E\+O\+PM}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+R\+E\+P0}, 
+{\bfseries S\+E\+Q\+\_\+\+S\+H\+O\+R\+T\+R\+EP}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+R\+E\+P0\+\_\+\+L\+O\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+R\+E\+P1}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+I\+S\+\_\+\+R\+E\+P2}, 
+{\bfseries seq\+\_\+len} =(S\+E\+Q\+\_\+\+M\+A\+T\+C\+H\+\_\+\+L\+EN), 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+PY}
+ \}\begin{DoxyCompactList}\small\item\em Position where to continue the decoder loop. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ probability} \textbf{ literal} [\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+S\+\_\+\+M\+AX}][\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+\_\+\+S\+I\+ZE}]
+\begin{DoxyCompactList}\small\item\em Literals; see comments in \doxyref{lzma\+\_\+common.\+h}{p.}{lzma__common_8h}. \end{DoxyCompactList}\item 
+\textbf{ probability} \textbf{ is\+\_\+match} [\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]
+\begin{DoxyCompactList}\small\item\em If 1, it\textquotesingle{}s a match. Otherwise it\textquotesingle{}s a single 8-\/bit literal. \end{DoxyCompactList}\item 
+\textbf{ probability} \textbf{ is\+\_\+rep} [\textbf{ S\+T\+A\+T\+ES}]
+\begin{DoxyCompactList}\small\item\em If 1, it\textquotesingle{}s a repeated match. The distance is one of rep0 .. rep3. \end{DoxyCompactList}\item 
+\textbf{ probability} \textbf{ is\+\_\+rep0} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\textbf{ probability} \textbf{ is\+\_\+rep1} [\textbf{ S\+T\+A\+T\+ES}]
+\item 
+\textbf{ probability} \textbf{ is\+\_\+rep2} [\textbf{ S\+T\+A\+T\+ES}]
+\begin{DoxyCompactList}\small\item\em If 0, distance of a repeated match is rep2. Otherwise it is rep3. \end{DoxyCompactList}\item 
+\textbf{ probability} \textbf{ is\+\_\+rep0\+\_\+long} [\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]
+\item 
+\textbf{ probability} \textbf{ dist\+\_\+slot} [D\+I\+S\+T\+\_\+\+S\+T\+A\+T\+ES][D\+I\+S\+T\+\_\+\+S\+L\+O\+TS]
+\item 
+\textbf{ probability} \textbf{ pos\+\_\+special} [F\+U\+L\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+ES -\/ D\+I\+S\+T\+\_\+\+M\+O\+D\+E\+L\+\_\+\+E\+ND]
+\item 
+\textbf{ probability} \textbf{ pos\+\_\+align} [A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE]
+\item 
+\textbf{ lzma\+\_\+length\+\_\+decoder} \textbf{ match\+\_\+len\+\_\+decoder}
+\begin{DoxyCompactList}\small\item\em Length of a normal match. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+length\+\_\+decoder} \textbf{ rep\+\_\+len\+\_\+decoder}
+\begin{DoxyCompactList}\small\item\em Length of a repeated match. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__lzma1__decoder_aadc898c668af4cc6af40cb1b0773c787}} 
+\textbf{ lzma\+\_\+range\+\_\+decoder} {\bfseries rc}
+\item 
+\mbox{\label{structlzma__lzma1__decoder_ae1e3a0c2472c9944f4d4fa6c9653e94f}} 
+\textbf{ lzma\+\_\+lzma\+\_\+state} {\bfseries state}
+\item 
+uint32\+\_\+t \textbf{ rep0}
+\begin{DoxyCompactList}\small\item\em Distance of the latest match. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ rep1}
+\begin{DoxyCompactList}\small\item\em Distance of second latest match. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ rep2}
+\begin{DoxyCompactList}\small\item\em Distance of third latest match. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ rep3}
+\begin{DoxyCompactList}\small\item\em Distance of fourth latest match. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__lzma1__decoder_aac797e80314b6939ba4b1e6eb80a1bef}} 
+uint32\+\_\+t {\bfseries pos\+\_\+mask}
+\item 
+\mbox{\label{structlzma__lzma1__decoder_a66dc451fbccffed040020d2a71c8244c}} 
+uint32\+\_\+t {\bfseries literal\+\_\+context\+\_\+bits}
+\item 
+\mbox{\label{structlzma__lzma1__decoder_a722894c135a5c9e7ed5b1eb3541dbbb4}} 
+uint32\+\_\+t {\bfseries literal\+\_\+pos\+\_\+mask}
+\item 
+\textbf{ lzma\+\_\+vli} \textbf{ uncompressed\+\_\+size}
+\item 
+enum lzma\+\_\+lzma1\+\_\+decoder\+:: \{ ... \}  \textbf{ sequence}
+\begin{DoxyCompactList}\small\item\em Position where to continue the decoder loop. \end{DoxyCompactList}\item 
+\textbf{ probability} $\ast$ \textbf{ probs}
+\begin{DoxyCompactList}\small\item\em Base of the current probability tree. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ symbol}
+\item 
+uint32\+\_\+t \textbf{ limit}
+\item 
+uint32\+\_\+t \textbf{ offset}
+\item 
+uint32\+\_\+t \textbf{ len}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\label{structlzma__lzma1__decoder_a1cea9b0869393c6cad06e6b8a5ad8899}} 
+\subsubsection{anonymous enum}
+{\footnotesize\ttfamily anonymous enum}
+
+
+
+Position where to continue the decoder loop. 
+
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__lzma1__decoder_a343fdac8fcf21199bf7b79ce7268950a}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!literal@{literal}}
+\index{literal@{literal}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{literal}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::literal[\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+S\+\_\+\+M\+AX}][\textbf{ L\+I\+T\+E\+R\+A\+L\+\_\+\+C\+O\+D\+E\+R\+\_\+\+S\+I\+ZE}]}
+
+
+
+Literals; see comments in \doxyref{lzma\+\_\+common.\+h}{p.}{lzma__common_8h}. 
+
+\mbox{\label{structlzma__lzma1__decoder_a988055ee8e49838c42e718723694bd62}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+match@{is\+\_\+match}}
+\index{is\+\_\+match@{is\+\_\+match}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+match}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+match[\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]}
+
+
+
+If 1, it\textquotesingle{}s a match. Otherwise it\textquotesingle{}s a single 8-\/bit literal. 
+
+\mbox{\label{structlzma__lzma1__decoder_a4f7917a31bf4a8153a3646bd2ee16294}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+rep@{is\+\_\+rep}}
+\index{is\+\_\+rep@{is\+\_\+rep}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+rep}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+rep[\textbf{ S\+T\+A\+T\+ES}]}
+
+
+
+If 1, it\textquotesingle{}s a repeated match. The distance is one of rep0 .. rep3. 
+
+\mbox{\label{structlzma__lzma1__decoder_a16b6ebb4a45453c29f81d4fa600f3f07}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+rep0@{is\+\_\+rep0}}
+\index{is\+\_\+rep0@{is\+\_\+rep0}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+rep0}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+rep0[\textbf{ S\+T\+A\+T\+ES}]}
+
+If 0, distance of a repeated match is rep0. Otherwise check is\+\_\+rep1. \mbox{\label{structlzma__lzma1__decoder_a1402a7b37284fee65dd4f5e3d3170ee5}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+rep1@{is\+\_\+rep1}}
+\index{is\+\_\+rep1@{is\+\_\+rep1}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+rep1}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+rep1[\textbf{ S\+T\+A\+T\+ES}]}
+
+If 0, distance of a repeated match is rep1. Otherwise check is\+\_\+rep2. \mbox{\label{structlzma__lzma1__decoder_a1e98127902c82218d4513a62f80bf415}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+rep2@{is\+\_\+rep2}}
+\index{is\+\_\+rep2@{is\+\_\+rep2}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+rep2}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+rep2[\textbf{ S\+T\+A\+T\+ES}]}
+
+
+
+If 0, distance of a repeated match is rep2. Otherwise it is rep3. 
+
+\mbox{\label{structlzma__lzma1__decoder_a157cbf05ef843d8e8d40cfbe4208c408}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!is\+\_\+rep0\+\_\+long@{is\+\_\+rep0\+\_\+long}}
+\index{is\+\_\+rep0\+\_\+long@{is\+\_\+rep0\+\_\+long}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{is\+\_\+rep0\+\_\+long}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::is\+\_\+rep0\+\_\+long[\textbf{ S\+T\+A\+T\+ES}][\textbf{ P\+O\+S\+\_\+\+S\+T\+A\+T\+E\+S\+\_\+\+M\+AX}]}
+
+If 1, the repeated match has length of one byte. Otherwise the length is decoded from rep\+\_\+len\+\_\+decoder. \mbox{\label{structlzma__lzma1__decoder_a990f09fde7bf8b50b7eebe39172df302}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!dist\+\_\+slot@{dist\+\_\+slot}}
+\index{dist\+\_\+slot@{dist\+\_\+slot}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{dist\+\_\+slot}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::dist\+\_\+slot[D\+I\+S\+T\+\_\+\+S\+T\+A\+T\+ES][D\+I\+S\+T\+\_\+\+S\+L\+O\+TS]}
+
+Probability tree for the highest two bits of the match distance. There is a separate probability tree for match lengths of 2 (i.\+e. M\+A\+T\+C\+H\+\_\+\+L\+E\+N\+\_\+\+M\+IN), 3, 4, and [5, 273]. \mbox{\label{structlzma__lzma1__decoder_adc07edf24c85d9120f9b4c2078e10ce5}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!pos\+\_\+special@{pos\+\_\+special}}
+\index{pos\+\_\+special@{pos\+\_\+special}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{pos\+\_\+special}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::pos\+\_\+special[F\+U\+L\+L\+\_\+\+D\+I\+S\+T\+A\+N\+C\+ES -\/ D\+I\+S\+T\+\_\+\+M\+O\+D\+E\+L\+\_\+\+E\+ND]}
+
+Probability trees for additional bits for match distance when the distance is in the range [4, 127]. \mbox{\label{structlzma__lzma1__decoder_a67c42ba337239d013990c1536c465837}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!pos\+\_\+align@{pos\+\_\+align}}
+\index{pos\+\_\+align@{pos\+\_\+align}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{pos\+\_\+align}
+{\footnotesize\ttfamily \textbf{ probability} lzma\+\_\+lzma1\+\_\+decoder\+::pos\+\_\+align[A\+L\+I\+G\+N\+\_\+\+S\+I\+ZE]}
+
+Probability tree for the lowest four bits of a match distance that is equal to or greater than 128. \mbox{\label{structlzma__lzma1__decoder_ab5bea87c0a6ea57361f462429b31e555}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!match\+\_\+len\+\_\+decoder@{match\+\_\+len\+\_\+decoder}}
+\index{match\+\_\+len\+\_\+decoder@{match\+\_\+len\+\_\+decoder}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{match\+\_\+len\+\_\+decoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+length\+\_\+decoder} lzma\+\_\+lzma1\+\_\+decoder\+::match\+\_\+len\+\_\+decoder}
+
+
+
+Length of a normal match. 
+
+\mbox{\label{structlzma__lzma1__decoder_aa6362c25a931d670e2671880015f35a1}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!rep\+\_\+len\+\_\+decoder@{rep\+\_\+len\+\_\+decoder}}
+\index{rep\+\_\+len\+\_\+decoder@{rep\+\_\+len\+\_\+decoder}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{rep\+\_\+len\+\_\+decoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+length\+\_\+decoder} lzma\+\_\+lzma1\+\_\+decoder\+::rep\+\_\+len\+\_\+decoder}
+
+
+
+Length of a repeated match. 
+
+\mbox{\label{structlzma__lzma1__decoder_a2f18a4d7fd4b4338331f380ac1833753}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!rep0@{rep0}}
+\index{rep0@{rep0}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{rep0}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::rep0}
+
+
+
+Distance of the latest match. 
+
+\mbox{\label{structlzma__lzma1__decoder_af0d365629d0405b31267e13b4685a092}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!rep1@{rep1}}
+\index{rep1@{rep1}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{rep1}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::rep1}
+
+
+
+Distance of second latest match. 
+
+\mbox{\label{structlzma__lzma1__decoder_acea8d1ae78bb8e0d93e4d9f0acebb90a}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!rep2@{rep2}}
+\index{rep2@{rep2}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{rep2}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::rep2}
+
+
+
+Distance of third latest match. 
+
+\mbox{\label{structlzma__lzma1__decoder_a83514665c081e50e1d35e77c228276fe}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!rep3@{rep3}}
+\index{rep3@{rep3}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{rep3}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::rep3}
+
+
+
+Distance of fourth latest match. 
+
+\mbox{\label{structlzma__lzma1__decoder_a1c1f35a7caf80ef021a6a2dc95be0f63}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+lzma1\+\_\+decoder\+::uncompressed\+\_\+size}
+
+Uncompressed size as bytes, or L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN if end of payload marker is expected. \mbox{\label{structlzma__lzma1__decoder_ab6f377a287a31656c263a54525642771}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!sequence@{sequence}}
+\index{sequence@{sequence}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{sequence}
+{\footnotesize\ttfamily enum \{ ... \}   lzma\+\_\+lzma1\+\_\+decoder\+::sequence}
+
+
+
+Position where to continue the decoder loop. 
+
+\mbox{\label{structlzma__lzma1__decoder_a75b52f12fd437639b4ea7bf414580f87}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!probs@{probs}}
+\index{probs@{probs}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{probs}
+{\footnotesize\ttfamily \textbf{ probability}$\ast$ lzma\+\_\+lzma1\+\_\+decoder\+::probs}
+
+
+
+Base of the current probability tree. 
+
+\mbox{\label{structlzma__lzma1__decoder_acec48be148d537f47983bccf418d33b4}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!symbol@{symbol}}
+\index{symbol@{symbol}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{symbol}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::symbol}
+
+Symbol being decoded. This is also used as an index variable in bittree decoders\+: probs[symbol] \mbox{\label{structlzma__lzma1__decoder_ab6b5100f52577a7f0348daaaf61c9bc2}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!limit@{limit}}
+\index{limit@{limit}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{limit}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::limit}
+
+Used as a loop termination condition on bittree decoders and direct bits decoder. \mbox{\label{structlzma__lzma1__decoder_a95168419caba102fe373557746eaa44b}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!offset@{offset}}
+\index{offset@{offset}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{offset}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::offset}
+
+Matched literal decoder\+: 0x100 or 0 to help avoiding branches. Bittree reverse decoders\+: Offset of the next bit\+: 1 $<$$<$ offset \mbox{\label{structlzma__lzma1__decoder_aeb443ed5a01c6cecae9eddd924bc67d0}} 
+\index{lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}!len@{len}}
+\index{len@{len}!lzma\+\_\+lzma1\+\_\+decoder@{lzma\+\_\+lzma1\+\_\+decoder}}
+\subsubsection{len}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+lzma1\+\_\+decoder\+::len}
+
+If decoding a literal\+: match byte. If decoding a match\+: length of the match. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lzma/\textbf{ lzma\+\_\+decoder.\+c}\end{DoxyCompactItemize}

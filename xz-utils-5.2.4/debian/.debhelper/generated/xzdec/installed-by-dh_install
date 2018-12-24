@@ -1,0 +1,4 @@
+debian/tmp/usr/bin/xzdec
+debian/tmp/usr/bin/lzmadec
+debian/tmp/usr/share/man/man1/xzdec.1
+debian/tmp/usr/share/man/man1/lzmadec.1

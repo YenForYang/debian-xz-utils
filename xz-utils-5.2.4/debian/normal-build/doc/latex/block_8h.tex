@@ -1,0 +1,396 @@
+\section{liblzma/api/lzma/block.h File Reference}
+\label{block_8h}\index{liblzma/api/lzma/block.\+h@{liblzma/api/lzma/block.\+h}}
+
+
+.xz Block handling  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+block}
+\begin{DoxyCompactList}\small\item\em Options for the Block and Block Header encoders and decoders. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{block_8h_a9263c5b314592e658772e5eb83ffdd78}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+IN}~8
+\item 
+\mbox{\label{block_8h_af7a39189d0721c55313a401b63811e49}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX}~1024
+\item 
+\#define \textbf{ lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode}(b)~(((uint32\+\_\+t)(b) + 1) $\ast$ 4)
+\begin{DoxyCompactList}\small\item\em Decode the Block Header Size field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+header\+\_\+size} (\textbf{ lzma\+\_\+block} $\ast$block) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Calculate Block Header Size. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+header\+\_\+encode} (const \textbf{ lzma\+\_\+block} $\ast$block, uint8\+\_\+t $\ast$out) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Encode Block Header. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+header\+\_\+decode} (\textbf{ lzma\+\_\+block} $\ast$block, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Decode Block Header. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+compressed\+\_\+size} (\textbf{ lzma\+\_\+block} $\ast$block, \textbf{ lzma\+\_\+vli} unpadded\+\_\+size) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Validate and set Compressed Size according to Unpadded Size. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ lzma\+\_\+block\+\_\+unpadded\+\_\+size} (const \textbf{ lzma\+\_\+block} $\ast$block) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+pure
+\begin{DoxyCompactList}\small\item\em Calculate Unpadded Size. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ lzma\+\_\+block\+\_\+total\+\_\+size} (const \textbf{ lzma\+\_\+block} $\ast$block) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+pure
+\begin{DoxyCompactList}\small\item\em Calculate the total encoded size of a Block. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+encoder} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, \textbf{ lzma\+\_\+block} $\ast$block) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Initialize .xz Block encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+decoder} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, \textbf{ lzma\+\_\+block} $\ast$block) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Initialize .xz Block decoder. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ lzma\+\_\+block\+\_\+buffer\+\_\+bound} (size\+\_\+t uncompressed\+\_\+size) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Calculate maximum output size for single-\/call Block encoding. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+buffer\+\_\+encode} (\textbf{ lzma\+\_\+block} $\ast$block, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$out, size\+\_\+t $\ast$out\+\_\+pos, size\+\_\+t out\+\_\+size) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Block encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+uncomp\+\_\+encode} (\textbf{ lzma\+\_\+block} $\ast$block, const uint8\+\_\+t $\ast$in, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$out, size\+\_\+t $\ast$out\+\_\+pos, size\+\_\+t out\+\_\+size) lzma\+\_\+nothrow lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result
+\begin{DoxyCompactList}\small\item\em Single-\/call uncompressed .xz Block encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+buffer\+\_\+decode} (\textbf{ lzma\+\_\+block} $\ast$block, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in, size\+\_\+t $\ast$in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$out, size\+\_\+t $\ast$out\+\_\+pos, size\+\_\+t out\+\_\+size) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Block decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+.xz Block handling 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{block_8h_ac025c940683a70f4c7f956bad814fd5f}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode}}
+\index{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode}
+{\footnotesize\ttfamily \#define lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode(\begin{DoxyParamCaption}\item[{}]{b }\end{DoxyParamCaption})~(((uint32\+\_\+t)(b) + 1) $\ast$ 4)}
+
+
+
+Decode the Block Header Size field. 
+
+To decode Block Header using \doxyref{lzma\+\_\+block\+\_\+header\+\_\+decode()}{p.}{block_8h_a7f5487c21a7b36a8bd17be36074d43c9}, the size of the Block Header has to be known and stored into \doxyref{lzma\+\_\+block.\+header\+\_\+size}{p.}{structlzma__block_a6689c4f7524b2c05772a2d6151138610}. The size can be calculated from the first byte of a Block using this macro. Note that if the first byte is 0x00, it indicates beginning of Index; use this macro only when the byte is not 0x00.
+
+There is no encoding macro, because Block Header encoder is enough for that. 
+
+Referenced by lzma\+\_\+block\+\_\+header\+\_\+decode().
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+header\+\_\+size@{lzma\+\_\+block\+\_\+header\+\_\+size}}
+\index{lzma\+\_\+block\+\_\+header\+\_\+size@{lzma\+\_\+block\+\_\+header\+\_\+size}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+header\+\_\+size()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+header\+\_\+size (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Calculate Block Header Size. 
+
+Calculate the minimum size needed for the Block Header field using the settings specified in the \doxyref{lzma\+\_\+block}{p.}{structlzma__block} structure. Note that it is OK to increase the calculated header\+\_\+size value as long as it is a multiple of four and doesn\textquotesingle{}t exceed L\+Z\+M\+A\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX. Increasing header\+\_\+size just means that \doxyref{lzma\+\_\+block\+\_\+header\+\_\+encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} will add Header Padding.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Size calculated successfully and stored to block-\/$>$header\+\_\+size.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: Unsupported version, filters or filter options.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid values like compressed\+\_\+size == 0.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This doesn\textquotesingle{}t check that all the options are valid i.\+e. this may return L\+Z\+M\+A\+\_\+\+OK even if \doxyref{lzma\+\_\+block\+\_\+header\+\_\+encode()}{p.}{block_8h_a0eedbd6331d5708ea963260e6f2a92d0} or \doxyref{lzma\+\_\+block\+\_\+encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359} would fail. If you want to validate the filter chain, consider using lzma\+\_\+memlimit\+\_\+encoder() which as a side-\/effect validates the filter chain. 
+\end{DoxyNote}
+
+
+References lzma\+\_\+filter\+\_\+flags\+\_\+size(), L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX, L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, lzma\+\_\+vli\+\_\+size(), L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN, and return\+\_\+if\+\_\+error.
+
+\mbox{\label{block_8h_a0eedbd6331d5708ea963260e6f2a92d0}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+header\+\_\+encode@{lzma\+\_\+block\+\_\+header\+\_\+encode}}
+\index{lzma\+\_\+block\+\_\+header\+\_\+encode@{lzma\+\_\+block\+\_\+header\+\_\+encode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+header\+\_\+encode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+header\+\_\+encode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{uint8\+\_\+t $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Encode Block Header. 
+
+The caller must have calculated the size of the Block Header already with \doxyref{lzma\+\_\+block\+\_\+header\+\_\+size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd}. If a value larger than the one calculated by \doxyref{lzma\+\_\+block\+\_\+header\+\_\+size()}{p.}{block_8h_ae9b47abc872d0b02c2da9d3fa5a7dacd} is used, the Block Header will be padded to the specified size.
+
+
+\begin{DoxyParams}{Parameters}
+{\em out} & Beginning of the output buffer. This must be at least block-\/$>$header\+\_\+size bytes. \\
+\hline
+{\em block} & Block options to be encoded.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Encoding was successful. block-\/$>$header\+\_\+size bytes were written to output buffer.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: Invalid or unsupported options.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid arguments, for example block-\/$>$header\+\_\+size is invalid or block-\/$>$filters is N\+U\+LL. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+block\+\_\+unpadded\+\_\+size(), lzma\+\_\+filter\+\_\+flags\+\_\+encode(), L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, lzma\+\_\+vli\+\_\+encode(), lzma\+\_\+vli\+\_\+is\+\_\+valid, L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN, and return\+\_\+if\+\_\+error.
+
+\mbox{\label{block_8h_a7f5487c21a7b36a8bd17be36074d43c9}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+header\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+decode}}
+\index{lzma\+\_\+block\+\_\+header\+\_\+decode@{lzma\+\_\+block\+\_\+header\+\_\+decode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+header\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+header\+\_\+decode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in }\end{DoxyParamCaption})}
+
+
+
+Decode Block Header. 
+
+block-\/$>$version should (usually) be set to the highest value supported by the application. If the application sets block-\/$>$version to a value higher than supported by the current liblzma version, this function will downgrade block-\/$>$version to the highest value supported by it. Thus one should check the value of block-\/$>$version after calling this function if block-\/$>$version was set to a non-\/zero value and the application doesn\textquotesingle{}t otherwise know that the liblzma version being used is new enough to support the specified block-\/$>$version.
+
+The size of the Block Header must have already been decoded with \doxyref{lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode()}{p.}{block_8h_ac025c940683a70f4c7f956bad814fd5f} macro and stored to block-\/$>$header\+\_\+size.
+
+The integrity check type from Stream Header must have been stored to block-\/$>$check.
+
+block-\/$>$filters must have been allocated, but they don\textquotesingle{}t need to be initialized (possible existing filter options are not freed).
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Destination for Block options. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() (and also free() if an error occurs). \\
+\hline
+{\em in} & Beginning of the input buffer. This must be at least block-\/$>$header\+\_\+size bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Decoding was successful. block-\/$>$header\+\_\+size bytes were read from the input buffer.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: The Block Header specifies some unsupported options such as unsupported filters. This can happen also if block-\/$>$version was set to a too low value compared to what would be required to properly represent the information stored in the Block Header.
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR\+: Block Header is corrupt, for example, the C\+R\+C32 doesn\textquotesingle{}t match.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid arguments, for example block-\/$>$header\+\_\+size is invalid or block-\/$>$filters is N\+U\+LL. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+block\+\_\+header\+\_\+size\+\_\+decode, L\+Z\+M\+A\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+D\+\_\+\+M\+AX, lzma\+\_\+crc32(), L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, and L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN.
+
+\mbox{\label{block_8h_a6c3e102d76db06a07126a569abc6e2bc}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+compressed\+\_\+size@{lzma\+\_\+block\+\_\+compressed\+\_\+size}}
+\index{lzma\+\_\+block\+\_\+compressed\+\_\+size@{lzma\+\_\+block\+\_\+compressed\+\_\+size}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+compressed\+\_\+size()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+compressed\+\_\+size (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{\textbf{ lzma\+\_\+vli}}]{unpadded\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Validate and set Compressed Size according to Unpadded Size. 
+
+Block Header stores Compressed Size, but Index has Unpadded Size. If the application has already parsed the Index and is now decoding Blocks, it can calculate Compressed Size from Unpadded Size. This function does exactly that with error checking\+:
+
+
+\begin{DoxyItemize}
+\item Compressed Size calculated from Unpadded Size must be positive integer, that is, Unpadded Size must be big enough that after Block Header and Check fields there\textquotesingle{}s still at least one byte for Compressed Size.
+\item If Compressed Size was present in Block Header, the new value calculated from Unpadded Size is compared against the value from Block Header.
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Note}
+This function must be called {\itshape after} decoding the Block Header field so that it can properly validate Compressed Size if it was present in Block Header.
+\end{DoxyNote}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: block-\/$>$compressed\+\_\+size was set successfully.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR\+: unpadded\+\_\+size is too small compared to block-\/$>$header\+\_\+size and lzma\+\_\+check\+\_\+size(block-\/$>$check).
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Some values are invalid. For example, block-\/$>$header\+\_\+size must be a multiple of four and between 8 and 1024 inclusive. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+block\+\_\+unpadded\+\_\+size(), lzma\+\_\+check\+\_\+size(), L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR, and L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR.
+
+\mbox{\label{block_8h_a412d5605280fa29befae1b89e344bf30}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+unpadded\+\_\+size@{lzma\+\_\+block\+\_\+unpadded\+\_\+size}}
+\index{lzma\+\_\+block\+\_\+unpadded\+\_\+size@{lzma\+\_\+block\+\_\+unpadded\+\_\+size}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+unpadded\+\_\+size()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+block\+\_\+unpadded\+\_\+size (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Calculate Unpadded Size. 
+
+The Index field stores Unpadded Size and Uncompressed Size. The latter can be taken directly from the \doxyref{lzma\+\_\+block}{p.}{structlzma__block} structure after coding a Block, but Unpadded Size needs to be calculated from Block Header Size, Compressed Size, and size of the Check field. This is where this function is needed.
+
+\begin{DoxyReturn}{Returns}
+Unpadded Size on success, or zero on error. 
+\end{DoxyReturn}
+
+
+Referenced by lzma\+\_\+block\+\_\+compressed\+\_\+size(), lzma\+\_\+block\+\_\+header\+\_\+encode(), and lzma\+\_\+block\+\_\+total\+\_\+size().
+
+\mbox{\label{block_8h_a694424f9dfdd5151e01debac1c501fa9}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+total\+\_\+size@{lzma\+\_\+block\+\_\+total\+\_\+size}}
+\index{lzma\+\_\+block\+\_\+total\+\_\+size@{lzma\+\_\+block\+\_\+total\+\_\+size}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+total\+\_\+size()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+block\+\_\+total\+\_\+size (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Calculate the total encoded size of a Block. 
+
+This is equivalent to \doxyref{lzma\+\_\+block\+\_\+unpadded\+\_\+size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30} except that the returned value includes the size of the Block Padding field.
+
+\begin{DoxyReturn}{Returns}
+On success, total encoded size of the Block. On error, zero is returned. 
+\end{DoxyReturn}
+
+
+References lzma\+\_\+block\+\_\+unpadded\+\_\+size(), and L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN.
+
+\mbox{\label{block_8h_a2218a49025a0b44f9a6f9d6d24359359}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+encoder@{lzma\+\_\+block\+\_\+encoder}}
+\index{lzma\+\_\+block\+\_\+encoder@{lzma\+\_\+block\+\_\+encoder}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+encoder()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+encoder (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Initialize .xz Block encoder. 
+
+Valid actions for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\+Z\+M\+A\+\_\+\+R\+UN, L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH (only if the filter chain supports it), and L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: All good, continue with \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK\+: block-\/$>$check specifies a Check ID that is not supported by this buid of liblzma. Initializing the encoder failed.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+
+\mbox{\label{block_8h_aa92c73b2a228efe921fa2376aa7adc92}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+decoder@{lzma\+\_\+block\+\_\+decoder}}
+\index{lzma\+\_\+block\+\_\+decoder@{lzma\+\_\+block\+\_\+decoder}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+decoder()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+decoder (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Initialize .xz Block decoder. 
+
+Valid actions for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\+Z\+M\+A\+\_\+\+R\+UN and L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH. Using L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH is not required. It is supported only for convenience.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: All good, continue with \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK\+: Initialization was successful, but the given Check ID is not supported, thus Check will be ignored.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+
+\mbox{\label{block_8h_a58ff73e2572b529f48cc590bfffe5b4f}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+buffer\+\_\+bound@{lzma\+\_\+block\+\_\+buffer\+\_\+bound}}
+\index{lzma\+\_\+block\+\_\+buffer\+\_\+bound@{lzma\+\_\+block\+\_\+buffer\+\_\+bound}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+buffer\+\_\+bound()}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+block\+\_\+buffer\+\_\+bound (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{uncompressed\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Calculate maximum output size for single-\/call Block encoding. 
+
+This is equivalent to \doxyref{lzma\+\_\+stream\+\_\+buffer\+\_\+bound()}{p.}{container_8h_a66d4366a47b8332bff2a512f44f5c45e} but for .xz Blocks. See the documentation of \doxyref{lzma\+\_\+stream\+\_\+buffer\+\_\+bound()}{p.}{container_8h_a66d4366a47b8332bff2a512f44f5c45e}. \mbox{\label{block_8h_af415fa5130ab64e8760e9c39e856fa54}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+buffer\+\_\+encode@{lzma\+\_\+block\+\_\+buffer\+\_\+encode}}
+\index{lzma\+\_\+block\+\_\+buffer\+\_\+encode@{lzma\+\_\+block\+\_\+buffer\+\_\+encode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+buffer\+\_\+encode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+buffer\+\_\+encode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t $\ast$}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Single-\/call .xz Block encoder. 
+
+In contrast to the multi-\/call encoder initialized with \doxyref{lzma\+\_\+block\+\_\+encoder()}{p.}{block_8h_a2218a49025a0b44f9a6f9d6d24359359}, this function encodes also the Block Header. This is required to make it possible to write appropriate Block Header also in case the data isn\textquotesingle{}t compressible, and different filter chain has to be used to encode the data in uncompressed form using uncompressed chunks of the L\+Z\+M\+A2 filter.
+
+When the data isn\textquotesingle{}t compressible, header\+\_\+size, compressed\+\_\+size, and uncompressed\+\_\+size are set just like when the data was compressible, but it is possible that header\+\_\+size is too small to hold the filter chain specified in block-\/$>$filters, because that isn\textquotesingle{}t necessarily the filter chain that was actually used to encode the data. \doxyref{lzma\+\_\+block\+\_\+unpadded\+\_\+size()}{p.}{block_8h_a412d5605280fa29befae1b89e344bf30} still works normally, because it doesn\textquotesingle{}t read the filters array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Block options\+: block-\/$>$version, block-\/$>$check, and block-\/$>$filters must have been initialized. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\+\_\+size} & Size of the input buffer \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\+\_\+pos} & The next byte will be written to out[$\ast$out\+\_\+pos]. $\ast$out\+\_\+pos is updated only if encoding succeeds. \\
+\hline
+{\em out\+\_\+size} & Size of the out buffer; the first byte into which no data is written to is out[out\+\_\+size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Encoding was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR\+: Not enough output buffer space.
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\label{block_8h_a5a260f634ccd5f54fb98f570d8d92d8c}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+uncomp\+\_\+encode@{lzma\+\_\+block\+\_\+uncomp\+\_\+encode}}
+\index{lzma\+\_\+block\+\_\+uncomp\+\_\+encode@{lzma\+\_\+block\+\_\+uncomp\+\_\+encode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+uncomp\+\_\+encode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+uncomp\+\_\+encode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t $\ast$}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Single-\/call uncompressed .xz Block encoder. 
+
+This is like \doxyref{lzma\+\_\+block\+\_\+buffer\+\_\+encode()}{p.}{block_8h_af415fa5130ab64e8760e9c39e856fa54} except this doesn\textquotesingle{}t try to compress the data and instead encodes the data using L\+Z\+M\+A2 uncompressed chunks. The required output buffer size can be determined with \doxyref{lzma\+\_\+block\+\_\+buffer\+\_\+bound()}{p.}{block_8h_a58ff73e2572b529f48cc590bfffe5b4f}.
+
+Since the data won\textquotesingle{}t be compressed, this function ignores block-\/$>$filters. This function doesn\textquotesingle{}t take \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} because this function doesn\textquotesingle{}t allocate any memory from the heap. \mbox{\label{block_8h_a0c6eb869d91b08f68648b1aa7a32ee9f}} 
+\index{block.\+h@{block.\+h}!lzma\+\_\+block\+\_\+buffer\+\_\+decode@{lzma\+\_\+block\+\_\+buffer\+\_\+decode}}
+\index{lzma\+\_\+block\+\_\+buffer\+\_\+decode@{lzma\+\_\+block\+\_\+buffer\+\_\+decode}!block.\+h@{block.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+buffer\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+buffer\+\_\+decode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t $\ast$}]{in\+\_\+pos,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t $\ast$}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Single-\/call .xz Block decoder. 
+
+This is single-\/call equivalent of \doxyref{lzma\+\_\+block\+\_\+decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}, and requires that the caller has already decoded Block Header and checked its memory usage.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block} & Block options just like with \doxyref{lzma\+\_\+block\+\_\+decoder()}{p.}{block_8h_aa92c73b2a228efe921fa2376aa7adc92}. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\+\_\+pos} & The next byte will be read from in[$\ast$in\+\_\+pos]. $\ast$in\+\_\+pos is updated only if decoding succeeds. \\
+\hline
+{\em in\+\_\+size} & Size of the input buffer; the first byte that won\textquotesingle{}t be read is in[in\+\_\+size]. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\+\_\+pos} & The next byte will be written to out[$\ast$out\+\_\+pos]. $\ast$out\+\_\+pos is updated only if encoding succeeds. \\
+\hline
+{\em out\+\_\+size} & Size of the out buffer; the first byte into which no data is written to is out[out\+\_\+size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Decoding was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR\+: Output buffer was too small.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}

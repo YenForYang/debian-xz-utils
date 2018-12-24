@@ -1,0 +1,56 @@
+\section{liblzma/delta/delta\+\_\+encoder.c File Reference}
+\label{delta__encoder_8c}\index{liblzma/delta/delta\+\_\+encoder.\+c@{liblzma/delta/delta\+\_\+encoder.\+c}}
+
+
+Delta filter encoder.  
+
+
+{\ttfamily \#include \char`\"{}delta\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}delta\+\_\+private.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ copy\+\_\+and\+\_\+encode} (\textbf{ lzma\+\_\+delta\+\_\+coder} $\ast$coder, const uint8\+\_\+t $\ast$restrict in, uint8\+\_\+t $\ast$restrict out, size\+\_\+t size)
+\item 
+static void \textbf{ encode\+\_\+in\+\_\+place} (\textbf{ lzma\+\_\+delta\+\_\+coder} $\ast$coder, uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\item 
+\mbox{\label{delta__encoder_8c_a2f9f9d796b70c4bc87ab7541f4856bc1}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries delta\+\_\+encode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{delta__encoder_8c_a91a4d2febd5040799a2dbe08ac8794a2}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries delta\+\_\+encoder\+\_\+update} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$filters\+\_\+null \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+unused\+\_\+\+\_\+)), const \textbf{ lzma\+\_\+filter} $\ast$reversed\+\_\+filters)
+\item 
+\mbox{\label{delta__encoder_8c_af5ccd3ca86784025440893bc9867a208}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+delta\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{delta__encoder_8c_aeac2126d3a2fc0ab4e32a0d3b0e0fc9e}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+delta\+\_\+props\+\_\+encode} (const void $\ast$options, uint8\+\_\+t $\ast$out)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Delta filter encoder. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{delta__encoder_8c_af1b67fdab085152a5df9a2099c80f4d2}} 
+\index{delta\+\_\+encoder.\+c@{delta\+\_\+encoder.\+c}!copy\+\_\+and\+\_\+encode@{copy\+\_\+and\+\_\+encode}}
+\index{copy\+\_\+and\+\_\+encode@{copy\+\_\+and\+\_\+encode}!delta\+\_\+encoder.\+c@{delta\+\_\+encoder.\+c}}
+\subsubsection{copy\+\_\+and\+\_\+encode()}
+{\footnotesize\ttfamily static void copy\+\_\+and\+\_\+encode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+delta\+\_\+coder} $\ast$}]{coder,  }\item[{const uint8\+\_\+t $\ast$restrict}]{in,  }\item[{uint8\+\_\+t $\ast$restrict}]{out,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Copies and encodes the data at the same time. This is used when Delta is the first filter in the chain (and thus the last filter in the encoder\textquotesingle{}s filter stack). 
+
+References lzma\+\_\+delta\+\_\+coder\+::distance, lzma\+\_\+delta\+\_\+coder\+::history, and lzma\+\_\+delta\+\_\+coder\+::pos.
+
+\mbox{\label{delta__encoder_8c_a86159f5000d67ae70a39860ec7295fb4}} 
+\index{delta\+\_\+encoder.\+c@{delta\+\_\+encoder.\+c}!encode\+\_\+in\+\_\+place@{encode\+\_\+in\+\_\+place}}
+\index{encode\+\_\+in\+\_\+place@{encode\+\_\+in\+\_\+place}!delta\+\_\+encoder.\+c@{delta\+\_\+encoder.\+c}}
+\subsubsection{encode\+\_\+in\+\_\+place()}
+{\footnotesize\ttfamily static void encode\+\_\+in\+\_\+place (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+delta\+\_\+coder} $\ast$}]{coder,  }\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Encodes the data in place. This is used when we are the last filter in the chain (and thus non-\/last filter in the encoder\textquotesingle{}s filter stack). 
+
+References lzma\+\_\+delta\+\_\+coder\+::distance, lzma\+\_\+delta\+\_\+coder\+::history, and lzma\+\_\+delta\+\_\+coder\+::pos.
+

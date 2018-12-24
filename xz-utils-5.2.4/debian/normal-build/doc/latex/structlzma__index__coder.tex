@@ -1,0 +1,164 @@
+\section{lzma\+\_\+index\+\_\+coder Struct Reference}
+\label{structlzma__index__coder}\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__index__coder_a0abb38e624bd25f4d8f9a8c272f33d70}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+D\+I\+C\+A\+T\+OR}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+U\+NT}, 
+{\bfseries S\+E\+Q\+\_\+\+M\+E\+M\+U\+S\+A\+GE}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+P\+A\+D\+D\+ED}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+ED}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+N\+G\+\_\+\+I\+N\+IT}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+R\+C32}
+ \}
+\item 
+\mbox{\label{structlzma__index__coder_a86725ed3a3240be4643ebb20cece6c31}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+D\+I\+C\+A\+T\+OR}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+U\+NT}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+P\+A\+D\+D\+ED}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+ED}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+N\+E\+XT}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+R\+C32}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__index__coder_ad20bf31e12cef53f9cb7d0023208ba30}} 
+enum lzma\+\_\+index\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+uint64\+\_\+t \textbf{ memlimit}
+\begin{DoxyCompactList}\small\item\em Memory usage limit. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index} $\ast$ \textbf{ index}
+\begin{DoxyCompactList}\small\item\em Target Index. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index} $\ast$$\ast$ \textbf{ index\+\_\+ptr}
+\item 
+\textbf{ lzma\+\_\+vli} \textbf{ count}
+\begin{DoxyCompactList}\small\item\em Number of Records left to decode. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ unpadded\+\_\+size}
+\begin{DoxyCompactList}\small\item\em The most recent Unpadded Size field. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ uncompressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em The most recent Uncompressed Size field. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ pos}
+\begin{DoxyCompactList}\small\item\em Position in integers. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ crc32}
+\begin{DoxyCompactList}\small\item\em C\+R\+C32 of the List of Records field. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__index__coder_ab150094b3aad494a5dd46d0276a1a240}} 
+enum lzma\+\_\+index\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+const \textbf{ lzma\+\_\+index} $\ast$ \textbf{ index}
+\begin{DoxyCompactList}\small\item\em Index being encoded. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index\+\_\+iter} \textbf{ iter}
+\begin{DoxyCompactList}\small\item\em Iterator for the Index being encoded. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__index__coder_a042bd3572c62754b39ad41118a28a3fb}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!memlimit@{memlimit}}
+\index{memlimit@{memlimit}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{memlimit}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+index\+\_\+coder\+::memlimit}
+
+
+
+Memory usage limit. 
+
+\mbox{\label{structlzma__index__coder_a5fff9dfe18cb3fb2873a84f308722d1a}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!index@{index}}
+\index{index@{index}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{index\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index}$\ast$ lzma\+\_\+index\+\_\+coder\+::index}
+
+
+
+Target Index. 
+
+\mbox{\label{structlzma__index__coder_a64610d416abf4a8b6e9a5cb6c8c3c823}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!index\+\_\+ptr@{index\+\_\+ptr}}
+\index{index\+\_\+ptr@{index\+\_\+ptr}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{index\+\_\+ptr}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index}$\ast$$\ast$ lzma\+\_\+index\+\_\+coder\+::index\+\_\+ptr}
+
+Pointer give by the application, which is set after successful decoding. \mbox{\label{structlzma__index__coder_a0ed7f3e1e7058f9794f37db539a33162}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!count@{count}}
+\index{count@{count}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{count}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+coder\+::count}
+
+
+
+Number of Records left to decode. 
+
+\mbox{\label{structlzma__index__coder_a04c6772cbdecd173db1e6c13a38d297a}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!unpadded\+\_\+size@{unpadded\+\_\+size}}
+\index{unpadded\+\_\+size@{unpadded\+\_\+size}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{unpadded\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+coder\+::unpadded\+\_\+size}
+
+
+
+The most recent Unpadded Size field. 
+
+\mbox{\label{structlzma__index__coder_a18dd77a2be26af1b36d9b8bcd394d30e}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+coder\+::uncompressed\+\_\+size}
+
+
+
+The most recent Uncompressed Size field. 
+
+\mbox{\label{structlzma__index__coder_ad95d36e40ff3ccf5ea0c92ad49aa7c66}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+index\+\_\+coder\+::pos}
+
+
+
+Position in integers. 
+
+\mbox{\label{structlzma__index__coder_adf63e83bff9998c0a3f1d3fafb5d6477}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!crc32@{crc32}}
+\index{crc32@{crc32}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{crc32}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+index\+\_\+coder\+::crc32}
+
+
+
+C\+R\+C32 of the List of Records field. 
+
+\mbox{\label{structlzma__index__coder_ad977689944cd04f670564a297957f3a6}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!index@{index}}
+\index{index@{index}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{index\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \textbf{ lzma\+\_\+index}$\ast$ lzma\+\_\+index\+\_\+coder\+::index}
+
+
+
+Index being encoded. 
+
+\mbox{\label{structlzma__index__coder_a2175d032c156db3ec81737919c106c57}} 
+\index{lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}!iter@{iter}}
+\index{iter@{iter}!lzma\+\_\+index\+\_\+coder@{lzma\+\_\+index\+\_\+coder}}
+\subsubsection{iter}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index\+\_\+iter} lzma\+\_\+index\+\_\+coder\+::iter}
+
+
+
+Iterator for the Index being encoded. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ index\+\_\+decoder.\+c}\item 
+liblzma/common/\textbf{ index\+\_\+encoder.\+c}\end{DoxyCompactItemize}

@@ -1,0 +1,41 @@
+\section{liblzma/common/hardware\+\_\+physmem.c File Reference}
+\label{hardware__physmem_8c}\index{liblzma/common/hardware\+\_\+physmem.\+c@{liblzma/common/hardware\+\_\+physmem.\+c}}
+
+
+Get the total amount of physical memory (R\+AM)  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tuklib\+\_\+physmem.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+physmem} (void)
+\begin{DoxyCompactList}\small\item\em Get the total amount of physical memory (R\+AM) in bytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Get the total amount of physical memory (R\+AM) 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{hardware__physmem_8c_a8ee2d2a1660609ae1abbf3667b3b0945}} 
+\index{hardware\+\_\+physmem.\+c@{hardware\+\_\+physmem.\+c}!lzma\+\_\+physmem@{lzma\+\_\+physmem}}
+\index{lzma\+\_\+physmem@{lzma\+\_\+physmem}!hardware\+\_\+physmem.\+c@{hardware\+\_\+physmem.\+c}}
+\subsubsection{lzma\+\_\+physmem()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+physmem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the total amount of physical memory (R\+AM) in bytes. 
+
+This function may be useful when determining a reasonable memory usage limit for decompressing or how much memory it is OK to use for compressing.
+
+\begin{DoxyReturn}{Returns}
+On success, the total amount of physical memory in bytes is returned. If the amount of R\+AM cannot be determined, zero is returned. This can happen if an error occurs or if there is no code in liblzma to detect the amount of R\+AM on the specific operating system. 
+\end{DoxyReturn}
+
+
+Referenced by hardware\+\_\+init().
+

@@ -1,0 +1,81 @@
+\section{lzma\+\_\+outbuf Struct Reference}
+\label{structlzma__outbuf}\index{lzma\+\_\+outbuf@{lzma\+\_\+outbuf}}
+
+
+Output buffer for a single thread.  
+
+
+
+
+{\ttfamily \#include $<$outqueue.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \textbf{ buf}
+\begin{DoxyCompactList}\small\item\em Pointer to the output buffer of \doxyref{lzma\+\_\+outq.\+buf\+\_\+size\+\_\+max}{p.}{structlzma__outq_aa741e2f9a19eca0254314cd1004cc0ed} bytes. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ size}
+\begin{DoxyCompactList}\small\item\em Amount of data written to buf. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ unpadded\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Additional size information. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__outbuf_a6e7e2fc2aacaf32e62098f5e1128c4d6}} 
+\textbf{ lzma\+\_\+vli} {\bfseries uncompressed\+\_\+size}
+\item 
+bool \textbf{ finished}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Output buffer for a single thread. 
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__outbuf_ae2abf430df31a66ab013e7a483ed3011}} 
+\index{lzma\+\_\+outbuf@{lzma\+\_\+outbuf}!buf@{buf}}
+\index{buf@{buf}!lzma\+\_\+outbuf@{lzma\+\_\+outbuf}}
+\subsubsection{buf}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ lzma\+\_\+outbuf\+::buf}
+
+
+
+Pointer to the output buffer of \doxyref{lzma\+\_\+outq.\+buf\+\_\+size\+\_\+max}{p.}{structlzma__outq_aa741e2f9a19eca0254314cd1004cc0ed} bytes. 
+
+\mbox{\label{structlzma__outbuf_a4d201cade793dc09b3c8a6d49caf11ff}} 
+\index{lzma\+\_\+outbuf@{lzma\+\_\+outbuf}!size@{size}}
+\index{size@{size}!lzma\+\_\+outbuf@{lzma\+\_\+outbuf}}
+\subsubsection{size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+outbuf\+::size}
+
+
+
+Amount of data written to buf. 
+
+\mbox{\label{structlzma__outbuf_afb2b1422b8c0c7275fd515794a32ccf3}} 
+\index{lzma\+\_\+outbuf@{lzma\+\_\+outbuf}!unpadded\+\_\+size@{unpadded\+\_\+size}}
+\index{unpadded\+\_\+size@{unpadded\+\_\+size}!lzma\+\_\+outbuf@{lzma\+\_\+outbuf}}
+\subsubsection{unpadded\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+outbuf\+::unpadded\+\_\+size}
+
+
+
+Additional size information. 
+
+\mbox{\label{structlzma__outbuf_a19bf43c912ab386e93814268802d228c}} 
+\index{lzma\+\_\+outbuf@{lzma\+\_\+outbuf}!finished@{finished}}
+\index{finished@{finished}!lzma\+\_\+outbuf@{lzma\+\_\+outbuf}}
+\subsubsection{finished}
+{\footnotesize\ttfamily bool lzma\+\_\+outbuf\+::finished}
+
+True when no more data will be written into this buffer.
+
+\begin{DoxyNote}{Note}
+This is read by another thread and thus access to this variable needs a mutex. 
+\end{DoxyNote}
+
+
+Referenced by lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ outqueue.\+h}\end{DoxyCompactItemize}

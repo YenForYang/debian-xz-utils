@@ -1,0 +1,32 @@
+\section{common/tuklib\+\_\+gettext.h File Reference}
+\label{tuklib__gettext_8h}\index{common/tuklib\+\_\+gettext.\+h@{common/tuklib\+\_\+gettext.\+h}}
+
+
+Wrapper for gettext and friends.  
+
+
+{\ttfamily \#include \char`\"{}tuklib\+\_\+common.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$locale.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{tuklib__gettext_8h_ad23ab054473fd40860e25119a2ea9544}} 
+\#define {\bfseries T\+U\+K\+L\+I\+B\+\_\+\+G\+E\+T\+T\+E\+XT}~0
+\item 
+\mbox{\label{tuklib__gettext_8h_ae51f4118b9bd93c4df9606a63121f4f8}} 
+\#define {\bfseries tuklib\+\_\+gettext\+\_\+init}(package,  localedir)~setlocale(L\+C\+\_\+\+A\+LL, \char`\"{}\char`\"{})
+\item 
+\mbox{\label{tuklib__gettext_8h_a86a239addea586602343007a370bf8ad}} 
+\#define {\bfseries \+\_\+}(msgid)~(msgid)
+\item 
+\mbox{\label{tuklib__gettext_8h_a1db71b632cea57d33a14bafc237c6a70}} 
+\#define {\bfseries ngettext}(msgid1,  msgid2,  n)~((n) == 1 ? (msgid1) \+: (msgid2))
+\item 
+\mbox{\label{tuklib__gettext_8h_abdf0847bd8caa2c2247f5d9bc5e12982}} 
+\#define {\bfseries N\+\_\+}(msgid)~msgid
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper for gettext and friends. 
+

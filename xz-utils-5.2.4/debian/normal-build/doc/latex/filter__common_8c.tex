@@ -1,0 +1,115 @@
+\section{liblzma/common/filter\+\_\+common.c File Reference}
+\label{filter__common_8c}\index{liblzma/common/filter\+\_\+common.\+c@{liblzma/common/filter\+\_\+common.\+c}}
+
+
+Filter-\/specific stuff common for both encoder and decoder.  
+
+
+{\ttfamily \#include \char`\"{}filter\+\_\+common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+filters\+\_\+copy} (const \textbf{ lzma\+\_\+filter} $\ast$src, \textbf{ lzma\+\_\+filter} $\ast$dest, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Copy the filters array. \end{DoxyCompactList}\item 
+\mbox{\label{filter__common_8c_a86c7af045ea6eac6133d22c110d43ca2}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries validate\+\_\+chain} (const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, size\+\_\+t $\ast$count)
+\item 
+\mbox{\label{filter__common_8c_ae8e2c118f08911e9b2127541f0c560bf}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+raw\+\_\+coder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$options, lzma\+\_\+filter\+\_\+find coder\+\_\+find, bool is\+\_\+encoder)
+\item 
+\mbox{\label{filter__common_8c_a12438a58b047ffe81f8a5496421cc28c}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+raw\+\_\+coder\+\_\+memusage} (lzma\+\_\+filter\+\_\+find coder\+\_\+find, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{filter__common_8c_ab07da4108199cbfb9a4706edcfec973f}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\textbf{ lzma\_vli} \textbf{ id}\\
+\>\>{\em Filter ID. }\\
+\>size\_t \textbf{ options\_size}\\
+\>\>{\em Size of the filter-\/specific options structure. }\\
+\>bool \textbf{ non\_last\_ok}\\
+\>bool \textbf{ last\_ok}\\
+\>bool \textbf{ changes\_size}\\
+\} {\bfseries features} [$\,$]\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Filter-\/specific stuff common for both encoder and decoder. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{filter__common_8c_aa09ad537fa1b32183cf82b24a1f67422}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!lzma\+\_\+filters\+\_\+copy@{lzma\+\_\+filters\+\_\+copy}}
+\index{lzma\+\_\+filters\+\_\+copy@{lzma\+\_\+filters\+\_\+copy}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{lzma\+\_\+filters\+\_\+copy()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+filters\+\_\+copy (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+filter} $\ast$}]{src,  }\item[{\textbf{ lzma\+\_\+filter} $\ast$}]{dest,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+
+
+Copy the filters array. 
+
+Copy the Filter I\+Ds and filter-\/specific options from src to dest. Up to L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX filters are copied, plus the terminating .id == L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN. Thus, dest should have at least L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX + 1 elements space unless the caller knows that src is smaller than that.
+
+Unless the filter-\/specific options is N\+U\+LL, the Filter ID has to be supported by liblzma, because liblzma needs to know the size of every filter-\/specific options structure. The filter-\/specific options are not validated. If options is N\+U\+LL, any unsupported Filter I\+Ds are copied without returning an error.
+
+Old filter-\/specific options in dest are not freed, so dest doesn\textquotesingle{}t need to be initialized by the caller in any way.
+
+If an error occurs, memory possibly already allocated by this function is always freed.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: Unsupported Filter ID and its options is not N\+U\+LL.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: src or dest is N\+U\+LL. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{filter__common_8c_a3ee597b96b2ff619e515fac79a1ba1c5}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!id@{id}}
+\index{id@{id}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{id}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} id}
+
+
+
+Filter ID. 
+
+\mbox{\label{filter__common_8c_ae3be9ce6129a435b24496c57bc8141a6}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!options\+\_\+size@{options\+\_\+size}}
+\index{options\+\_\+size@{options\+\_\+size}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{options\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t options\+\_\+size}
+
+
+
+Size of the filter-\/specific options structure. 
+
+\mbox{\label{filter__common_8c_ad703ac63a7997112bb46bcb488bd83a5}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!non\+\_\+last\+\_\+ok@{non\+\_\+last\+\_\+ok}}
+\index{non\+\_\+last\+\_\+ok@{non\+\_\+last\+\_\+ok}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{non\+\_\+last\+\_\+ok}
+{\footnotesize\ttfamily bool non\+\_\+last\+\_\+ok}
+
+True if it is OK to use this filter as non-\/last filter in the chain. \mbox{\label{filter__common_8c_abccb55bd90f3f71fbeca1ca96f77fa40}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!last\+\_\+ok@{last\+\_\+ok}}
+\index{last\+\_\+ok@{last\+\_\+ok}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{last\+\_\+ok}
+{\footnotesize\ttfamily bool last\+\_\+ok}
+
+True if it is OK to use this filter as the last filter in the chain. \mbox{\label{filter__common_8c_ab49ba4b830db7487db6793b6bae9dc16}} 
+\index{filter\+\_\+common.\+c@{filter\+\_\+common.\+c}!changes\+\_\+size@{changes\+\_\+size}}
+\index{changes\+\_\+size@{changes\+\_\+size}!filter\+\_\+common.\+c@{filter\+\_\+common.\+c}}
+\subsubsection{changes\+\_\+size}
+{\footnotesize\ttfamily bool changes\+\_\+size}
+
+True if the filter may change the size of the data (that is, the amount of encoded output can be different than the amount of uncompressed input). 

@@ -1,0 +1,74 @@
+\section{liblzma/common/stream\+\_\+flags\+\_\+encoder.c File Reference}
+\label{stream__flags__encoder_8c}\index{liblzma/common/stream\+\_\+flags\+\_\+encoder.\+c@{liblzma/common/stream\+\_\+flags\+\_\+encoder.\+c}}
+
+
+Encodes Stream Header and Stream Footer for .xz files.  
+
+
+{\ttfamily \#include \char`\"{}stream\+\_\+flags\+\_\+common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{stream__flags__encoder_8c_accd4a19742fc30c8a53f79b4ab6d120a}} 
+static bool {\bfseries stream\+\_\+flags\+\_\+encode} (const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$options, uint8\+\_\+t $\ast$out)
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+header\+\_\+encode} (const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$options, uint8\+\_\+t $\ast$out)
+\begin{DoxyCompactList}\small\item\em Encode Stream Header. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+footer\+\_\+encode} (const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$options, uint8\+\_\+t $\ast$out)
+\begin{DoxyCompactList}\small\item\em Encode Stream Footer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes Stream Header and Stream Footer for .xz files. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{stream__flags__encoder_8c_abb4d5dc555c6d5588aabfe31a6788c92}} 
+\index{stream\+\_\+flags\+\_\+encoder.\+c@{stream\+\_\+flags\+\_\+encoder.\+c}!lzma\+\_\+stream\+\_\+header\+\_\+encode@{lzma\+\_\+stream\+\_\+header\+\_\+encode}}
+\index{lzma\+\_\+stream\+\_\+header\+\_\+encode@{lzma\+\_\+stream\+\_\+header\+\_\+encode}!stream\+\_\+flags\+\_\+encoder.\+c@{stream\+\_\+flags\+\_\+encoder.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+header\+\_\+encode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+header\+\_\+encode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$}]{options,  }\item[{uint8\+\_\+t $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Encode Stream Header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Stream Header options to be encoded. options-\/$>$backward\+\_\+size is ignored and doesn\textquotesingle{}t need to be initialized. \\
+\hline
+{\em out} & Beginning of the output buffer of L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Encoding was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: options-\/$>$version is not supported by this liblzma version.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid options. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\label{stream__flags__encoder_8c_a163fe11f845c5f0a637052fc00f7242c}} 
+\index{stream\+\_\+flags\+\_\+encoder.\+c@{stream\+\_\+flags\+\_\+encoder.\+c}!lzma\+\_\+stream\+\_\+footer\+\_\+encode@{lzma\+\_\+stream\+\_\+footer\+\_\+encode}}
+\index{lzma\+\_\+stream\+\_\+footer\+\_\+encode@{lzma\+\_\+stream\+\_\+footer\+\_\+encode}!stream\+\_\+flags\+\_\+encoder.\+c@{stream\+\_\+flags\+\_\+encoder.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+footer\+\_\+encode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+footer\+\_\+encode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$}]{options,  }\item[{uint8\+\_\+t $\ast$}]{out }\end{DoxyParamCaption})}
+
+
+
+Encode Stream Footer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em options} & Stream Footer options to be encoded. \\
+\hline
+{\em out} & Beginning of the output buffer of L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE bytes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Encoding was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: options-\/$>$version is not supported by this liblzma version.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid options. 
+\end{DoxyItemize}
+\end{DoxyReturn}

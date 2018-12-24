@@ -1,0 +1,13 @@
+Package: liblzma5-dbgsym
+Source: xz-utils
+Version: 5.2.4-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Jonathan Nieder <jrnieder@gmail.com>
+Installed-Size: 339
+Depends: liblzma5 (= 5.2.4-1)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for liblzma5
+Build-Ids: 2bbab191cd1b258db468652a4412723ab8a902dd

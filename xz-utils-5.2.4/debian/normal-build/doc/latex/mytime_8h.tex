@@ -1,0 +1,114 @@
+\section{xz/mytime.h File Reference}
+\label{mytime_8h}\index{xz/mytime.\+h@{xz/mytime.\+h}}
+
+
+Time handling functions.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ mytime\+\_\+set\+\_\+start\+\_\+time} (void)
+\begin{DoxyCompactList}\small\item\em Store the time when (de)compression was started. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ mytime\+\_\+get\+\_\+elapsed} (void)
+\begin{DoxyCompactList}\small\item\em Get the number of milliseconds since the operation started. \end{DoxyCompactList}\item 
+void \textbf{ mytime\+\_\+set\+\_\+flush\+\_\+time} (void)
+\begin{DoxyCompactList}\small\item\em Store the time of when compressor was flushed. \end{DoxyCompactList}\item 
+int \textbf{ mytime\+\_\+get\+\_\+flush\+\_\+timeout} (void)
+\begin{DoxyCompactList}\small\item\em Get the number of milliseconds until the next flush. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \textbf{ opt\+\_\+flush\+\_\+timeout}
+\begin{DoxyCompactList}\small\item\em Number of milliseconds to between L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+S\+Hes. \end{DoxyCompactList}\item 
+bool \textbf{ flush\+\_\+needed}
+\begin{DoxyCompactList}\small\item\em True when flushing is needed due to expired timeout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Time handling functions. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{mytime_8h_abc987b617c3d37bb64f26e2e6a1047f8}} 
+\index{mytime.\+h@{mytime.\+h}!mytime\+\_\+set\+\_\+start\+\_\+time@{mytime\+\_\+set\+\_\+start\+\_\+time}}
+\index{mytime\+\_\+set\+\_\+start\+\_\+time@{mytime\+\_\+set\+\_\+start\+\_\+time}!mytime.\+h@{mytime.\+h}}
+\subsubsection{mytime\+\_\+set\+\_\+start\+\_\+time()}
+{\footnotesize\ttfamily void mytime\+\_\+set\+\_\+start\+\_\+time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Store the time when (de)compression was started. 
+
+The start time is also stored as the time of the first flush. \mbox{\label{mytime_8h_a1cbb67212ba8955425ec3ae30f854964}} 
+\index{mytime.\+h@{mytime.\+h}!mytime\+\_\+get\+\_\+elapsed@{mytime\+\_\+get\+\_\+elapsed}}
+\index{mytime\+\_\+get\+\_\+elapsed@{mytime\+\_\+get\+\_\+elapsed}!mytime.\+h@{mytime.\+h}}
+\subsubsection{mytime\+\_\+get\+\_\+elapsed()}
+{\footnotesize\ttfamily uint64\+\_\+t mytime\+\_\+get\+\_\+elapsed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of milliseconds since the operation started. 
+
+
+
+References mytime\+\_\+now().
+
+
+
+Referenced by message\+\_\+progress\+\_\+update().
+
+\mbox{\label{mytime_8h_ade93cf3cf43b05f8cb67474ad7d7589f}} 
+\index{mytime.\+h@{mytime.\+h}!mytime\+\_\+set\+\_\+flush\+\_\+time@{mytime\+\_\+set\+\_\+flush\+\_\+time}}
+\index{mytime\+\_\+set\+\_\+flush\+\_\+time@{mytime\+\_\+set\+\_\+flush\+\_\+time}!mytime.\+h@{mytime.\+h}}
+\subsubsection{mytime\+\_\+set\+\_\+flush\+\_\+time()}
+{\footnotesize\ttfamily void mytime\+\_\+set\+\_\+flush\+\_\+time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Store the time of when compressor was flushed. 
+
+\mbox{\label{mytime_8h_ab0193efe1ad07b8eef17bbf712fbe788}} 
+\index{mytime.\+h@{mytime.\+h}!mytime\+\_\+get\+\_\+flush\+\_\+timeout@{mytime\+\_\+get\+\_\+flush\+\_\+timeout}}
+\index{mytime\+\_\+get\+\_\+flush\+\_\+timeout@{mytime\+\_\+get\+\_\+flush\+\_\+timeout}!mytime.\+h@{mytime.\+h}}
+\subsubsection{mytime\+\_\+get\+\_\+flush\+\_\+timeout()}
+{\footnotesize\ttfamily int mytime\+\_\+get\+\_\+flush\+\_\+timeout (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of milliseconds until the next flush. 
+
+This returns -\/1 if no timed flushing is used.
+
+The return value is inteded for use with poll(). 
+
+References opt\+\_\+flush\+\_\+timeout, and opt\+\_\+mode.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{mytime_8h_a8c313eb268d319b6a5e538628049333a}} 
+\index{mytime.\+h@{mytime.\+h}!opt\+\_\+flush\+\_\+timeout@{opt\+\_\+flush\+\_\+timeout}}
+\index{opt\+\_\+flush\+\_\+timeout@{opt\+\_\+flush\+\_\+timeout}!mytime.\+h@{mytime.\+h}}
+\subsubsection{opt\+\_\+flush\+\_\+timeout}
+{\footnotesize\ttfamily uint64\+\_\+t opt\+\_\+flush\+\_\+timeout}
+
+
+
+Number of milliseconds to between L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+S\+Hes. 
+
+If 0, timed flushing is disabled. Otherwise if no more input is available and not at the end of the file and at least opt\+\_\+flush\+\_\+timeout milliseconds has elapsed since the start of compression or the previous flushing (L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH or L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH), set L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH to flush the pending data. 
+
+Referenced by mytime\+\_\+get\+\_\+flush\+\_\+timeout().
+
+\mbox{\label{mytime_8h_ab6d388eefb45931239a4c197f6f70899}} 
+\index{mytime.\+h@{mytime.\+h}!flush\+\_\+needed@{flush\+\_\+needed}}
+\index{flush\+\_\+needed@{flush\+\_\+needed}!mytime.\+h@{mytime.\+h}}
+\subsubsection{flush\+\_\+needed}
+{\footnotesize\ttfamily bool flush\+\_\+needed}
+
+
+
+True when flushing is needed due to expired timeout. 
+

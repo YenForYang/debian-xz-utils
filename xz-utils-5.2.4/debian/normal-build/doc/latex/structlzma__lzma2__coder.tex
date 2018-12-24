@@ -1,0 +1,162 @@
+\section{lzma\+\_\+lzma2\+\_\+coder Struct Reference}
+\label{structlzma__lzma2__coder}\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__lzma2__coder_a5783031fb721760d9f0dfdfebee3a267}} 
+enum {\bfseries sequence} \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+N\+T\+R\+OL}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+1}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+2}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+0}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+1}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+R\+O\+P\+E\+R\+T\+I\+ES}, 
+{\bfseries S\+E\+Q\+\_\+\+L\+Z\+MA}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+PY}
+ \}
+\item 
+\mbox{\label{structlzma__lzma2__coder_a420da3c06b5e399601172156aa1c679b}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+IT}, 
+{\bfseries S\+E\+Q\+\_\+\+L\+Z\+M\+A\+\_\+\+E\+N\+C\+O\+DE}, 
+{\bfseries S\+E\+Q\+\_\+\+L\+Z\+M\+A\+\_\+\+C\+O\+PY}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+\+H\+E\+A\+D\+ER}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+E\+D\+\_\+\+C\+O\+PY}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__lzma2__coder_a9e3b593bbaf166bd23061c2413fc2a38}} 
+enum lzma\+\_\+lzma2\+\_\+coder\+::sequence {\bfseries sequence}
+\item 
+enum sequence \textbf{ next\+\_\+sequence}
+\begin{DoxyCompactList}\small\item\em Sequence after the size fields have been decoded. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+lz\+\_\+decoder} \textbf{ lzma}
+\begin{DoxyCompactList}\small\item\em L\+Z\+MA decoder. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ uncompressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Uncompressed size of L\+Z\+MA chunk. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ compressed\+\_\+size}
+\item 
+bool \textbf{ need\+\_\+properties}
+\item 
+bool \textbf{ need\+\_\+dictionary\+\_\+reset}
+\item 
+\mbox{\label{structlzma__lzma2__coder_abda90d419c7d19a6017be58050ee3362}} 
+\textbf{ lzma\+\_\+options\+\_\+lzma} {\bfseries options}
+\item 
+\mbox{\label{structlzma__lzma2__coder_ae297df7d587247891e52656f15ab4093}} 
+enum lzma\+\_\+lzma2\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+void $\ast$ \textbf{ lzma}
+\begin{DoxyCompactList}\small\item\em L\+Z\+MA encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+options\+\_\+lzma} \textbf{ opt\+\_\+cur}
+\begin{DoxyCompactList}\small\item\em L\+Z\+MA options currently in use. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__lzma2__coder_ac24d7971d794da94874082f3e8d5ace1}} 
+bool {\bfseries need\+\_\+state\+\_\+reset}
+\item 
+size\+\_\+t \textbf{ buf\+\_\+pos}
+\begin{DoxyCompactList}\small\item\em Read position in buf[]. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ buf} [\textbf{ L\+Z\+M\+A2\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+M\+AX}+\textbf{ L\+Z\+M\+A2\+\_\+\+C\+H\+U\+N\+K\+\_\+\+M\+AX}]
+\begin{DoxyCompactList}\small\item\em Buffer to hold the chunk header and L\+Z\+MA compressed data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__lzma2__coder_aa77106ac23877460518734303303b1fb}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!next\+\_\+sequence@{next\+\_\+sequence}}
+\index{next\+\_\+sequence@{next\+\_\+sequence}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{next\+\_\+sequence}
+{\footnotesize\ttfamily enum sequence lzma\+\_\+lzma2\+\_\+coder\+::next\+\_\+sequence}
+
+
+
+Sequence after the size fields have been decoded. 
+
+\mbox{\label{structlzma__lzma2__coder_aa7cf8d8055328d154484d8bc716f05d2}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!lzma@{lzma}}
+\index{lzma@{lzma}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{lzma\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+lz\+\_\+decoder} lzma\+\_\+lzma2\+\_\+coder\+::lzma}
+
+
+
+L\+Z\+MA decoder. 
+
+\mbox{\label{structlzma__lzma2__coder_a1558ad9a752833c358853db74ae0e478}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+lzma2\+\_\+coder\+::uncompressed\+\_\+size}
+
+
+
+Uncompressed size of L\+Z\+MA chunk. 
+
+Uncompressed size of a chunk. \mbox{\label{structlzma__lzma2__coder_ae96a9e28e8d7617be943a345d4ceeda9}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!compressed\+\_\+size@{compressed\+\_\+size}}
+\index{compressed\+\_\+size@{compressed\+\_\+size}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{compressed\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+lzma2\+\_\+coder\+::compressed\+\_\+size}
+
+Compressed size of the chunk (naturally equals to uncompressed size of uncompressed chunk)
+
+Compressed size of a chunk (excluding headers); this is also used to indicate the end of buf[] in S\+E\+Q\+\_\+\+L\+Z\+M\+A\+\_\+\+C\+O\+PY. \mbox{\label{structlzma__lzma2__coder_a4e9424a68320a3725615e07ba65fbbe9}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!need\+\_\+properties@{need\+\_\+properties}}
+\index{need\+\_\+properties@{need\+\_\+properties}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{need\+\_\+properties}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma2\+\_\+coder\+::need\+\_\+properties}
+
+True if properties are needed. This is false before the first L\+Z\+MA chunk. \mbox{\label{structlzma__lzma2__coder_ae76f251ce4e5a72efc80f048a63ed694}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!need\+\_\+dictionary\+\_\+reset@{need\+\_\+dictionary\+\_\+reset}}
+\index{need\+\_\+dictionary\+\_\+reset@{need\+\_\+dictionary\+\_\+reset}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{need\+\_\+dictionary\+\_\+reset}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma2\+\_\+coder\+::need\+\_\+dictionary\+\_\+reset}
+
+True if dictionary reset is needed. This is false before the first chunk (L\+Z\+MA or uncompressed). \mbox{\label{structlzma__lzma2__coder_a9b7cc5edf67bc4bd89794a0e4f215d33}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!lzma@{lzma}}
+\index{lzma@{lzma}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{lzma\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+lzma2\+\_\+coder\+::lzma}
+
+
+
+L\+Z\+MA encoder. 
+
+\mbox{\label{structlzma__lzma2__coder_a83064090ed5b39899716c9e0a519098a}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!opt\+\_\+cur@{opt\+\_\+cur}}
+\index{opt\+\_\+cur@{opt\+\_\+cur}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{opt\+\_\+cur}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+options\+\_\+lzma} lzma\+\_\+lzma2\+\_\+coder\+::opt\+\_\+cur}
+
+
+
+L\+Z\+MA options currently in use. 
+
+\mbox{\label{structlzma__lzma2__coder_a29b0cdea4023238f663b684331c7f83f}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!buf\+\_\+pos@{buf\+\_\+pos}}
+\index{buf\+\_\+pos@{buf\+\_\+pos}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{buf\+\_\+pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+lzma2\+\_\+coder\+::buf\+\_\+pos}
+
+
+
+Read position in buf[]. 
+
+\mbox{\label{structlzma__lzma2__coder_a347c90a07f86dc0e2d48dd0578e64407}} 
+\index{lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}!buf@{buf}}
+\index{buf@{buf}!lzma\+\_\+lzma2\+\_\+coder@{lzma\+\_\+lzma2\+\_\+coder}}
+\subsubsection{buf}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+lzma2\+\_\+coder\+::buf[\textbf{ L\+Z\+M\+A2\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+M\+AX}+\textbf{ L\+Z\+M\+A2\+\_\+\+C\+H\+U\+N\+K\+\_\+\+M\+AX}]}
+
+
+
+Buffer to hold the chunk header and L\+Z\+MA compressed data. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lzma/\textbf{ lzma2\+\_\+decoder.\+c}\item 
+liblzma/lzma/\textbf{ lzma2\+\_\+encoder.\+c}\end{DoxyCompactItemize}

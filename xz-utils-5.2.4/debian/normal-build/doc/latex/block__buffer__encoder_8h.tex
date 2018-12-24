@@ -1,0 +1,28 @@
+\section{liblzma/common/block\+\_\+buffer\+\_\+encoder.h File Reference}
+\label{block__buffer__encoder_8h}\index{liblzma/common/block\+\_\+buffer\+\_\+encoder.\+h@{liblzma/common/block\+\_\+buffer\+\_\+encoder.\+h}}
+
+
+Single-\/call .xz Block encoder.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+block\+\_\+buffer\+\_\+bound64} (uint64\+\_\+t uncompressed\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call .xz Block encoder. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{block__buffer__encoder_8h_a1fbb846b46ee307a065f86777ce8994e}} 
+\index{block\+\_\+buffer\+\_\+encoder.\+h@{block\+\_\+buffer\+\_\+encoder.\+h}!lzma\+\_\+block\+\_\+buffer\+\_\+bound64@{lzma\+\_\+block\+\_\+buffer\+\_\+bound64}}
+\index{lzma\+\_\+block\+\_\+buffer\+\_\+bound64@{lzma\+\_\+block\+\_\+buffer\+\_\+bound64}!block\+\_\+buffer\+\_\+encoder.\+h@{block\+\_\+buffer\+\_\+encoder.\+h}}
+\subsubsection{lzma\+\_\+block\+\_\+buffer\+\_\+bound64()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+block\+\_\+buffer\+\_\+bound64 (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{uncompressed\+\_\+size }\end{DoxyParamCaption})}
+
+uint64\+\_\+t version of \doxyref{lzma\+\_\+block\+\_\+buffer\+\_\+bound()}{p.}{block_8h_a58ff73e2572b529f48cc590bfffe5b4f}. It is used by \doxyref{stream\+\_\+encoder\+\_\+mt.\+c}{p.}{stream__encoder__mt_8c}. Probably the original \doxyref{lzma\+\_\+block\+\_\+buffer\+\_\+bound()}{p.}{block_8h_a58ff73e2572b529f48cc590bfffe5b4f} should have been 64-\/bit, but fixing it would break the A\+BI. 

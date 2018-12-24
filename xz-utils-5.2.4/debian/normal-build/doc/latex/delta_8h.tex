@@ -1,0 +1,61 @@
+\section{liblzma/api/lzma/delta.h File Reference}
+\label{delta_8h}\index{liblzma/api/lzma/delta.\+h@{liblzma/api/lzma/delta.\+h}}
+
+
+Delta filter.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+options\+\_\+delta}
+\begin{DoxyCompactList}\small\item\em Options for the Delta filter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA}~\textbf{ L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+C}(0x03)
+\begin{DoxyCompactList}\small\item\em Filter ID. \end{DoxyCompactList}\item 
+\mbox{\label{delta_8h_a466886d9d01392f61bdf267687a4f96e}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+D\+E\+L\+T\+A\+\_\+\+D\+I\+S\+T\+\_\+\+M\+IN}~1
+\item 
+\mbox{\label{delta_8h_afdf8a5ce184ddf9f8070de637775da94}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+D\+E\+L\+T\+A\+\_\+\+D\+I\+S\+T\+\_\+\+M\+AX}~256
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ lzma\+\_\+delta\+\_\+type} \{ {\bfseries L\+Z\+M\+A\+\_\+\+D\+E\+L\+T\+A\+\_\+\+T\+Y\+P\+E\+\_\+\+B\+Y\+TE}
+ \}\begin{DoxyCompactList}\small\item\em Type of the delta calculation. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Delta filter. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{delta_8h_a7ced67235ad7a01ae31d32ecf1e634cb}} 
+\index{delta.\+h@{delta.\+h}!L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA@{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA}}
+\index{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA@{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA}!delta.\+h@{delta.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+D\+E\+L\+TA~\textbf{ L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+C}(0x03)}
+
+
+
+Filter ID. 
+
+Filter ID of the Delta filter. This is used as \doxyref{lzma\+\_\+filter.\+id}{p.}{structlzma__filter_aef1d9709759f39e61db77547b2326929}. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{delta_8h_a04d84d7fa6cefdc219b6e2e96ff36fe1}} 
+\index{delta.\+h@{delta.\+h}!lzma\+\_\+delta\+\_\+type@{lzma\+\_\+delta\+\_\+type}}
+\index{lzma\+\_\+delta\+\_\+type@{lzma\+\_\+delta\+\_\+type}!delta.\+h@{delta.\+h}}
+\subsubsection{lzma\+\_\+delta\+\_\+type}
+{\footnotesize\ttfamily enum \textbf{ lzma\+\_\+delta\+\_\+type}}
+
+
+
+Type of the delta calculation. 
+
+Currently only byte-\/wise delta is supported. Other possible types could be, for example, delta of 16/32/64-\/bit little/big endian integers, but these are not currently planned since byte-\/wise delta is almost as good. 

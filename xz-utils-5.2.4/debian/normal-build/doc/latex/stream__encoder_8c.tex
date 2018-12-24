@@ -1,0 +1,78 @@
+\section{liblzma/common/stream\+\_\+encoder.c File Reference}
+\label{stream__encoder_8c}\index{liblzma/common/stream\+\_\+encoder.\+c@{liblzma/common/stream\+\_\+encoder.\+c}}
+
+
+Encodes .xz Streams.  
+
+
+{\ttfamily \#include \char`\"{}block\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}index\+\_\+encoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+stream\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{stream__encoder_8c_a77a71d1353277558d6ab400d3d23291d}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries block\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+stream\+\_\+coder} $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{stream__encoder_8c_a25981c925db76813a0816e8e8cd7ad24}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{stream__encoder_8c_a24a29996a2e6672b0b68f727d0fdba05}} 
+static void {\bfseries stream\+\_\+encoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{stream__encoder_8c_a9e1e88fb7b024e87a96088c54a8434c6}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encoder\+\_\+update} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, const \textbf{ lzma\+\_\+filter} $\ast$reversed\+\_\+filters)
+\item 
+\mbox{\label{stream__encoder_8c_a69e4afab44e1134e34d66c4b08782f88}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries stream\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, \textbf{ lzma\+\_\+check} \textbf{ check})
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+encoder} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, \textbf{ lzma\+\_\+check} \textbf{ check})
+\begin{DoxyCompactList}\small\item\em Initialize .xz Stream encoder using a custom filter chain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encodes .xz Streams. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{stream__encoder_8c_a19acfa3822b05132cd81edc010fe2272}} 
+\index{stream\+\_\+encoder.\+c@{stream\+\_\+encoder.\+c}!lzma\+\_\+stream\+\_\+encoder@{lzma\+\_\+stream\+\_\+encoder}}
+\index{lzma\+\_\+stream\+\_\+encoder@{lzma\+\_\+stream\+\_\+encoder}!stream\+\_\+encoder.\+c@{stream\+\_\+encoder.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+encoder()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+encoder (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{const \textbf{ lzma\+\_\+filter} $\ast$}]{filters,  }\item[{\textbf{ lzma\+\_\+check}}]{check }\end{DoxyParamCaption})}
+
+
+
+Initialize .xz Stream encoder using a custom filter chain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em strm} & Pointer to properly prepared \doxyref{lzma\+\_\+stream}{p.}{structlzma__stream} \\
+\hline
+{\em filters} & Array of filters. This must be terminated with filters[n].id = L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN. See \doxyref{filter.\+h}{p.}{filter_8h} for more information. \\
+\hline
+{\em check} & Type of the integrity check to calculate from uncompressed data.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Initialization was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+
+
+
+Referenced by lzma\+\_\+easy\+\_\+encoder().
+

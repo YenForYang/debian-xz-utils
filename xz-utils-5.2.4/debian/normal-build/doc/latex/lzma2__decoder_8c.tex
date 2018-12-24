@@ -1,0 +1,41 @@
+\section{liblzma/lzma/lzma2\+\_\+decoder.c File Reference}
+\label{lzma2__decoder_8c}\index{liblzma/lzma/lzma2\+\_\+decoder.\+c@{liblzma/lzma/lzma2\+\_\+decoder.\+c}}
+
+
+L\+Z\+M\+A2 decoder.  
+
+
+{\ttfamily \#include \char`\"{}lzma2\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lz\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+lzma2\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma2__decoder_8c_a9b2dc535105e2316faacf58b727e970b}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma2\+\_\+decode} (void $\ast$coder\+\_\+ptr, \textbf{ lzma\+\_\+dict} $\ast$restrict dict, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size)
+\item 
+\mbox{\label{lzma2__decoder_8c_ae90fa982273378f8fca24813657b4c75}} 
+static void {\bfseries lzma2\+\_\+decoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{lzma2__decoder_8c_aebbbe22654e5dc8a8b806bc51eda6d3c}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma2\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+lz\+\_\+decoder} $\ast$lz, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const void $\ast$opt, \textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options)
+\item 
+\mbox{\label{lzma2__decoder_8c_a06f2420551164b6ef499499cbcafaa81}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma2\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{lzma2__decoder_8c_a1c1e1c878fab104400c9917efc2e2e1c}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma2\+\_\+decoder\+\_\+memusage} (const void $\ast$options)
+\item 
+\mbox{\label{lzma2__decoder_8c_ad31fbaf11f690275372ff5af82e98e67}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma2\+\_\+props\+\_\+decode} (void $\ast$$\ast$options, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$props, size\+\_\+t props\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+Z\+M\+A2 decoder. 
+

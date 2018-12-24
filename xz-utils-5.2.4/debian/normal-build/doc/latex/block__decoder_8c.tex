@@ -1,0 +1,67 @@
+\section{liblzma/common/block\+\_\+decoder.c File Reference}
+\label{block__decoder_8c}\index{liblzma/common/block\+\_\+decoder.\+c@{liblzma/common/block\+\_\+decoder.\+c}}
+
+
+Decodes .xz Blocks.  
+
+
+{\ttfamily \#include \char`\"{}block\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter\+\_\+decoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}check.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+block\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{block__decoder_8c_a8793f8ad70f26511dd4fb6c338359acb}} 
+static bool {\bfseries update\+\_\+size} (\textbf{ lzma\+\_\+vli} $\ast$size, \textbf{ lzma\+\_\+vli} add, \textbf{ lzma\+\_\+vli} limit)
+\item 
+\mbox{\label{block__decoder_8c_aa9e2ab4ca836f402ac676d43beca9e01}} 
+static bool {\bfseries is\+\_\+size\+\_\+valid} (\textbf{ lzma\+\_\+vli} size, \textbf{ lzma\+\_\+vli} reference)
+\item 
+\mbox{\label{block__decoder_8c_ad5a2e35b283b5299e6d53e996f502dc4}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries block\+\_\+decode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{block__decoder_8c_a4d69b128e583bc6e0cc1f3a3527443d2}} 
+static void {\bfseries block\+\_\+decoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{block__decoder_8c_a630ec5d1ef7b0618e3b3a9ced246faf3}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+block\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, \textbf{ lzma\+\_\+block} $\ast$block)
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+block\+\_\+decoder} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, \textbf{ lzma\+\_\+block} $\ast$block)
+\begin{DoxyCompactList}\small\item\em Initialize .xz Block decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes .xz Blocks. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{block__decoder_8c_a2a1807b69c59fc4bd87744647700eb2d}} 
+\index{block\+\_\+decoder.\+c@{block\+\_\+decoder.\+c}!lzma\+\_\+block\+\_\+decoder@{lzma\+\_\+block\+\_\+decoder}}
+\index{lzma\+\_\+block\+\_\+decoder@{lzma\+\_\+block\+\_\+decoder}!block\+\_\+decoder.\+c@{block\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+block\+\_\+decoder()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+block\+\_\+decoder (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm,  }\item[{\textbf{ lzma\+\_\+block} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Initialize .xz Block decoder. 
+
+Valid actions for \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} are L\+Z\+M\+A\+\_\+\+R\+UN and L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH. Using L\+Z\+M\+A\+\_\+\+F\+I\+N\+I\+SH is not required. It is supported only for convenience.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: All good, continue with \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK\+: Initialization was successful, but the given Check ID is not supported, thus Check will be ignored.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+References lzma\+\_\+next\+\_\+strm\+\_\+init.
+

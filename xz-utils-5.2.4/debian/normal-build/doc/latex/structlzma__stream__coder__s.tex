@@ -1,0 +1,204 @@
+\section{lzma\+\_\+stream\+\_\+coder\+\_\+s Struct Reference}
+\label{structlzma__stream__coder__s}\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__stream__coder__s_abe155bb33f9034bf60c5a9f56be53d99}} 
+enum \{ {\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+CK}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+D\+EX}, 
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+F\+O\+O\+T\+ER}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__stream__coder__s_a15e723e7d4a8a01eed6395380504272b}} 
+enum lzma\+\_\+stream\+\_\+coder\+\_\+s\+:: \{ ... \}  {\bfseries sequence}
+\item 
+size\+\_\+t \textbf{ block\+\_\+size}
+\item 
+\textbf{ lzma\+\_\+filter} \textbf{ filters} [\textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX}+1]
+\begin{DoxyCompactList}\small\item\em The filter chain currently in use. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index} $\ast$ \textbf{ index}
+\begin{DoxyCompactList}\small\item\em Index to hold sizes of the Blocks. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ index\+\_\+encoder}
+\begin{DoxyCompactList}\small\item\em Index encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+stream\+\_\+flags} \textbf{ stream\+\_\+flags}
+\begin{DoxyCompactList}\small\item\em Stream Flags for encoding the Stream Header and Stream Footer. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ header} [\textbf{ L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}]
+\begin{DoxyCompactList}\small\item\em Buffer to hold Stream Header and Stream Footer. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ header\+\_\+pos}
+\begin{DoxyCompactList}\small\item\em Read position in header[]. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+outq} \textbf{ outq}
+\begin{DoxyCompactList}\small\item\em Output buffer queue for compressed data. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ timeout}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ thread\+\_\+error}
+\begin{DoxyCompactList}\small\item\em Error code from a worker thread. \end{DoxyCompactList}\item 
+\textbf{ worker\+\_\+thread} $\ast$ \textbf{ threads}
+\begin{DoxyCompactList}\small\item\em Array of allocated thread-\/specific structures. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ threads\+\_\+max}
+\item 
+uint32\+\_\+t \textbf{ threads\+\_\+initialized}
+\item 
+\textbf{ worker\+\_\+thread} $\ast$ \textbf{ threads\+\_\+free}
+\item 
+\textbf{ worker\+\_\+thread} $\ast$ \textbf{ thr}
+\item 
+uint64\+\_\+t \textbf{ progress\+\_\+in}
+\item 
+uint64\+\_\+t \textbf{ progress\+\_\+out}
+\item 
+\mbox{\label{structlzma__stream__coder__s_a12041b888b47e2afea0b289a32ec616e}} 
+mythread\+\_\+mutex {\bfseries mutex}
+\item 
+\mbox{\label{structlzma__stream__coder__s_a6c8e775cf46e5f8d93b4b3338f8652e1}} 
+mythread\+\_\+cond {\bfseries cond}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__stream__coder__s_ade09c58010b68e2f7f8b47dc729f1a60}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!block\+\_\+size@{block\+\_\+size}}
+\index{block\+\_\+size@{block\+\_\+size}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{block\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::block\+\_\+size}
+
+Start a new Block every block\+\_\+size bytes of input unless L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH or L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER is used earlier. \mbox{\label{structlzma__stream__coder__s_a9f76f970af2de33e03cc43f1367cb918}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!filters@{filters}}
+\index{filters@{filters}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{filters}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+filter} lzma\+\_\+stream\+\_\+coder\+\_\+s\+::filters[\textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX}+1]}
+
+
+
+The filter chain currently in use. 
+
+\mbox{\label{structlzma__stream__coder__s_ab3bb4d170622a0fd5ea2b4f24c4f409c}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!index@{index}}
+\index{index@{index}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{index}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index}$\ast$ lzma\+\_\+stream\+\_\+coder\+\_\+s\+::index}
+
+
+
+Index to hold sizes of the Blocks. 
+
+\mbox{\label{structlzma__stream__coder__s_a68c3b6c8010a4fcbaf02442ca61316a1}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!index\+\_\+encoder@{index\+\_\+encoder}}
+\index{index\+\_\+encoder@{index\+\_\+encoder}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{index\+\_\+encoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+stream\+\_\+coder\+\_\+s\+::index\+\_\+encoder}
+
+
+
+Index encoder. 
+
+\mbox{\label{structlzma__stream__coder__s_af0c0c9981fa4a3429c2776585c759f81}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!stream\+\_\+flags@{stream\+\_\+flags}}
+\index{stream\+\_\+flags@{stream\+\_\+flags}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{stream\+\_\+flags}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+stream\+\_\+flags} lzma\+\_\+stream\+\_\+coder\+\_\+s\+::stream\+\_\+flags}
+
+
+
+Stream Flags for encoding the Stream Header and Stream Footer. 
+
+\mbox{\label{structlzma__stream__coder__s_a1689a58eecdd5c7f5b5e34e638a7a289}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!header@{header}}
+\index{header@{header}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{header}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::header[\textbf{ L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+ZE}]}
+
+
+
+Buffer to hold Stream Header and Stream Footer. 
+
+\mbox{\label{structlzma__stream__coder__s_af4105efdd0b0722ad4428c82ce65912a}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!header\+\_\+pos@{header\+\_\+pos}}
+\index{header\+\_\+pos@{header\+\_\+pos}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{header\+\_\+pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::header\+\_\+pos}
+
+
+
+Read position in header[]. 
+
+\mbox{\label{structlzma__stream__coder__s_a7504888af74013f9cf47191989061418}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!outq@{outq}}
+\index{outq@{outq}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{outq}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+outq} lzma\+\_\+stream\+\_\+coder\+\_\+s\+::outq}
+
+
+
+Output buffer queue for compressed data. 
+
+\mbox{\label{structlzma__stream__coder__s_aead7c40074a6cffc4ceb382a203cee80}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!timeout@{timeout}}
+\index{timeout@{timeout}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{timeout}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::timeout}
+
+Maximum wait time if cannot use all the input and cannot fill the output buffer. This is in milliseconds. \mbox{\label{structlzma__stream__coder__s_ad000e335a0e4a3918bc05f4d5cbff4f6}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!thread\+\_\+error@{thread\+\_\+error}}
+\index{thread\+\_\+error@{thread\+\_\+error}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{thread\+\_\+error}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+coder\+\_\+s\+::thread\+\_\+error}
+
+
+
+Error code from a worker thread. 
+
+\mbox{\label{structlzma__stream__coder__s_ae69c31887d32900dfaaa62c33407bc15}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!threads@{threads}}
+\index{threads@{threads}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{threads}
+{\footnotesize\ttfamily \textbf{ worker\+\_\+thread}$\ast$ lzma\+\_\+stream\+\_\+coder\+\_\+s\+::threads}
+
+
+
+Array of allocated thread-\/specific structures. 
+
+\mbox{\label{structlzma__stream__coder__s_af1a1a27b2bbced747ecc06b07f3cd3ea}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!threads\+\_\+max@{threads\+\_\+max}}
+\index{threads\+\_\+max@{threads\+\_\+max}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{threads\+\_\+max}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::threads\+\_\+max}
+
+Number of structures in \char`\"{}threads\char`\"{} above. This is also the number of threads that will be created at maximum. \mbox{\label{structlzma__stream__coder__s_aee6489a39fbf768d4d846cff0064751b}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!threads\+\_\+initialized@{threads\+\_\+initialized}}
+\index{threads\+\_\+initialized@{threads\+\_\+initialized}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{threads\+\_\+initialized}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::threads\+\_\+initialized}
+
+Number of thread structures that have been initialized, and thus the number of worker threads actually created so far. \mbox{\label{structlzma__stream__coder__s_abaa647d730101c8a8d46aa5dea38b3d0}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!threads\+\_\+free@{threads\+\_\+free}}
+\index{threads\+\_\+free@{threads\+\_\+free}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{threads\+\_\+free}
+{\footnotesize\ttfamily \textbf{ worker\+\_\+thread}$\ast$ lzma\+\_\+stream\+\_\+coder\+\_\+s\+::threads\+\_\+free}
+
+Stack of free threads. When a thread finishes, it puts itself back into this stack. This starts as empty because threads are created only when actually needed. \mbox{\label{structlzma__stream__coder__s_a8eb918678d4fcd59b79abece52438e01}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!thr@{thr}}
+\index{thr@{thr}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{thr}
+{\footnotesize\ttfamily \textbf{ worker\+\_\+thread}$\ast$ lzma\+\_\+stream\+\_\+coder\+\_\+s\+::thr}
+
+The most recent worker thread to which the main thread writes the new input from the application. \mbox{\label{structlzma__stream__coder__s_ab29391437d9e3cc8fdc4cff68b0c4a95}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!progress\+\_\+in@{progress\+\_\+in}}
+\index{progress\+\_\+in@{progress\+\_\+in}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{progress\+\_\+in}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::progress\+\_\+in}
+
+Amount of uncompressed data in Blocks that have already been finished. \mbox{\label{structlzma__stream__coder__s_a5ebef6b7ef1b47b17ed2bccab56cf3e9}} 
+\index{lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}!progress\+\_\+out@{progress\+\_\+out}}
+\index{progress\+\_\+out@{progress\+\_\+out}!lzma\+\_\+stream\+\_\+coder\+\_\+s@{lzma\+\_\+stream\+\_\+coder\+\_\+s}}
+\subsubsection{progress\+\_\+out}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+stream\+\_\+coder\+\_\+s\+::progress\+\_\+out}
+
+Amount of compressed data in Stream Header + Blocks that have already been finished. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ stream\+\_\+encoder\+\_\+mt.\+c}\end{DoxyCompactItemize}

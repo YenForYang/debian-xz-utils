@@ -1,0 +1,152 @@
+\section{xz/options.c File Reference}
+\label{options_8c}\index{xz/options.\+c@{xz/options.\+c}}
+
+
+Parser for filter-\/specific options.  
+
+
+{\ttfamily \#include \char`\"{}private.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ name\+\_\+id\+\_\+map}
+\item 
+struct \textbf{ option\+\_\+map}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{options_8c_ae4d5251432e1a9e6803c0240cc492e18}} 
+enum \{ {\bfseries O\+P\+T\+\_\+\+D\+I\+ST}
+ \}
+\item 
+\mbox{\label{options_8c_a7ff5f2dff38e7639981794c43dc9167b}} 
+enum \{ {\bfseries O\+P\+T\+\_\+\+S\+T\+A\+R\+T\+\_\+\+O\+F\+F\+S\+ET}
+ \}
+\item 
+\mbox{\label{options_8c_aabfcbcb5ac86a1edac4035264bc7d2b8}} 
+enum \{ \newline
+{\bfseries O\+P\+T\+\_\+\+P\+R\+E\+S\+ET}, 
+{\bfseries O\+P\+T\+\_\+\+D\+I\+CT}, 
+{\bfseries O\+P\+T\+\_\+\+LC}, 
+{\bfseries O\+P\+T\+\_\+\+LP}, 
+\newline
+{\bfseries O\+P\+T\+\_\+\+PB}, 
+{\bfseries O\+P\+T\+\_\+\+M\+O\+DE}, 
+{\bfseries O\+P\+T\+\_\+\+N\+I\+CE}, 
+{\bfseries O\+P\+T\+\_\+\+MF}, 
+\newline
+{\bfseries O\+P\+T\+\_\+\+D\+E\+P\+TH}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ parse\+\_\+options} (const char $\ast$str, const \textbf{ option\+\_\+map} $\ast$opts, void($\ast$set)(void $\ast$filter\+\_\+options, unsigned key, uint64\+\_\+t value, const char $\ast$valuestr), void $\ast$filter\+\_\+options)
+\item 
+\mbox{\label{options_8c_ac3913d1fbeefd478d996e2c2a34a9c9c}} 
+static void {\bfseries set\+\_\+delta} (void $\ast$options, unsigned key, uint64\+\_\+t value, const char $\ast$valuestr \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+unused\+\_\+\+\_\+)))
+\item 
+\textbf{ lzma\+\_\+options\+\_\+delta} $\ast$ \textbf{ options\+\_\+delta} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for Delta options. \end{DoxyCompactList}\item 
+\mbox{\label{options_8c_af6b8ba410f28688130095e704aad6172}} 
+static void {\bfseries set\+\_\+bcj} (void $\ast$options, unsigned key, uint64\+\_\+t value, const char $\ast$valuestr \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+unused\+\_\+\+\_\+)))
+\item 
+\textbf{ lzma\+\_\+options\+\_\+bcj} $\ast$ \textbf{ options\+\_\+bcj} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for B\+CJ options. \end{DoxyCompactList}\item 
+\mbox{\label{options_8c_a1957d0c8f6ec2eb4950e67226425ee7c}} 
+static void {\bfseries lzma\+\_\+attribute} ((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\item 
+\mbox{\label{options_8c_a16b1232f2f40a8a9a96cc5985898a58d}} 
+static void {\bfseries set\+\_\+lzma} (void $\ast$options, unsigned key, uint64\+\_\+t value, const char $\ast$valuestr)
+\item 
+\textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$ \textbf{ options\+\_\+lzma} (const char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Parser for L\+Z\+MA options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parser for filter-\/specific options. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{options_8c_a329ca50e0955eb59fcda39617f76b202}} 
+\index{options.\+c@{options.\+c}!parse\+\_\+options@{parse\+\_\+options}}
+\index{parse\+\_\+options@{parse\+\_\+options}!options.\+c@{options.\+c}}
+\subsubsection{parse\+\_\+options()}
+{\footnotesize\ttfamily static void parse\+\_\+options (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str,  }\item[{const \textbf{ option\+\_\+map} $\ast$}]{opts,  }\item[{void($\ast$)(void $\ast$filter\+\_\+options, unsigned key, uint64\+\_\+t value, const char $\ast$valuestr)}]{set,  }\item[{void $\ast$}]{filter\+\_\+options }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Parses option=value pairs that are separated with commas\+: opt=val,opt=val,opt=val
+
+Each option is a string, that is converted to an integer using the index where the option string is in the array.
+
+Value can be
+\begin{DoxyItemize}
+\item a string-\/id map mapping a list of possible string values to integers (opts[i].map != N\+U\+LL, opts[i].min and opts[i].max are ignored);
+\item a number with minimum and maximum value limit (opts[i].map == N\+U\+LL \&\& opts[i].min != U\+I\+N\+T64\+\_\+\+M\+AX);
+\item a string that will be parsed by the filter-\/specific code (opts[i].map == N\+U\+LL \&\& opts[i].min == U\+I\+N\+T64\+\_\+\+M\+AX, opts[i].max ignored)
+\end{DoxyItemize}
+
+When parsing both option and value succeed, a filter-\/specific function is called, which should update the given value to filter-\/specific options structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String containing the options from the command line \\
+\hline
+{\em opts} & Filter-\/specific option map \\
+\hline
+{\em set} & Filter-\/specific function to update filter\+\_\+options \\
+\hline
+{\em filter\+\_\+options} & Pointer to filter-\/specific options structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns only if no errors occur. 
+\end{DoxyReturn}
+
+
+References message\+\_\+fatal(), and xstrdup().
+
+\mbox{\label{options_8c_aeb75b1d0565a4c9372b2ff3d7cbd6898}} 
+\index{options.\+c@{options.\+c}!options\+\_\+delta@{options\+\_\+delta}}
+\index{options\+\_\+delta@{options\+\_\+delta}!options.\+c@{options.\+c}}
+\subsubsection{options\+\_\+delta()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+options\+\_\+delta}$\ast$ options\+\_\+delta (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Parser for Delta options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn\textquotesingle{}t return on error. 
+\end{DoxyReturn}
+\mbox{\label{options_8c_a90111e8a8652cc28be7ca9763ed588d5}} 
+\index{options.\+c@{options.\+c}!options\+\_\+bcj@{options\+\_\+bcj}}
+\index{options\+\_\+bcj@{options\+\_\+bcj}!options.\+c@{options.\+c}}
+\subsubsection{options\+\_\+bcj()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+options\+\_\+bcj}$\ast$ options\+\_\+bcj (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Parser for B\+CJ options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn\textquotesingle{}t return on error. 
+\end{DoxyReturn}
+\mbox{\label{options_8c_a80e4a9dd89d3f2fab00c48c4feb75126}} 
+\index{options.\+c@{options.\+c}!options\+\_\+lzma@{options\+\_\+lzma}}
+\index{options\+\_\+lzma@{options\+\_\+lzma}!options.\+c@{options.\+c}}
+\subsubsection{options\+\_\+lzma()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+options\+\_\+lzma}$\ast$ options\+\_\+lzma (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Parser for L\+Z\+MA options. 
+
+\begin{DoxyReturn}{Returns}
+Pointer to allocated options structure. Doesn\textquotesingle{}t return on error. 
+\end{DoxyReturn}
+
+
+References L\+Z\+M\+A\+\_\+\+M\+F\+\_\+\+B\+T2, L\+Z\+M\+A\+\_\+\+M\+F\+\_\+\+B\+T3, L\+Z\+M\+A\+\_\+\+M\+F\+\_\+\+B\+T4, L\+Z\+M\+A\+\_\+\+M\+F\+\_\+\+H\+C3, L\+Z\+M\+A\+\_\+\+M\+F\+\_\+\+H\+C4, L\+Z\+M\+A\+\_\+\+M\+O\+D\+E\+\_\+\+F\+A\+ST, and L\+Z\+M\+A\+\_\+\+M\+O\+D\+E\+\_\+\+N\+O\+R\+M\+AL.
+

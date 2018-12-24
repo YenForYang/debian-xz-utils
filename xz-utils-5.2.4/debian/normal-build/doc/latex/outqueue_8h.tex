@@ -1,0 +1,190 @@
+\section{liblzma/common/outqueue.h File Reference}
+\label{outqueue_8h}\index{liblzma/common/outqueue.\+h@{liblzma/common/outqueue.\+h}}
+
+
+Output queue handling in multithreaded coding.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+outbuf}
+\begin{DoxyCompactList}\small\item\em Output buffer for a single thread. \end{DoxyCompactList}\item 
+struct \textbf{ lzma\+\_\+outq}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+outq\+\_\+memusage} (uint64\+\_\+t buf\+\_\+size\+\_\+max, uint32\+\_\+t threads)
+\begin{DoxyCompactList}\small\item\em Calculate the memory usage of an output queue. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+outq\+\_\+init} (\textbf{ lzma\+\_\+outq} $\ast$outq, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, uint64\+\_\+t buf\+\_\+size\+\_\+max, uint32\+\_\+t threads)
+\begin{DoxyCompactList}\small\item\em Initialize an output queue. \end{DoxyCompactList}\item 
+void \textbf{ lzma\+\_\+outq\+\_\+end} (\textbf{ lzma\+\_\+outq} $\ast$outq, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Free the memory associated with the output queue. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+outbuf} $\ast$ \textbf{ lzma\+\_\+outq\+\_\+get\+\_\+buf} (\textbf{ lzma\+\_\+outq} $\ast$outq)
+\begin{DoxyCompactList}\small\item\em Get a new buffer. \end{DoxyCompactList}\item 
+bool \textbf{ lzma\+\_\+outq\+\_\+is\+\_\+readable} (const \textbf{ lzma\+\_\+outq} $\ast$outq)
+\begin{DoxyCompactList}\small\item\em Test if there is data ready to be read. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+outq\+\_\+read} (\textbf{ lzma\+\_\+outq} $\ast$restrict outq, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+vli} $\ast$restrict unpadded\+\_\+size, \textbf{ lzma\+\_\+vli} $\ast$restrict uncompressed\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Read finished data. \end{DoxyCompactList}\item 
+static bool \textbf{ lzma\+\_\+outq\+\_\+has\+\_\+buf} (const \textbf{ lzma\+\_\+outq} $\ast$outq)
+\begin{DoxyCompactList}\small\item\em Test if there is at least one buffer free. \end{DoxyCompactList}\item 
+static bool \textbf{ lzma\+\_\+outq\+\_\+is\+\_\+empty} (const \textbf{ lzma\+\_\+outq} $\ast$outq)
+\begin{DoxyCompactList}\small\item\em Test if the queue is completely empty. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Output queue handling in multithreaded coding. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{outqueue_8h_a77d74387abe8047dfc4e1b0ea6c4c56c}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+memusage@{lzma\+\_\+outq\+\_\+memusage}}
+\index{lzma\+\_\+outq\+\_\+memusage@{lzma\+\_\+outq\+\_\+memusage}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+memusage()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+outq\+\_\+memusage (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{buf\+\_\+size\+\_\+max,  }\item[{uint32\+\_\+t}]{threads }\end{DoxyParamCaption})}
+
+
+
+Calculate the memory usage of an output queue. 
+
+\begin{DoxyReturn}{Returns}
+Approximate memory usage in bytes or U\+I\+N\+T64\+\_\+\+M\+AX on error. 
+\end{DoxyReturn}
+
+
+References get\+\_\+options(), and L\+Z\+M\+A\+\_\+\+OK.
+
+\mbox{\label{outqueue_8h_aab9efe4ddc4f3a0a8ccf85607bd9e773}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+init@{lzma\+\_\+outq\+\_\+init}}
+\index{lzma\+\_\+outq\+\_\+init@{lzma\+\_\+outq\+\_\+init}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+init()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+outq\+\_\+init (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+outq} $\ast$}]{outq,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{uint64\+\_\+t}]{buf\+\_\+size\+\_\+max,  }\item[{uint32\+\_\+t}]{threads }\end{DoxyParamCaption})}
+
+
+
+Initialize an output queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outq} & Pointer to an output queue. Before calling this function the first time, $\ast$outq should have been zeroed with memzero() so that this function knows that there are no previous allocations to free. \\
+\hline
+{\em allocator} & Pointer to allocator or N\+U\+LL \\
+\hline
+{\em buf\+\_\+size\+\_\+max} & Maximum amount of data that a single buffer in the queue may need to store. \\
+\hline
+{\em threads} & Number of buffers that may be in use concurrently. Note that more than this number of buffers will actually get allocated to improve performance when buffers finish out of order.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\mbox{\label{outqueue_8h_a536bfd1db5c6d66bb91fbd43f358885e}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+end@{lzma\+\_\+outq\+\_\+end}}
+\index{lzma\+\_\+outq\+\_\+end@{lzma\+\_\+outq\+\_\+end}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+end()}
+{\footnotesize\ttfamily void lzma\+\_\+outq\+\_\+end (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+outq} $\ast$}]{outq,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+
+
+Free the memory associated with the output queue. 
+
+\mbox{\label{outqueue_8h_a0f428c8b0585cddaa1d5a803d54c78c0}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+get\+\_\+buf@{lzma\+\_\+outq\+\_\+get\+\_\+buf}}
+\index{lzma\+\_\+outq\+\_\+get\+\_\+buf@{lzma\+\_\+outq\+\_\+get\+\_\+buf}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+get\+\_\+buf()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+outbuf}$\ast$ lzma\+\_\+outq\+\_\+get\+\_\+buf (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+outq} $\ast$}]{outq }\end{DoxyParamCaption})}
+
+
+
+Get a new buffer. 
+
+\doxyref{lzma\+\_\+outq\+\_\+has\+\_\+buf()}{p.}{outqueue_8h_a364f1d1ae262603c27ec8cfedcc90b97} must be used to check that there is a buffer available before calling \doxyref{lzma\+\_\+outq\+\_\+get\+\_\+buf()}{p.}{outqueue_8h_a0f428c8b0585cddaa1d5a803d54c78c0}. \mbox{\label{outqueue_8h_a5e79b72c4b35a39ab86c18b91f43dca0}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+is\+\_\+readable@{lzma\+\_\+outq\+\_\+is\+\_\+readable}}
+\index{lzma\+\_\+outq\+\_\+is\+\_\+readable@{lzma\+\_\+outq\+\_\+is\+\_\+readable}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+is\+\_\+readable()}
+{\footnotesize\ttfamily bool lzma\+\_\+outq\+\_\+is\+\_\+readable (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+outq} $\ast$}]{outq }\end{DoxyParamCaption})}
+
+
+
+Test if there is data ready to be read. 
+
+Call to this function must be protected with the same mutex that is used to protect \doxyref{lzma\+\_\+outbuf.\+finished}{p.}{structlzma__outbuf_a19bf43c912ab386e93814268802d228c}. 
+
+References lzma\+\_\+outq\+::bufs, lzma\+\_\+outq\+::bufs\+\_\+allocated, lzma\+\_\+outq\+::bufs\+\_\+pos, lzma\+\_\+outq\+::bufs\+\_\+used, and lzma\+\_\+outbuf\+::finished.
+
+
+
+Referenced by wait\+\_\+for\+\_\+work().
+
+\mbox{\label{outqueue_8h_a6731d12d51638c89c1c42ba92aba6cfa}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+read@{lzma\+\_\+outq\+\_\+read}}
+\index{lzma\+\_\+outq\+\_\+read@{lzma\+\_\+outq\+\_\+read}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+read()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+outq\+\_\+read (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+outq} $\ast$restrict}]{outq,  }\item[{uint8\+\_\+t $\ast$restrict}]{out,  }\item[{size\+\_\+t $\ast$restrict}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size,  }\item[{\textbf{ lzma\+\_\+vli} $\ast$restrict}]{unpadded\+\_\+size,  }\item[{\textbf{ lzma\+\_\+vli} $\ast$restrict}]{uncompressed\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Read finished data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em outq} & Pointer to an output queue \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\+\_\+pos} & The next byte will be written to out[$\ast$out\+\_\+pos]. \\
+\hline
+{\em out\+\_\+size} & Size of the out buffer; the first byte into which no data is written to is out[out\+\_\+size]. \\
+\hline
+{\em unpadded\+\_\+size} & Unpadded Size from the Block encoder \\
+\hline
+{\em uncompressed\+\_\+size} & Uncompressed Size from the Block encoder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+MA\+: All OK. Either no data was available or the buffer being read didn\textquotesingle{}t become empty yet.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND\+: The buffer being read was finished. $\ast$unpadded\+\_\+size and $\ast$uncompressed\+\_\+size were set.
+\end{DoxyItemize}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This reads \doxyref{lzma\+\_\+outbuf.\+finished}{p.}{structlzma__outbuf_a19bf43c912ab386e93814268802d228c} variables and thus call to this function needs to be protected with a mutex. 
+\end{DoxyNote}
+\mbox{\label{outqueue_8h_a364f1d1ae262603c27ec8cfedcc90b97}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+has\+\_\+buf@{lzma\+\_\+outq\+\_\+has\+\_\+buf}}
+\index{lzma\+\_\+outq\+\_\+has\+\_\+buf@{lzma\+\_\+outq\+\_\+has\+\_\+buf}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+has\+\_\+buf()}
+{\footnotesize\ttfamily static bool lzma\+\_\+outq\+\_\+has\+\_\+buf (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+outq} $\ast$}]{outq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Test if there is at least one buffer free. 
+
+This must be used before getting a new buffer with \doxyref{lzma\+\_\+outq\+\_\+get\+\_\+buf()}{p.}{outqueue_8h_a0f428c8b0585cddaa1d5a803d54c78c0}. 
+
+References lzma\+\_\+outq\+::bufs\+\_\+allocated, and lzma\+\_\+outq\+::bufs\+\_\+used.
+
+
+
+Referenced by wait\+\_\+for\+\_\+work().
+
+\mbox{\label{outqueue_8h_aac8a2609c26f6364094dfa59a8ff0e52}} 
+\index{outqueue.\+h@{outqueue.\+h}!lzma\+\_\+outq\+\_\+is\+\_\+empty@{lzma\+\_\+outq\+\_\+is\+\_\+empty}}
+\index{lzma\+\_\+outq\+\_\+is\+\_\+empty@{lzma\+\_\+outq\+\_\+is\+\_\+empty}!outqueue.\+h@{outqueue.\+h}}
+\subsubsection{lzma\+\_\+outq\+\_\+is\+\_\+empty()}
+{\footnotesize\ttfamily static bool lzma\+\_\+outq\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+outq} $\ast$}]{outq }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Test if the queue is completely empty. 
+
+
+
+References lzma\+\_\+outq\+::bufs\+\_\+used.
+

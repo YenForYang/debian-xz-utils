@@ -1,0 +1,69 @@
+\section{liblzma/api/lzma.h File Reference}
+\label{lzma_8h}\index{liblzma/api/lzma.\+h@{liblzma/api/lzma.\+h}}
+
+
+The public A\+PI of liblzma data compression library.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}lzma/version.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/base.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/vli.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/filter.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/bcj.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/delta.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/lzma12.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/container.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/stream\+\_\+flags.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/block.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/index.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/index\+\_\+hash.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma/hardware.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma_8h_acecee981dc3f28418f54035e20d7e578}} 
+\#define {\bfseries U\+I\+N\+T32\+\_\+C}(n)~n \#\# U
+\item 
+\mbox{\label{lzma_8h_ac6548785b283106d4d7bfc7a4ef87fc4}} 
+\#define {\bfseries U\+I\+N\+T64\+\_\+C}(n)~n \#\# UL
+\item 
+\mbox{\label{lzma_8h_ab5eb23180f7cc12b7d6c04a8ec067fdd}} 
+\#define {\bfseries U\+I\+N\+T32\+\_\+\+M\+AX}~(U\+I\+N\+T32\+\_\+C(4294967295))
+\item 
+\mbox{\label{lzma_8h_a30654b4b67d97c42ca3f9b6052dda916}} 
+\#define {\bfseries U\+I\+N\+T64\+\_\+\+M\+AX}~(U\+I\+N\+T64\+\_\+C(18446744073709551615))
+\item 
+\mbox{\label{lzma_8h_a55854429aba444dbb0bd8325fed4eece}} 
+\#define {\bfseries lzma\+\_\+nothrow}
+\item 
+\mbox{\label{lzma_8h_a246aa54bb4e735e1e3054e65b51a6ed8}} 
+\#define {\bfseries lzma\+\_\+attribute}(attr)
+\item 
+\mbox{\label{lzma_8h_adbc570ea8654f0c96699e38249ac8032}} 
+\#define {\bfseries lzma\+\_\+attr\+\_\+pure}~\textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+pure\+\_\+\+\_\+))
+\item 
+\mbox{\label{lzma_8h_a0aaafb664f89a525ff22530d61704556}} 
+\#define {\bfseries lzma\+\_\+attr\+\_\+const}~\textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+const\+\_\+\+\_\+))
+\item 
+\mbox{\label{lzma_8h_af15e147fcd7986ec4dd82660aec2b695}} 
+\#define {\bfseries lzma\+\_\+attr\+\_\+warn\+\_\+unused\+\_\+result}~\textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+warn\+\_\+unused\+\_\+result\+\_\+\+\_\+))
+\item 
+\mbox{\label{lzma_8h_af828f75941ade54f8379bb847da37349}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+H\+\_\+\+I\+N\+T\+E\+R\+N\+AL}~1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The public A\+PI of liblzma data compression library. 
+
+liblzma is a public domain general-\/purpose data compression library with a zlib-\/like A\+PI. The native file format is .xz, but also the old .lzma format and raw (no headers) streams are supported. Multiple compression algorithms (filters) are supported. Currently L\+Z\+M\+A2 is the primary filter.
+
+liblzma is part of XZ Utils {\tt http\+://tukaani.\+org/xz/}. XZ Utils includes a gzip-\/like command line tool named xz and some other tools. XZ Utils is developed and maintained by Lasse Collin.
+
+Major parts of liblzma are based on Igor Pavlov\textquotesingle{}s public domain L\+Z\+MA S\+DK {\tt http\+://7-\/zip.\+org/sdk.\+html}.
+
+The S\+H\+A-\/256 implementation is based on the public domain code found from 7-\/\+Zip {\tt http\+://7-\/zip.\+org/}, which has a modified version of the public domain S\+H\+A-\/256 code found from Crypto++ {\tt http\+://www.\+cryptopp.\+com/}. The S\+H\+A-\/256 code in Crypto++ was written by Kevin Springle and Wei Dai. 

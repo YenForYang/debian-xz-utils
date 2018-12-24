@@ -1,0 +1,57 @@
+\section{lzma\+\_\+sha256\+\_\+state Struct Reference}
+\label{structlzma__sha256__state}\index{lzma\+\_\+sha256\+\_\+state@{lzma\+\_\+sha256\+\_\+state}}
+
+
+State for the internal S\+H\+A-\/256 implementation.  
+
+
+
+
+{\ttfamily \#include $<$check.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ state} [8]
+\begin{DoxyCompactList}\small\item\em Internal state. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ size}
+\begin{DoxyCompactList}\small\item\em Size of the message excluding padding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+State for the internal S\+H\+A-\/256 implementation. 
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__sha256__state_adb885aab736aae3772761f6c663c40be}} 
+\index{lzma\+\_\+sha256\+\_\+state@{lzma\+\_\+sha256\+\_\+state}!state@{state}}
+\index{state@{state}!lzma\+\_\+sha256\+\_\+state@{lzma\+\_\+sha256\+\_\+state}}
+\subsubsection{state}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+sha256\+\_\+state\+::state[8]}
+
+
+
+Internal state. 
+
+
+
+Referenced by lzma\+\_\+sha256\+\_\+init().
+
+\mbox{\label{structlzma__sha256__state_a62337a1a0d34a9702ab4a438da383794}} 
+\index{lzma\+\_\+sha256\+\_\+state@{lzma\+\_\+sha256\+\_\+state}!size@{size}}
+\index{size@{size}!lzma\+\_\+sha256\+\_\+state@{lzma\+\_\+sha256\+\_\+state}}
+\subsubsection{size}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+sha256\+\_\+state\+::size}
+
+
+
+Size of the message excluding padding. 
+
+
+
+Referenced by lzma\+\_\+sha256\+\_\+finish(), lzma\+\_\+sha256\+\_\+init(), and lzma\+\_\+sha256\+\_\+update().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/check/check.\+h\end{DoxyCompactItemize}

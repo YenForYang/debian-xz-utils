@@ -1,0 +1,50 @@
+\section{liblzma/common/filter\+\_\+buffer\+\_\+decoder.c File Reference}
+\label{filter__buffer__decoder_8c}\index{liblzma/common/filter\+\_\+buffer\+\_\+decoder.\+c@{liblzma/common/filter\+\_\+buffer\+\_\+decoder.\+c}}
+
+
+Single-\/call raw decoding.  
+
+
+{\ttfamily \#include \char`\"{}filter\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+raw\+\_\+buffer\+\_\+decode} (const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in, size\+\_\+t $\ast$in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$out, size\+\_\+t $\ast$out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Single-\/call raw decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call raw decoding. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{filter__buffer__decoder_8c_ab0932f8a8b78399ce1f1afe3b14f1dbb}} 
+\index{filter\+\_\+buffer\+\_\+decoder.\+c@{filter\+\_\+buffer\+\_\+decoder.\+c}!lzma\+\_\+raw\+\_\+buffer\+\_\+decode@{lzma\+\_\+raw\+\_\+buffer\+\_\+decode}}
+\index{lzma\+\_\+raw\+\_\+buffer\+\_\+decode@{lzma\+\_\+raw\+\_\+buffer\+\_\+decode}!filter\+\_\+buffer\+\_\+decoder.\+c@{filter\+\_\+buffer\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+raw\+\_\+buffer\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+raw\+\_\+buffer\+\_\+decode (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+filter} $\ast$}]{filters,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t $\ast$}]{in\+\_\+pos,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t $\ast$}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Single-\/call raw decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filters} & Array of \doxyref{lzma\+\_\+filter}{p.}{structlzma__filter} structures. The end of the array must be marked with .id = L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\+\_\+pos} & The next byte will be read from in[$\ast$in\+\_\+pos]. $\ast$in\+\_\+pos is updated only if decoding succeeds. \\
+\hline
+{\em in\+\_\+size} & Size of the input buffer; the first byte that won\textquotesingle{}t be read is in[in\+\_\+size]. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\+\_\+pos} & The next byte will be written to out[$\ast$out\+\_\+pos]. $\ast$out\+\_\+pos is updated only if encoding succeeds. \\
+\hline
+{\em out\+\_\+size} & Size of the out buffer; the first byte into which no data is written to is out[out\+\_\+size]. \\
+\hline
+\end{DoxyParams}

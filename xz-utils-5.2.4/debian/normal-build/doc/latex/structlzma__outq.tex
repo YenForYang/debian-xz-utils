@@ -1,0 +1,109 @@
+\section{lzma\+\_\+outq Struct Reference}
+\label{structlzma__outq}\index{lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+outbuf} $\ast$ \textbf{ bufs}
+\begin{DoxyCompactList}\small\item\em Array of buffers that are used cyclically. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \textbf{ bufs\+\_\+mem}
+\begin{DoxyCompactList}\small\item\em Memory allocated for all the buffers. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ buf\+\_\+size\+\_\+max}
+\begin{DoxyCompactList}\small\item\em Amount of buffer space available in each buffer. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ bufs\+\_\+allocated}
+\begin{DoxyCompactList}\small\item\em Number of buffers allocated. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ bufs\+\_\+pos}
+\item 
+uint32\+\_\+t \textbf{ bufs\+\_\+used}
+\begin{DoxyCompactList}\small\item\em Number of buffers in use. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ read\+\_\+pos}
+\begin{DoxyCompactList}\small\item\em Position in the buffer in \doxyref{lzma\+\_\+outq\+\_\+read()}{p.}{outqueue_8c_a6731d12d51638c89c1c42ba92aba6cfa} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__outq_a0e55c27cec34c39908dca76f72e74ccf}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!bufs@{bufs}}
+\index{bufs@{bufs}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{bufs}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+outbuf}$\ast$ lzma\+\_\+outq\+::bufs}
+
+
+
+Array of buffers that are used cyclically. 
+
+
+
+Referenced by lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+\mbox{\label{structlzma__outq_af802035f204f2b5094bd456de350479c}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!bufs\+\_\+mem@{bufs\+\_\+mem}}
+\index{bufs\+\_\+mem@{bufs\+\_\+mem}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{bufs\+\_\+mem}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ lzma\+\_\+outq\+::bufs\+\_\+mem}
+
+
+
+Memory allocated for all the buffers. 
+
+\mbox{\label{structlzma__outq_aa741e2f9a19eca0254314cd1004cc0ed}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!buf\+\_\+size\+\_\+max@{buf\+\_\+size\+\_\+max}}
+\index{buf\+\_\+size\+\_\+max@{buf\+\_\+size\+\_\+max}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{buf\+\_\+size\+\_\+max}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+outq\+::buf\+\_\+size\+\_\+max}
+
+
+
+Amount of buffer space available in each buffer. 
+
+\mbox{\label{structlzma__outq_ad1a9bc89ad7e0b33e0d2a296bdd3d5f0}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!bufs\+\_\+allocated@{bufs\+\_\+allocated}}
+\index{bufs\+\_\+allocated@{bufs\+\_\+allocated}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{bufs\+\_\+allocated}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+outq\+::bufs\+\_\+allocated}
+
+
+
+Number of buffers allocated. 
+
+
+
+Referenced by lzma\+\_\+outq\+\_\+has\+\_\+buf(), and lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+\mbox{\label{structlzma__outq_ad1fec503b96f2a650a6c8d22ccc51985}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!bufs\+\_\+pos@{bufs\+\_\+pos}}
+\index{bufs\+\_\+pos@{bufs\+\_\+pos}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{bufs\+\_\+pos}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+outq\+::bufs\+\_\+pos}
+
+Position in the bufs array. The next buffer to be taken into use is bufs[bufs\+\_\+pos]. 
+
+Referenced by lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+\mbox{\label{structlzma__outq_aec57711931fc18da7465706e3b83766b}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!bufs\+\_\+used@{bufs\+\_\+used}}
+\index{bufs\+\_\+used@{bufs\+\_\+used}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{bufs\+\_\+used}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+outq\+::bufs\+\_\+used}
+
+
+
+Number of buffers in use. 
+
+
+
+Referenced by lzma\+\_\+outq\+\_\+has\+\_\+buf(), lzma\+\_\+outq\+\_\+is\+\_\+empty(), and lzma\+\_\+outq\+\_\+is\+\_\+readable().
+
+\mbox{\label{structlzma__outq_adb883af29a54b25b95d464da7a3bb3c8}} 
+\index{lzma\+\_\+outq@{lzma\+\_\+outq}!read\+\_\+pos@{read\+\_\+pos}}
+\index{read\+\_\+pos@{read\+\_\+pos}!lzma\+\_\+outq@{lzma\+\_\+outq}}
+\subsubsection{read\+\_\+pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+outq\+::read\+\_\+pos}
+
+
+
+Position in the buffer in \doxyref{lzma\+\_\+outq\+\_\+read()}{p.}{outqueue_8c_a6731d12d51638c89c1c42ba92aba6cfa} 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ outqueue.\+h}\end{DoxyCompactItemize}

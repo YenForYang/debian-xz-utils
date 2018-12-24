@@ -1,0 +1,218 @@
+\section{lzma\+\_\+mf\+\_\+s Struct Reference}
+\label{structlzma__mf__s}\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \textbf{ buffer}
+\begin{DoxyCompactList}\small\item\em Pointer to buffer with data to be compressed. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ size}
+\item 
+uint32\+\_\+t \textbf{ keep\+\_\+size\+\_\+before}
+\item 
+uint32\+\_\+t \textbf{ keep\+\_\+size\+\_\+after}
+\item 
+uint32\+\_\+t \textbf{ offset}
+\item 
+uint32\+\_\+t \textbf{ read\+\_\+pos}
+\item 
+uint32\+\_\+t \textbf{ read\+\_\+ahead}
+\item 
+uint32\+\_\+t \textbf{ read\+\_\+limit}
+\item 
+uint32\+\_\+t \textbf{ write\+\_\+pos}
+\item 
+uint32\+\_\+t \textbf{ pending}
+\item 
+uint32\+\_\+t($\ast$ \textbf{ find} )(\textbf{ lzma\+\_\+mf} $\ast$mf, \textbf{ lzma\+\_\+match} $\ast$matches)
+\item 
+void($\ast$ \textbf{ skip} )(\textbf{ lzma\+\_\+mf} $\ast$mf, uint32\+\_\+t num)
+\item 
+\mbox{\label{structlzma__mf__s_aad22abb3e53cd3fb36a4f61e7098accb}} 
+uint32\+\_\+t $\ast$ {\bfseries hash}
+\item 
+\mbox{\label{structlzma__mf__s_a6842435bef1e22849c53031d4b186620}} 
+uint32\+\_\+t $\ast$ {\bfseries son}
+\item 
+\mbox{\label{structlzma__mf__s_a73339f959fc3b78266e8112d5941fd57}} 
+uint32\+\_\+t {\bfseries cyclic\+\_\+pos}
+\item 
+\mbox{\label{structlzma__mf__s_a362786db7eb9b1a76804d11a4bc83352}} 
+uint32\+\_\+t {\bfseries cyclic\+\_\+size}
+\item 
+\mbox{\label{structlzma__mf__s_a43cbfb52df0a6cacc73ee052259296b6}} 
+uint32\+\_\+t {\bfseries hash\+\_\+mask}
+\item 
+uint32\+\_\+t \textbf{ depth}
+\begin{DoxyCompactList}\small\item\em Maximum number of loops in the match finder. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ nice\+\_\+len}
+\begin{DoxyCompactList}\small\item\em Maximum length of a match that the match finder will try to find. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ match\+\_\+len\+\_\+max}
+\item 
+\textbf{ lzma\+\_\+action} \textbf{ action}
+\item 
+uint32\+\_\+t \textbf{ hash\+\_\+count}
+\begin{DoxyCompactList}\small\item\em Number of elements in hash[]. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ sons\+\_\+count}
+\begin{DoxyCompactList}\small\item\em Number of elements in son[]. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__mf__s_a432f5747c3af581ca57f59568546151e}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{buffer}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ lzma\+\_\+mf\+\_\+s\+::buffer}
+
+
+
+Pointer to buffer with data to be compressed. 
+
+
+
+Referenced by mf\+\_\+ptr().
+
+\mbox{\label{structlzma__mf__s_affdef5bbf8d8ad9aa2567772f6bd5740}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!size@{size}}
+\index{size@{size}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{size}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::size}
+
+Total size of the allocated buffer (that is, including all the extra space) \mbox{\label{structlzma__mf__s_af5818d3189473465de3942c48924b825}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!keep\+\_\+size\+\_\+before@{keep\+\_\+size\+\_\+before}}
+\index{keep\+\_\+size\+\_\+before@{keep\+\_\+size\+\_\+before}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{keep\+\_\+size\+\_\+before}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::keep\+\_\+size\+\_\+before}
+
+Number of bytes that must be kept available in our input history. That is, once keep\+\_\+size\+\_\+before bytes have been processed, buffer[read\+\_\+pos -\/ keep\+\_\+size\+\_\+before] is the oldest byte that must be available for reading. \mbox{\label{structlzma__mf__s_a876eae4eecf65b4676130823a8eabe9d}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!keep\+\_\+size\+\_\+after@{keep\+\_\+size\+\_\+after}}
+\index{keep\+\_\+size\+\_\+after@{keep\+\_\+size\+\_\+after}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{keep\+\_\+size\+\_\+after}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::keep\+\_\+size\+\_\+after}
+
+Number of bytes that must be kept in buffer after read\+\_\+pos. That is, read\+\_\+pos $<$= write\+\_\+pos -\/ keep\+\_\+size\+\_\+after as long as action is L\+Z\+M\+A\+\_\+\+R\+UN; when action != L\+Z\+M\+A\+\_\+\+R\+UN, read\+\_\+pos is allowed to reach write\+\_\+pos so that the last bytes get encoded too. \mbox{\label{structlzma__mf__s_a2f61158f799c0c4e77e6316038757fee}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!offset@{offset}}
+\index{offset@{offset}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{offset}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::offset}
+
+Match finders store locations of matches using 32-\/bit integers. To avoid adjusting several megabytes of integers every time the input window is moved with move\+\_\+window, we only adjust the offset of the buffer. Thus, buffer[value\+\_\+in\+\_\+hash\+\_\+table -\/ offset] is the byte pointed by value\+\_\+in\+\_\+hash\+\_\+table. \mbox{\label{structlzma__mf__s_a2d75d309fc59e61e468fcd9e3a38c150}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!read\+\_\+pos@{read\+\_\+pos}}
+\index{read\+\_\+pos@{read\+\_\+pos}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{read\+\_\+pos}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::read\+\_\+pos}
+
+buffer[read\+\_\+pos] is the next byte to run through the match finder. This is incremented in the match finder once the byte has been processed. 
+
+Referenced by mf\+\_\+avail(), mf\+\_\+position(), mf\+\_\+ptr(), mf\+\_\+unencoded(), move\+\_\+pending(), and move\+\_\+pos().
+
+\mbox{\label{structlzma__mf__s_ab5d64d7200396c7cd612c1fe3a064f22}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!read\+\_\+ahead@{read\+\_\+ahead}}
+\index{read\+\_\+ahead@{read\+\_\+ahead}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{read\+\_\+ahead}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::read\+\_\+ahead}
+
+Number of bytes that have been ran through the match finder, but which haven\textquotesingle{}t been encoded by the L\+Z-\/based encoder yet. 
+
+Referenced by mf\+\_\+position(), mf\+\_\+skip(), and mf\+\_\+unencoded().
+
+\mbox{\label{structlzma__mf__s_aa3d4451f2e846e56b43fa8c1bc106575}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!read\+\_\+limit@{read\+\_\+limit}}
+\index{read\+\_\+limit@{read\+\_\+limit}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{read\+\_\+limit}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::read\+\_\+limit}
+
+As long as read\+\_\+pos is less than read\+\_\+limit, there is enough input available in buffer for at least one encoding loop.
+
+Because of the stateful A\+PI, read\+\_\+limit may and will get greater than read\+\_\+pos quite often. This is taken into account when calculating the value for keep\+\_\+size\+\_\+after. \mbox{\label{structlzma__mf__s_afcc4a74eb85f8942d40a21d9155d948c}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!write\+\_\+pos@{write\+\_\+pos}}
+\index{write\+\_\+pos@{write\+\_\+pos}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{write\+\_\+pos}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::write\+\_\+pos}
+
+buffer[write\+\_\+pos] is the first byte that doesn\textquotesingle{}t contain valid uncompressed data; that is, the next input byte will be copied to buffer[write\+\_\+pos]. 
+
+Referenced by mf\+\_\+avail(), and mf\+\_\+unencoded().
+
+\mbox{\label{structlzma__mf__s_af6719fc22695f6e8569969009ba5a727}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!pending@{pending}}
+\index{pending@{pending}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{pending}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::pending}
+
+Number of bytes not hashed before read\+\_\+pos. This is needed to restart the match finder after L\+Z\+M\+A\+\_\+\+S\+Y\+N\+C\+\_\+\+F\+L\+U\+SH. \mbox{\label{structlzma__mf__s_a930fffc0a68d7e5305c1197c08275697}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!find@{find}}
+\index{find@{find}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{find}
+{\footnotesize\ttfamily uint32\+\_\+t($\ast$ lzma\+\_\+mf\+\_\+s\+::find) (\textbf{ lzma\+\_\+mf} $\ast$mf, \textbf{ lzma\+\_\+match} $\ast$matches)}
+
+Find matches. Returns the number of distance-\/length pairs written to the matches array. This is called only via \doxyref{lzma\+\_\+mf\+\_\+find()}{p.}{lz__encoder_8h_a94c058f8f247353725b76b60113205a6}. 
+
+Referenced by lzma\+\_\+mf\+\_\+find().
+
+\mbox{\label{structlzma__mf__s_ad4f52005ce47187ee867def284d78632}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!skip@{skip}}
+\index{skip@{skip}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{skip}
+{\footnotesize\ttfamily void($\ast$ lzma\+\_\+mf\+\_\+s\+::skip) (\textbf{ lzma\+\_\+mf} $\ast$mf, uint32\+\_\+t num)}
+
+Skips num bytes. This is like \doxyref{find()}{p.}{structlzma__mf__s_a930fffc0a68d7e5305c1197c08275697} but doesn\textquotesingle{}t make the distance-\/length pairs available, thus being a little faster. This is called only via \doxyref{mf\+\_\+skip()}{p.}{lz__encoder_8h_acc33d04d1238a208efb8bae432085e8a}. 
+
+Referenced by mf\+\_\+skip().
+
+\mbox{\label{structlzma__mf__s_a688d8098e2c0c8dce4c5bea554eb6938}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!depth@{depth}}
+\index{depth@{depth}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{depth}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::depth}
+
+
+
+Maximum number of loops in the match finder. 
+
+\mbox{\label{structlzma__mf__s_aa4291f4276c419e74a95cb8accdf1396}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!nice\+\_\+len@{nice\+\_\+len}}
+\index{nice\+\_\+len@{nice\+\_\+len}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{nice\+\_\+len}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::nice\+\_\+len}
+
+
+
+Maximum length of a match that the match finder will try to find. 
+
+\mbox{\label{structlzma__mf__s_a6fa8887a90423f6833506f298ae76a8d}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!match\+\_\+len\+\_\+max@{match\+\_\+len\+\_\+max}}
+\index{match\+\_\+len\+\_\+max@{match\+\_\+len\+\_\+max}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{match\+\_\+len\+\_\+max}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::match\+\_\+len\+\_\+max}
+
+Maximum length of a match supported by the L\+Z-\/based encoder. If the longest match found by the match finder is nice\+\_\+len, \doxyref{mf\+\_\+find()}{p.}{lz__encoder_8h_aeb83884211ce1f2177f7b86c5323cfca} tries to expand it up to match\+\_\+len\+\_\+max bytes. \mbox{\label{structlzma__mf__s_a518ea4d19005bc70141b935a08809f89}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!action@{action}}
+\index{action@{action}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{action}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+action} lzma\+\_\+mf\+\_\+s\+::action}
+
+When running out of input, binary tree match finders need to know if it is due to flushing or finishing. The action is used also by the L\+Z-\/based encoders themselves. \mbox{\label{structlzma__mf__s_a256f860264ed9d3462bb9640b8f52784}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!hash\+\_\+count@{hash\+\_\+count}}
+\index{hash\+\_\+count@{hash\+\_\+count}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{hash\+\_\+count}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::hash\+\_\+count}
+
+
+
+Number of elements in hash[]. 
+
+\mbox{\label{structlzma__mf__s_ad1e3c68f459903d161ed34a97ff43fdf}} 
+\index{lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}!sons\+\_\+count@{sons\+\_\+count}}
+\index{sons\+\_\+count@{sons\+\_\+count}!lzma\+\_\+mf\+\_\+s@{lzma\+\_\+mf\+\_\+s}}
+\subsubsection{sons\+\_\+count}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+s\+::sons\+\_\+count}
+
+
+
+Number of elements in son[]. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/\textbf{ lz\+\_\+encoder.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,63 @@
+\section{xz/main.h File Reference}
+\label{main_8h}\index{xz/main.\+h@{xz/main.\+h}}
+
+
+Miscellaneous declarations.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ exit\+\_\+status\+\_\+type} \{ {\bfseries E\+\_\+\+S\+U\+C\+C\+E\+SS} = 0, 
+{\bfseries E\+\_\+\+E\+R\+R\+OR} = 1, 
+{\bfseries E\+\_\+\+W\+A\+R\+N\+I\+NG} = 2
+ \}\begin{DoxyCompactList}\small\item\em Possible exit status values. These are the same as used by gzip and bzip2. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+\_\+exit\+\_\+status} (enum \textbf{ exit\+\_\+status\+\_\+type} new\+\_\+status)
+\item 
+void \textbf{ set\+\_\+exit\+\_\+no\+\_\+warn} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Miscellaneous declarations. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{main_8h_af872d4d5c51b96938b58f0c59b6c3c37}} 
+\index{main.\+h@{main.\+h}!exit\+\_\+status\+\_\+type@{exit\+\_\+status\+\_\+type}}
+\index{exit\+\_\+status\+\_\+type@{exit\+\_\+status\+\_\+type}!main.\+h@{main.\+h}}
+\subsubsection{exit\+\_\+status\+\_\+type}
+{\footnotesize\ttfamily enum \textbf{ exit\+\_\+status\+\_\+type}}
+
+
+
+Possible exit status values. These are the same as used by gzip and bzip2. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{main_8h_aa5da9e106c96aef50fcb212123d5e906}} 
+\index{main.\+h@{main.\+h}!set\+\_\+exit\+\_\+status@{set\+\_\+exit\+\_\+status}}
+\index{set\+\_\+exit\+\_\+status@{set\+\_\+exit\+\_\+status}!main.\+h@{main.\+h}}
+\subsubsection{set\+\_\+exit\+\_\+status()}
+{\footnotesize\ttfamily void set\+\_\+exit\+\_\+status (\begin{DoxyParamCaption}\item[{enum \textbf{ exit\+\_\+status\+\_\+type}}]{new\+\_\+status }\end{DoxyParamCaption})}
+
+Sets the exit status after a warning or error has occurred. If new\+\_\+status is E\+\_\+\+W\+A\+R\+N\+I\+NG and the old exit status was already E\+\_\+\+E\+R\+R\+OR, the exit status is not changed. 
+
+Referenced by signals\+\_\+exit().
+
+\mbox{\label{main_8h_a822c7b0dcac2111d1abacbb29145458e}} 
+\index{main.\+h@{main.\+h}!set\+\_\+exit\+\_\+no\+\_\+warn@{set\+\_\+exit\+\_\+no\+\_\+warn}}
+\index{set\+\_\+exit\+\_\+no\+\_\+warn@{set\+\_\+exit\+\_\+no\+\_\+warn}!main.\+h@{main.\+h}}
+\subsubsection{set\+\_\+exit\+\_\+no\+\_\+warn()}
+{\footnotesize\ttfamily void set\+\_\+exit\+\_\+no\+\_\+warn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use E\+\_\+\+S\+U\+C\+C\+E\+SS instead of E\+\_\+\+W\+A\+R\+N\+I\+NG if something worth a warning occurs but nothing worth an error has occurred. This is called when --no-\/warn is specified. 
+
+References no\+\_\+warn.
+

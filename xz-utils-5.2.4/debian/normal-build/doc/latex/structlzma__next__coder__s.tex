@@ -1,0 +1,141 @@
+\section{lzma\+\_\+next\+\_\+coder\+\_\+s Struct Reference}
+\label{structlzma__next__coder__s}\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+
+
+Hold data and function pointers of the next filter in the chain.  
+
+
+
+
+{\ttfamily \#include $<$common.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \textbf{ coder}
+\begin{DoxyCompactList}\small\item\em Pointer to coder-\/specific data. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ id}
+\item 
+uintptr\+\_\+t \textbf{ init}
+\item 
+\textbf{ lzma\+\_\+code\+\_\+function} \textbf{ code}
+\begin{DoxyCompactList}\small\item\em Pointer to function to do the actual coding. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+end\+\_\+function} \textbf{ end}
+\item 
+void($\ast$ \textbf{ get\+\_\+progress} )(void $\ast$\textbf{ coder}, uint64\+\_\+t $\ast$progress\+\_\+in, uint64\+\_\+t $\ast$progress\+\_\+out)
+\item 
+\textbf{ lzma\+\_\+check}($\ast$ \textbf{ get\+\_\+check} )(const void $\ast$\textbf{ coder})
+\item 
+\textbf{ lzma\+\_\+ret}($\ast$ \textbf{ memconfig} )(void $\ast$\textbf{ coder}, uint64\+\_\+t $\ast$memusage, uint64\+\_\+t $\ast$old\+\_\+memlimit, uint64\+\_\+t new\+\_\+memlimit)
+\item 
+\textbf{ lzma\+\_\+ret}($\ast$ \textbf{ update} )(void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, const \textbf{ lzma\+\_\+filter} $\ast$reversed\+\_\+filters)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hold data and function pointers of the next filter in the chain. 
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__next__coder__s_a1f7d78a02759dc08ce1781816128a728}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!coder@{coder}}
+\index{coder@{coder}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{coder}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder}
+
+
+
+Pointer to coder-\/specific data. 
+
+
+
+Referenced by lzma\+\_\+get\+\_\+check(), lzma\+\_\+get\+\_\+progress(), lzma\+\_\+memlimit\+\_\+get(), lzma\+\_\+memlimit\+\_\+set(), lzma\+\_\+memusage(), and lzma\+\_\+next\+\_\+end().
+
+\mbox{\label{structlzma__next__coder__s_a5d536a495df657dd90415a4dad1860a8}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!id@{id}}
+\index{id@{id}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{id}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+next\+\_\+coder\+\_\+s\+::id}
+
+Filter ID. This is L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN when this structure doesn\textquotesingle{}t point to a filter coder. 
+
+Referenced by lzma\+\_\+next\+\_\+filter\+\_\+init(), and lzma\+\_\+next\+\_\+filter\+\_\+update().
+
+\mbox{\label{structlzma__next__coder__s_a8de5f47b0ff5783c2ad24241e7d540d7}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!init@{init}}
+\index{init@{init}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{init}
+{\footnotesize\ttfamily uintptr\+\_\+t lzma\+\_\+next\+\_\+coder\+\_\+s\+::init}
+
+\char`\"{}\+Pointer\char`\"{} to init function. This is never called here. We need only to detect if we are initializing a coder that was allocated earlier. See lzma\+\_\+next\+\_\+coder\+\_\+init and lzma\+\_\+next\+\_\+strm\+\_\+init macros in this file. 
+
+Referenced by lzma\+\_\+next\+\_\+end().
+
+\mbox{\label{structlzma__next__coder__s_a0d736e310d786b85d83f151f26b85440}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!code@{code}}
+\index{code@{code}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{code}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+code\+\_\+function} lzma\+\_\+next\+\_\+coder\+\_\+s\+::code}
+
+
+
+Pointer to function to do the actual coding. 
+
+
+
+Referenced by lzma\+\_\+code().
+
+\mbox{\label{structlzma__next__coder__s_a9c7f8bdf058d498a3de54730f1fa2ac1}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!end@{end}}
+\index{end@{end}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{end}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+end\+\_\+function} lzma\+\_\+next\+\_\+coder\+\_\+s\+::end}
+
+Pointer to function to free \doxyref{lzma\+\_\+next\+\_\+coder.\+coder}{p.}{structlzma__next__coder__s_a1f7d78a02759dc08ce1781816128a728}. This can be N\+U\+LL; in that case, lzma\+\_\+free is called to free \doxyref{lzma\+\_\+next\+\_\+coder.\+coder}{p.}{structlzma__next__coder__s_a1f7d78a02759dc08ce1781816128a728}. 
+
+Referenced by lzma\+\_\+next\+\_\+end().
+
+\mbox{\label{structlzma__next__coder__s_a078df535acf53d0593e4305f91e533bc}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!get\+\_\+progress@{get\+\_\+progress}}
+\index{get\+\_\+progress@{get\+\_\+progress}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{get\+\_\+progress}
+{\footnotesize\ttfamily void($\ast$ lzma\+\_\+next\+\_\+coder\+\_\+s\+::get\+\_\+progress) (void $\ast$\textbf{ coder}, uint64\+\_\+t $\ast$progress\+\_\+in, uint64\+\_\+t $\ast$progress\+\_\+out)}
+
+Pointer to a function to get progress information. If this is N\+U\+LL, \doxyref{lzma\+\_\+stream.\+total\+\_\+in}{p.}{structlzma__stream_a1a411e1755d6185756caefabc3932c7b} and .total\+\_\+out are used instead. 
+
+Referenced by lzma\+\_\+get\+\_\+progress().
+
+\mbox{\label{structlzma__next__coder__s_a65544835b93f40c3afa4749fb3c85dc0}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!get\+\_\+check@{get\+\_\+check}}
+\index{get\+\_\+check@{get\+\_\+check}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{get\+\_\+check}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+check}($\ast$ lzma\+\_\+next\+\_\+coder\+\_\+s\+::get\+\_\+check) (const void $\ast$\textbf{ coder})}
+
+Pointer to function to return the type of the integrity check. Most coders won\textquotesingle{}t support this. 
+
+Referenced by lzma\+\_\+get\+\_\+check().
+
+\mbox{\label{structlzma__next__coder__s_afb7ac7e0f2ed6055465ac31880fd1f1b}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!memconfig@{memconfig}}
+\index{memconfig@{memconfig}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{memconfig}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+next\+\_\+coder\+\_\+s\+::memconfig) (void $\ast$\textbf{ coder}, uint64\+\_\+t $\ast$memusage, uint64\+\_\+t $\ast$old\+\_\+memlimit, uint64\+\_\+t new\+\_\+memlimit)}
+
+Pointer to function to get and/or change the memory usage limit. If new\+\_\+memlimit == 0, the limit is not changed. 
+
+Referenced by lzma\+\_\+memlimit\+\_\+get(), lzma\+\_\+memlimit\+\_\+set(), and lzma\+\_\+memusage().
+
+\mbox{\label{structlzma__next__coder__s_abfc1ccc1b61fa2e4cddda23e45994c34}} 
+\index{lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}!update@{update}}
+\index{update@{update}!lzma\+\_\+next\+\_\+coder\+\_\+s@{lzma\+\_\+next\+\_\+coder\+\_\+s}}
+\subsubsection{update}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+next\+\_\+coder\+\_\+s\+::update) (void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$\textbf{ filters}, const \textbf{ lzma\+\_\+filter} $\ast$reversed\+\_\+filters)}
+
+Update the filter-\/specific options or the whole filter chain in the encoder. 
+
+Referenced by lzma\+\_\+filters\+\_\+update().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ common.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\section{liblzma/lz/lz\+\_\+decoder.c File Reference}
+\label{lz__decoder_8c}\index{liblzma/lz/lz\+\_\+decoder.\+c@{liblzma/lz/lz\+\_\+decoder.\+c}}
+
+
+LZ out window.  
+
+
+{\ttfamily \#include \char`\"{}lz\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lz__decoder_8c_a846b635a30e69070cf612edb6d937c06}} 
+static void {\bfseries lz\+\_\+decoder\+\_\+reset} (\textbf{ lzma\+\_\+coder} $\ast$coder)
+\item 
+\mbox{\label{lz__decoder_8c_a422ae264c308820bc1e19499aa4460be}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries decode\+\_\+buffer} (\textbf{ lzma\+\_\+coder} $\ast$coder, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\item 
+\mbox{\label{lz__decoder_8c_a94720dbf79918c2e25b8781e78e45464}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lz\+\_\+decode} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+unused\+\_\+\+\_\+)), const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+\mbox{\label{lz__decoder_8c_ae2303970e48b10aff295d7410c98045a}} 
+static void {\bfseries lz\+\_\+decoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{lz__decoder_8c_a12e91e9d8a15d26186dd608af7a98339}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lz\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters}, \textbf{ lzma\+\_\+ret}($\ast$lz\+\_\+init)(\textbf{ lzma\+\_\+lz\+\_\+decoder} $\ast$lz, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const void $\ast$options, \textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options))
+\item 
+\mbox{\label{lz__decoder_8c_aa715866ca37ce5fd726c391b0da5b882}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lz\+\_\+decoder\+\_\+memusage} (size\+\_\+t dictionary\+\_\+size)
+\item 
+\mbox{\label{lz__decoder_8c_a0be8d393513982061f74428cd41d872e}} 
+void {\bfseries lzma\+\_\+lz\+\_\+decoder\+\_\+uncompressed} (void $\ast$coder\+\_\+ptr, \textbf{ lzma\+\_\+vli} uncompressed\+\_\+size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+LZ out window. 
+

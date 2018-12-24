@@ -1,0 +1,54 @@
+\section{liblzma/common/stream\+\_\+flags\+\_\+common.c File Reference}
+\label{stream__flags__common_8c}\index{liblzma/common/stream\+\_\+flags\+\_\+common.\+c@{liblzma/common/stream\+\_\+flags\+\_\+common.\+c}}
+
+
+Common stuff for Stream flags coders.  
+
+
+{\ttfamily \#include \char`\"{}stream\+\_\+flags\+\_\+common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+flags\+\_\+compare} (const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$a, const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$b)
+\begin{DoxyCompactList}\small\item\em Compare two \doxyref{lzma\+\_\+stream\+\_\+flags}{p.}{structlzma__stream__flags} structures. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{stream__flags__common_8c_a1ae7a722e96e0a5ccc0a7e4dab78ecb7}} 
+const uint8\+\_\+t {\bfseries lzma\+\_\+header\+\_\+magic} [6] = \{ 0x\+F\+D, 0x37, 0x7\+A, 0x58, 0x5\+A, 0x00 \}
+\item 
+\mbox{\label{stream__flags__common_8c_a8c7c559062ae632559191a1ecd1f754b}} 
+const uint8\+\_\+t {\bfseries lzma\+\_\+footer\+\_\+magic} [2] = \{ 0x59, 0x5\+A \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common stuff for Stream flags coders. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{stream__flags__common_8c_aba578ac839520d46d1c507a8bb703060}} 
+\index{stream\+\_\+flags\+\_\+common.\+c@{stream\+\_\+flags\+\_\+common.\+c}!lzma\+\_\+stream\+\_\+flags\+\_\+compare@{lzma\+\_\+stream\+\_\+flags\+\_\+compare}}
+\index{lzma\+\_\+stream\+\_\+flags\+\_\+compare@{lzma\+\_\+stream\+\_\+flags\+\_\+compare}!stream\+\_\+flags\+\_\+common.\+c@{stream\+\_\+flags\+\_\+common.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+flags\+\_\+compare()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+flags\+\_\+compare (\begin{DoxyParamCaption}\item[{const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$}]{a,  }\item[{const \textbf{ lzma\+\_\+stream\+\_\+flags} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Compare two \doxyref{lzma\+\_\+stream\+\_\+flags}{p.}{structlzma__stream__flags} structures. 
+
+backward\+\_\+size values are compared only if both are not L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Both are equal. If either had backward\+\_\+size set to L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN, backward\+\_\+size values were not compared or validated.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR\+: The structures differ.
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR\+: version in either structure is greater than the maximum supported version (currently zero).
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR\+: Invalid value, e.\+g. invalid check or backward\+\_\+size. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Referenced by lzma\+\_\+index\+\_\+stream\+\_\+flags().
+

@@ -1,0 +1,38 @@
+\section{liblzma/common/hardware\+\_\+cputhreads.c File Reference}
+\label{hardware__cputhreads_8c}\index{liblzma/common/hardware\+\_\+cputhreads.\+c@{liblzma/common/hardware\+\_\+cputhreads.\+c}}
+
+
+Get the number of C\+PU threads or cores.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tuklib\+\_\+cpucores.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ lzma\+\_\+cputhreads} (void)
+\begin{DoxyCompactList}\small\item\em Get the number of processor cores or threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Get the number of C\+PU threads or cores. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{hardware__cputhreads_8c_a26d58f9e3f270fbdece4d64d8636d3d8}} 
+\index{hardware\+\_\+cputhreads.\+c@{hardware\+\_\+cputhreads.\+c}!lzma\+\_\+cputhreads@{lzma\+\_\+cputhreads}}
+\index{lzma\+\_\+cputhreads@{lzma\+\_\+cputhreads}!hardware\+\_\+cputhreads.\+c@{hardware\+\_\+cputhreads.\+c}}
+\subsubsection{lzma\+\_\+cputhreads()}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+cputhreads (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of processor cores or threads. 
+
+This function may be useful when determining how many threads to use. If the hardware supports more than one thread per C\+PU core, the number of hardware threads is returned if that information is available.
+
+On success, the number of available C\+PU threads or cores is returned. If this information isn\textquotesingle{}t available or an error occurs, zero is returned. 
+
+Referenced by hardware\+\_\+threads\+\_\+set().
+

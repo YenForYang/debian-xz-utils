@@ -1,0 +1,44 @@
+\section{common/mythread.h File Reference}
+\label{mythread_8h}\index{common/mythread.\+h@{common/mythread.\+h}}
+
+
+Some threading related helper macros and functions.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries mythread\+\_\+once}(func)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{mythread_8h_a0e96186508c34cd67bd3bb762cb56b0c}} 
+static void {\bfseries mythread\+\_\+sigmask} (int how, const sigset\+\_\+t $\ast$restrict set, sigset\+\_\+t $\ast$restrict oset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Some threading related helper macros and functions. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{mythread_8h_a261f7be6500d83d7f34ae0bf33b4d4cf}} 
+\index{mythread.\+h@{mythread.\+h}!mythread\+\_\+once@{mythread\+\_\+once}}
+\index{mythread\+\_\+once@{mythread\+\_\+once}!mythread.\+h@{mythread.\+h}}
+\subsubsection{mythread\+\_\+once}
+{\footnotesize\ttfamily \#define mythread\+\_\+once(\begin{DoxyParamCaption}\item[{}]{func }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        static \textcolor{keywordtype}{bool} once\_ = \textcolor{keyword}{false}; \(\backslash\)
+        if (!once\_) \{ \(\backslash\)
+                func(); \(\backslash\)
+                once\_ = \textcolor{keyword}{true}; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+\section{lzma\+\_\+dict Struct Reference}
+\label{structlzma__dict}\index{lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \textbf{ buf}
+\item 
+size\+\_\+t \textbf{ pos}
+\item 
+size\+\_\+t \textbf{ full}
+\item 
+size\+\_\+t \textbf{ limit}
+\begin{DoxyCompactList}\small\item\em Write limit. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ size}
+\begin{DoxyCompactList}\small\item\em Size of the dictionary. \end{DoxyCompactList}\item 
+bool \textbf{ need\+\_\+reset}
+\begin{DoxyCompactList}\small\item\em True when dictionary should be reset before decoding more data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__dict_a836e9ec73ebb4b9b6237af411fdd832b}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!buf@{buf}}
+\index{buf@{buf}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{buf}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ lzma\+\_\+dict\+::buf}
+
+Pointer to the dictionary buffer. It can be an allocated buffer internal to liblzma, or it can a be a buffer given by the application when in single-\/call mode (not implemented yet). 
+
+Referenced by dict\+\_\+get().
+
+\mbox{\label{structlzma__dict_af60b7dde7d9fa526c6f02c070277b502}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+dict\+::pos}
+
+Write position in dictionary. The next byte will be written to buf[pos]. 
+
+Referenced by dict\+\_\+get().
+
+\mbox{\label{structlzma__dict_a8a727009b112e794f901df0e67b5735f}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!full@{full}}
+\index{full@{full}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{full}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+dict\+::full}
+
+Indicates how full the dictionary is. This is used by \doxyref{dict\+\_\+is\+\_\+distance\+\_\+valid()}{p.}{lz__decoder_8h_a6fda74d5df0d5ee938f8dcbd493ed8a2} to detect corrupt files that would read beyond the beginning of the dictionary. 
+
+Referenced by dict\+\_\+is\+\_\+distance\+\_\+valid(), and dict\+\_\+is\+\_\+empty().
+
+\mbox{\label{structlzma__dict_a7fb1aec92658b2f67238b888b8396596}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!limit@{limit}}
+\index{limit@{limit}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{limit}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+dict\+::limit}
+
+
+
+Write limit. 
+
+\mbox{\label{structlzma__dict_a20bc89e8f16e64bcd0fbef0d9db93c29}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!size@{size}}
+\index{size@{size}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+dict\+::size}
+
+
+
+Size of the dictionary. 
+
+
+
+Referenced by dict\+\_\+get().
+
+\mbox{\label{structlzma__dict_a1088c8f8e33146c10594bd66b844ca41}} 
+\index{lzma\+\_\+dict@{lzma\+\_\+dict}!need\+\_\+reset@{need\+\_\+reset}}
+\index{need\+\_\+reset@{need\+\_\+reset}!lzma\+\_\+dict@{lzma\+\_\+dict}}
+\subsubsection{need\+\_\+reset}
+{\footnotesize\ttfamily bool lzma\+\_\+dict\+::need\+\_\+reset}
+
+
+
+True when dictionary should be reset before decoding more data. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/\textbf{ lz\+\_\+decoder.\+h}\end{DoxyCompactItemize}

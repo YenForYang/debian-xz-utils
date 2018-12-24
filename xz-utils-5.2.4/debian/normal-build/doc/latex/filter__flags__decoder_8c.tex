@@ -1,0 +1,41 @@
+\section{liblzma/common/filter\+\_\+flags\+\_\+decoder.c File Reference}
+\label{filter__flags__decoder_8c}\index{liblzma/common/filter\+\_\+flags\+\_\+decoder.\+c@{liblzma/common/filter\+\_\+flags\+\_\+decoder.\+c}}
+
+
+Decodes a Filter Flags field.  
+
+
+{\ttfamily \#include \char`\"{}filter\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+filter\+\_\+flags\+\_\+decode} (\textbf{ lzma\+\_\+filter} $\ast$filter, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in, size\+\_\+t $\ast$in\+\_\+pos, size\+\_\+t in\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Decode Filter Flags from given buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Decodes a Filter Flags field. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{filter__flags__decoder_8c_aaacd9dbd1efdd9d4089b7a62a2905fc8}} 
+\index{filter\+\_\+flags\+\_\+decoder.\+c@{filter\+\_\+flags\+\_\+decoder.\+c}!lzma\+\_\+filter\+\_\+flags\+\_\+decode@{lzma\+\_\+filter\+\_\+flags\+\_\+decode}}
+\index{lzma\+\_\+filter\+\_\+flags\+\_\+decode@{lzma\+\_\+filter\+\_\+flags\+\_\+decode}!filter\+\_\+flags\+\_\+decoder.\+c@{filter\+\_\+flags\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+filter\+\_\+flags\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+filter\+\_\+flags\+\_\+decode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+filter} $\ast$}]{filter,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t $\ast$}]{in\+\_\+pos,  }\item[{size\+\_\+t}]{in\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Decode Filter Flags from given buffer. 
+
+The decoded result is stored into $\ast$filter. The old value of filter-\/$>$options is not free()d.
+
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}

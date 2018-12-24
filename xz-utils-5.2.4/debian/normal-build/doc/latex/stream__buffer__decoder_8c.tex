@@ -1,0 +1,66 @@
+\section{liblzma/common/stream\+\_\+buffer\+\_\+decoder.c File Reference}
+\label{stream__buffer__decoder_8c}\index{liblzma/common/stream\+\_\+buffer\+\_\+decoder.\+c@{liblzma/common/stream\+\_\+buffer\+\_\+decoder.\+c}}
+
+
+Single-\/call .xz Stream decoder.  
+
+
+{\ttfamily \#include \char`\"{}stream\+\_\+decoder.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+stream\+\_\+buffer\+\_\+decode} (uint64\+\_\+t $\ast$memlimit, uint32\+\_\+t flags, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$in, size\+\_\+t $\ast$in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$out, size\+\_\+t $\ast$out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Single-\/call .xz Stream decoder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Single-\/call .xz Stream decoder. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{stream__buffer__decoder_8c_af783e9ce2623ec0f80bdbab70b503deb}} 
+\index{stream\+\_\+buffer\+\_\+decoder.\+c@{stream\+\_\+buffer\+\_\+decoder.\+c}!lzma\+\_\+stream\+\_\+buffer\+\_\+decode@{lzma\+\_\+stream\+\_\+buffer\+\_\+decode}}
+\index{lzma\+\_\+stream\+\_\+buffer\+\_\+decode@{lzma\+\_\+stream\+\_\+buffer\+\_\+decode}!stream\+\_\+buffer\+\_\+decoder.\+c@{stream\+\_\+buffer\+\_\+decoder.\+c}}
+\subsubsection{lzma\+\_\+stream\+\_\+buffer\+\_\+decode()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+stream\+\_\+buffer\+\_\+decode (\begin{DoxyParamCaption}\item[{uint64\+\_\+t $\ast$}]{memlimit,  }\item[{uint32\+\_\+t}]{flags,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const uint8\+\_\+t $\ast$}]{in,  }\item[{size\+\_\+t $\ast$}]{in\+\_\+pos,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$}]{out,  }\item[{size\+\_\+t $\ast$}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Single-\/call .xz Stream decoder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em memlimit} & Pointer to how much memory the decoder is allowed to allocate. The value pointed by this pointer is modified if and only if L\+Z\+M\+A\+\_\+\+M\+E\+M\+L\+I\+M\+I\+T\+\_\+\+E\+R\+R\+OR is returned. \\
+\hline
+{\em flags} & Bitwise-\/or of zero or more of the decoder flags\+: L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK, L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK, L\+Z\+M\+A\+\_\+\+C\+O\+N\+C\+A\+T\+E\+N\+A\+T\+ED. Note that L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+A\+N\+Y\+\_\+\+C\+H\+E\+CK is not allowed and will return L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR. \\
+\hline
+{\em allocator} & \doxyref{lzma\+\_\+allocator}{p.}{structlzma__allocator} for custom allocator functions. Set to N\+U\+LL to use malloc() and free(). \\
+\hline
+{\em in} & Beginning of the input buffer \\
+\hline
+{\em in\+\_\+pos} & The next byte will be read from in[$\ast$in\+\_\+pos]. $\ast$in\+\_\+pos is updated only if decoding succeeds. \\
+\hline
+{\em in\+\_\+size} & Size of the input buffer; the first byte that won\textquotesingle{}t be read is in[in\+\_\+size]. \\
+\hline
+{\em out} & Beginning of the output buffer \\
+\hline
+{\em out\+\_\+pos} & The next byte will be written to out[$\ast$out\+\_\+pos]. $\ast$out\+\_\+pos is updated only if decoding succeeds. \\
+\hline
+{\em out\+\_\+size} & Size of the out buffer; the first byte into which no data is written to is out[out\+\_\+size].\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ L\+Z\+M\+A\+\_\+\+OK\+: Decoding was successful.
+\begin{DoxyItemize}
+\item L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+O\+P\+T\+I\+O\+N\+S\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK\+: This can be returned only if using the L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK flag.
+\item L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK\+: This can be returned only if using the L\+Z\+M\+A\+\_\+\+T\+E\+L\+L\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK flag.
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR
+\item L\+Z\+M\+A\+\_\+\+M\+E\+M\+L\+I\+M\+I\+T\+\_\+\+E\+R\+R\+OR\+: Memory usage limit was reached. The minimum required memlimit value was stored to $\ast$memlimit.
+\item L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR\+: Output buffer was too small.
+\item L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR 
+\end{DoxyItemize}
+\end{DoxyReturn}

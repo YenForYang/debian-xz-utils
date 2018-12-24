@@ -1,0 +1,119 @@
+\section{lzma\+\_\+index\+\_\+hash\+\_\+s Struct Reference}
+\label{structlzma__index__hash__s}\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__index__hash__s_ad642ec3abc35983b5005bfa5dea17d2f}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+CK}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+O\+U\+NT}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+P\+A\+D\+D\+ED}, 
+{\bfseries S\+E\+Q\+\_\+\+U\+N\+C\+O\+M\+P\+R\+E\+S\+S\+ED}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+N\+G\+\_\+\+I\+N\+IT}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+R\+C32}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__index__hash__s_aa3d3ed57a6b0d9162ce567fa09eb57e7}} 
+enum lzma\+\_\+index\+\_\+hash\+\_\+s\+:: \{ ... \}  {\bfseries sequence}
+\item 
+\textbf{ lzma\+\_\+index\+\_\+hash\+\_\+info} \textbf{ blocks}
+\begin{DoxyCompactList}\small\item\em Information collected while decoding the actual Blocks. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index\+\_\+hash\+\_\+info} \textbf{ records}
+\begin{DoxyCompactList}\small\item\em Information collected from the Index field. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ remaining}
+\begin{DoxyCompactList}\small\item\em Number of Records not fully decoded. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ unpadded\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Unpadded Size currently being read from an Index Record. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ uncompressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Uncompressed Size currently being read from an Index Record. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ pos}
+\item 
+uint32\+\_\+t \textbf{ crc32}
+\begin{DoxyCompactList}\small\item\em C\+R\+C32 of the Index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__index__hash__s_ab3188a30d1a8ecca8e1be3e4117d247d}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!blocks@{blocks}}
+\index{blocks@{blocks}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{blocks}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index\+\_\+hash\+\_\+info} lzma\+\_\+index\+\_\+hash\+\_\+s\+::blocks}
+
+
+
+Information collected while decoding the actual Blocks. 
+
+\mbox{\label{structlzma__index__hash__s_acefccb2b81ef4de69565483be7a323b1}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!records@{records}}
+\index{records@{records}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{records}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index\+\_\+hash\+\_\+info} lzma\+\_\+index\+\_\+hash\+\_\+s\+::records}
+
+
+
+Information collected from the Index field. 
+
+\mbox{\label{structlzma__index__hash__s_ac56d05d2b532a923c9719c42a8a22bcc}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!remaining@{remaining}}
+\index{remaining@{remaining}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{remaining}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+hash\+\_\+s\+::remaining}
+
+
+
+Number of Records not fully decoded. 
+
+\mbox{\label{structlzma__index__hash__s_af1c3355a0c7acc984f78ecfcdfec22b7}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!unpadded\+\_\+size@{unpadded\+\_\+size}}
+\index{unpadded\+\_\+size@{unpadded\+\_\+size}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{unpadded\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+hash\+\_\+s\+::unpadded\+\_\+size}
+
+
+
+Unpadded Size currently being read from an Index Record. 
+
+
+
+Referenced by hash\+\_\+append(), and lzma\+\_\+index\+\_\+hash\+\_\+append().
+
+\mbox{\label{structlzma__index__hash__s_a6001472cdcba7a6fee214b295fd81a2d}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+index\+\_\+hash\+\_\+s\+::uncompressed\+\_\+size}
+
+
+
+Uncompressed Size currently being read from an Index Record. 
+
+
+
+Referenced by hash\+\_\+append(), and lzma\+\_\+index\+\_\+hash\+\_\+append().
+
+\mbox{\label{structlzma__index__hash__s_ac63219f34e9a2524d23b0593b174790d}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+index\+\_\+hash\+\_\+s\+::pos}
+
+Position in variable-\/length integers when decoding them from the List of Records. \mbox{\label{structlzma__index__hash__s_a6f60785c4fd00c44fc1f272c733c2f97}} 
+\index{lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}!crc32@{crc32}}
+\index{crc32@{crc32}!lzma\+\_\+index\+\_\+hash\+\_\+s@{lzma\+\_\+index\+\_\+hash\+\_\+s}}
+\subsubsection{crc32}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+index\+\_\+hash\+\_\+s\+::crc32}
+
+
+
+C\+R\+C32 of the Index. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ index\+\_\+hash.\+c}\end{DoxyCompactItemize}

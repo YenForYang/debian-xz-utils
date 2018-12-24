@@ -1,0 +1,80 @@
+\section{xz/main.c File Reference}
+\label{main_8c}\index{xz/main.\+c@{xz/main.\+c}}
+
+
+main()  
+
+
+{\ttfamily \#include \char`\"{}private.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ set\+\_\+exit\+\_\+status} (enum \textbf{ exit\+\_\+status\+\_\+type} new\+\_\+status)
+\item 
+void \textbf{ set\+\_\+exit\+\_\+no\+\_\+warn} (void)
+\item 
+\mbox{\label{main_8c_a8bd8254f62636cdc8a461a3f2cdceb76}} 
+static const char $\ast$ {\bfseries read\+\_\+name} (const \textbf{ args\+\_\+info} $\ast$args)
+\item 
+\mbox{\label{main_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static enum \textbf{ exit\+\_\+status\+\_\+type} \textbf{ exit\+\_\+status} = E\+\_\+\+S\+U\+C\+C\+E\+SS
+\begin{DoxyCompactList}\small\item\em Exit status to use. This can be changed with \doxyref{set\+\_\+exit\+\_\+status()}{p.}{main_8c_aa5da9e106c96aef50fcb212123d5e906}. \end{DoxyCompactList}\item 
+static bool \textbf{ no\+\_\+warn} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+main() 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{main_8c_aa5da9e106c96aef50fcb212123d5e906}} 
+\index{main.\+c@{main.\+c}!set\+\_\+exit\+\_\+status@{set\+\_\+exit\+\_\+status}}
+\index{set\+\_\+exit\+\_\+status@{set\+\_\+exit\+\_\+status}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+exit\+\_\+status()}
+{\footnotesize\ttfamily void set\+\_\+exit\+\_\+status (\begin{DoxyParamCaption}\item[{enum \textbf{ exit\+\_\+status\+\_\+type}}]{new\+\_\+status }\end{DoxyParamCaption})}
+
+Sets the exit status after a warning or error has occurred. If new\+\_\+status is E\+\_\+\+W\+A\+R\+N\+I\+NG and the old exit status was already E\+\_\+\+E\+R\+R\+OR, the exit status is not changed. 
+
+Referenced by signals\+\_\+exit().
+
+\mbox{\label{main_8c_a822c7b0dcac2111d1abacbb29145458e}} 
+\index{main.\+c@{main.\+c}!set\+\_\+exit\+\_\+no\+\_\+warn@{set\+\_\+exit\+\_\+no\+\_\+warn}}
+\index{set\+\_\+exit\+\_\+no\+\_\+warn@{set\+\_\+exit\+\_\+no\+\_\+warn}!main.\+c@{main.\+c}}
+\subsubsection{set\+\_\+exit\+\_\+no\+\_\+warn()}
+{\footnotesize\ttfamily void set\+\_\+exit\+\_\+no\+\_\+warn (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Use E\+\_\+\+S\+U\+C\+C\+E\+SS instead of E\+\_\+\+W\+A\+R\+N\+I\+NG if something worth a warning occurs but nothing worth an error has occurred. This is called when --no-\/warn is specified. 
+
+References no\+\_\+warn.
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{main_8c_af57dd6e76a4d8a04c388333b08771980}} 
+\index{main.\+c@{main.\+c}!exit\+\_\+status@{exit\+\_\+status}}
+\index{exit\+\_\+status@{exit\+\_\+status}!main.\+c@{main.\+c}}
+\subsubsection{exit\+\_\+status}
+{\footnotesize\ttfamily enum \textbf{ exit\+\_\+status\+\_\+type} exit\+\_\+status = E\+\_\+\+S\+U\+C\+C\+E\+SS\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Exit status to use. This can be changed with \doxyref{set\+\_\+exit\+\_\+status()}{p.}{main_8c_aa5da9e106c96aef50fcb212123d5e906}. 
+
+\mbox{\label{main_8c_adfe9520c9a0b67fd284cc6733bdb0fe4}} 
+\index{main.\+c@{main.\+c}!no\+\_\+warn@{no\+\_\+warn}}
+\index{no\+\_\+warn@{no\+\_\+warn}!main.\+c@{main.\+c}}
+\subsubsection{no\+\_\+warn}
+{\footnotesize\ttfamily bool no\+\_\+warn = false\hspace{0.3cm}{\ttfamily [static]}}
+
+True if --no-\/warn is specified. When this is true, we don\textquotesingle{}t set the exit status to E\+\_\+\+W\+A\+R\+N\+I\+NG when something worth a warning happens. 
+
+Referenced by set\+\_\+exit\+\_\+no\+\_\+warn().
+

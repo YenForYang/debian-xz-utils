@@ -1,0 +1,257 @@
+\section{lzma\+\_\+stream\+\_\+coder Struct Reference}
+\label{structlzma__stream__coder}\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__stream__coder_ae6d6650b05a55ea7f17ca56fd8ce5d46}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+CK}, 
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+D\+EX}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+F\+O\+O\+T\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+P\+A\+D\+D\+I\+NG}
+ \}
+\item 
+\mbox{\label{structlzma__stream__coder_ab12ea2d954838911ba52f012136299be}} 
+enum \{ \newline
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+C\+K\+\_\+\+I\+N\+IT}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+ER}, 
+{\bfseries S\+E\+Q\+\_\+\+B\+L\+O\+C\+K\+\_\+\+E\+N\+C\+O\+DE}, 
+\newline
+{\bfseries S\+E\+Q\+\_\+\+I\+N\+D\+E\+X\+\_\+\+E\+N\+C\+O\+DE}, 
+{\bfseries S\+E\+Q\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+F\+O\+O\+T\+ER}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__stream__coder_ab3610fb82838ed2d72427f220955a2b7}} 
+enum lzma\+\_\+stream\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ block\+\_\+decoder}
+\item 
+\textbf{ lzma\+\_\+block} \textbf{ block\+\_\+options}
+\begin{DoxyCompactList}\small\item\em Options for the Block encoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+stream\+\_\+flags} \textbf{ stream\+\_\+flags}
+\begin{DoxyCompactList}\small\item\em Stream Flags from Stream Header. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+index\+\_\+hash} $\ast$ \textbf{ index\+\_\+hash}
+\item 
+uint64\+\_\+t \textbf{ memlimit}
+\begin{DoxyCompactList}\small\item\em Memory usage limit. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ memusage}
+\begin{DoxyCompactList}\small\item\em Amount of memory actually needed (only an estimate) \end{DoxyCompactList}\item 
+bool \textbf{ tell\+\_\+no\+\_\+check}
+\item 
+bool \textbf{ tell\+\_\+unsupported\+\_\+check}
+\item 
+bool \textbf{ tell\+\_\+any\+\_\+check}
+\begin{DoxyCompactList}\small\item\em If true, L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK is returned after decoding Stream Header. \end{DoxyCompactList}\item 
+bool \textbf{ ignore\+\_\+check}
+\item 
+bool \textbf{ concatenated}
+\item 
+bool \textbf{ first\+\_\+stream}
+\item 
+size\+\_\+t \textbf{ pos}
+\begin{DoxyCompactList}\small\item\em Write position in buffer[] and position in Stream Padding. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ buffer} [L\+Z\+M\+A\+\_\+\+B\+L\+O\+C\+K\+\_\+\+H\+E\+A\+D\+E\+R\+\_\+\+S\+I\+Z\+E\+\_\+\+M\+AX]
+\item 
+\mbox{\label{structlzma__stream__coder_abba3a77effec0653065a17b6f1dabb17}} 
+enum lzma\+\_\+stream\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+bool \textbf{ block\+\_\+encoder\+\_\+is\+\_\+initialized}
+\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ block\+\_\+encoder}
+\begin{DoxyCompactList}\small\item\em Block. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+filter} \textbf{ filters} [\textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX}+1]
+\begin{DoxyCompactList}\small\item\em The filter chain currently in use. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ index\+\_\+encoder}
+\item 
+\textbf{ lzma\+\_\+index} $\ast$ \textbf{ index}
+\begin{DoxyCompactList}\small\item\em Index to hold sizes of the Blocks. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ buffer\+\_\+pos}
+\begin{DoxyCompactList}\small\item\em Read position in buffer[]. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ buffer\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Total number of bytes in buffer[]. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__stream__coder_abae359673dac6cc59904970e8d1a651c}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!block\+\_\+decoder@{block\+\_\+decoder}}
+\index{block\+\_\+decoder@{block\+\_\+decoder}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{block\+\_\+decoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+stream\+\_\+coder\+::block\+\_\+decoder}
+
+Block or Metadata decoder. This takes little memory and the same data structure can be used to decode every Block Header, so it\textquotesingle{}s a good idea to have a separate lzma\+\_\+next\+\_\+coder structure for it. \mbox{\label{structlzma__stream__coder_a4b9136a9e9857066359d675417b0c0b4}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!block\+\_\+options@{block\+\_\+options}}
+\index{block\+\_\+options@{block\+\_\+options}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{block\+\_\+options}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+block} lzma\+\_\+stream\+\_\+coder\+::block\+\_\+options}
+
+
+
+Options for the Block encoder. 
+
+Block options decoded by the Block Header decoder and used by the Block decoder. \mbox{\label{structlzma__stream__coder_a7e071d1ad66d75492dc4418045eb3a63}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!stream\+\_\+flags@{stream\+\_\+flags}}
+\index{stream\+\_\+flags@{stream\+\_\+flags}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{stream\+\_\+flags}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+stream\+\_\+flags} lzma\+\_\+stream\+\_\+coder\+::stream\+\_\+flags}
+
+
+
+Stream Flags from Stream Header. 
+
+\mbox{\label{structlzma__stream__coder_a0e1147af198db6d94c1a16cf4f150699}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!index\+\_\+hash@{index\+\_\+hash}}
+\index{index\+\_\+hash@{index\+\_\+hash}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{index\+\_\+hash}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index\+\_\+hash}$\ast$ lzma\+\_\+stream\+\_\+coder\+::index\+\_\+hash}
+
+Index is hashed so that it can be compared to the sizes of Blocks with O(1) memory usage. \mbox{\label{structlzma__stream__coder_ababd0140568f3ff5bb4516356b77ccd3}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!memlimit@{memlimit}}
+\index{memlimit@{memlimit}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{memlimit}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+stream\+\_\+coder\+::memlimit}
+
+
+
+Memory usage limit. 
+
+\mbox{\label{structlzma__stream__coder_ae9f09c85f66b5694880fe53fda6f60da}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!memusage@{memusage}}
+\index{memusage@{memusage}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{memusage}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+stream\+\_\+coder\+::memusage}
+
+
+
+Amount of memory actually needed (only an estimate) 
+
+\mbox{\label{structlzma__stream__coder_a39be714b9e7fc874cfc01787c0af579f}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!tell\+\_\+no\+\_\+check@{tell\+\_\+no\+\_\+check}}
+\index{tell\+\_\+no\+\_\+check@{tell\+\_\+no\+\_\+check}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{tell\+\_\+no\+\_\+check}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::tell\+\_\+no\+\_\+check}
+
+If true, L\+Z\+M\+A\+\_\+\+N\+O\+\_\+\+C\+H\+E\+CK is returned if the Stream has no integrity check. \mbox{\label{structlzma__stream__coder_a16b8397544a644ab2ec12393704ffbb1}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!tell\+\_\+unsupported\+\_\+check@{tell\+\_\+unsupported\+\_\+check}}
+\index{tell\+\_\+unsupported\+\_\+check@{tell\+\_\+unsupported\+\_\+check}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{tell\+\_\+unsupported\+\_\+check}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::tell\+\_\+unsupported\+\_\+check}
+
+If true, L\+Z\+M\+A\+\_\+\+U\+N\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+C\+H\+E\+CK is returned if the Stream has an integrity check that isn\textquotesingle{}t supported by this liblzma build. \mbox{\label{structlzma__stream__coder_ad928848f065fedef02a5ff62a0c6b0aa}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!tell\+\_\+any\+\_\+check@{tell\+\_\+any\+\_\+check}}
+\index{tell\+\_\+any\+\_\+check@{tell\+\_\+any\+\_\+check}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{tell\+\_\+any\+\_\+check}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::tell\+\_\+any\+\_\+check}
+
+
+
+If true, L\+Z\+M\+A\+\_\+\+G\+E\+T\+\_\+\+C\+H\+E\+CK is returned after decoding Stream Header. 
+
+\mbox{\label{structlzma__stream__coder_ae58b78f21860b33c949dc8405a961690}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!ignore\+\_\+check@{ignore\+\_\+check}}
+\index{ignore\+\_\+check@{ignore\+\_\+check}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{ignore\+\_\+check}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::ignore\+\_\+check}
+
+If true, we will tell the Block decoder to skip calculating and verifying the integrity check. \mbox{\label{structlzma__stream__coder_afc6cd70e510613dd6f82d6b62eaf0690}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!concatenated@{concatenated}}
+\index{concatenated@{concatenated}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{concatenated}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::concatenated}
+
+If true, we will decode concatenated Streams that possibly have Stream Padding between or after them. L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND is returned once the application isn\textquotesingle{}t giving us any new input, and we aren\textquotesingle{}t in the middle of a Stream, and possible Stream Padding is a multiple of four bytes. \mbox{\label{structlzma__stream__coder_a97e5ca9cd8c61d2aad2f916e69cf8a3c}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!first\+\_\+stream@{first\+\_\+stream}}
+\index{first\+\_\+stream@{first\+\_\+stream}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{first\+\_\+stream}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::first\+\_\+stream}
+
+When decoding concatenated Streams, this is true as long as we are decoding the first Stream. This is needed to avoid misleading L\+Z\+M\+A\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+E\+R\+R\+OR in case the later Streams don\textquotesingle{}t have valid magic bytes. \mbox{\label{structlzma__stream__coder_a4e5507b686af8ffd3d1ec58c7ed1cead}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+stream\+\_\+coder\+::pos}
+
+
+
+Write position in buffer[] and position in Stream Padding. 
+
+\mbox{\label{structlzma__stream__coder_a010084fc49431f445b009816347f0249}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!buffer@{buffer}}
+\index{buffer@{buffer}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{buffer}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+stream\+\_\+coder\+::buffer}
+
+Buffer to hold Stream Header, Block Header, and Stream Footer. Block Header has biggest maximum size. \mbox{\label{structlzma__stream__coder_a8b227a172d33c34c47527fec3a55aa85}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!block\+\_\+encoder\+\_\+is\+\_\+initialized@{block\+\_\+encoder\+\_\+is\+\_\+initialized}}
+\index{block\+\_\+encoder\+\_\+is\+\_\+initialized@{block\+\_\+encoder\+\_\+is\+\_\+initialized}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{block\+\_\+encoder\+\_\+is\+\_\+initialized}
+{\footnotesize\ttfamily bool lzma\+\_\+stream\+\_\+coder\+::block\+\_\+encoder\+\_\+is\+\_\+initialized}
+
+True if Block encoder has been initialized by stream\+\_\+encoder\+\_\+init() or stream\+\_\+encoder\+\_\+update() and thus doesn\textquotesingle{}t need to be initialized in stream\+\_\+encode(). \mbox{\label{structlzma__stream__coder_ae8eced7d6fcd4dc8a63d11ae89e12b22}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!block\+\_\+encoder@{block\+\_\+encoder}}
+\index{block\+\_\+encoder@{block\+\_\+encoder}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{block\+\_\+encoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+stream\+\_\+coder\+::block\+\_\+encoder}
+
+
+
+Block. 
+
+\mbox{\label{structlzma__stream__coder_ad1dd14a4936d2ac70c5f342ce8a7d5e5}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!filters@{filters}}
+\index{filters@{filters}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{filters}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+filter} lzma\+\_\+stream\+\_\+coder\+::filters[\textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+S\+\_\+\+M\+AX}+1]}
+
+
+
+The filter chain currently in use. 
+
+\mbox{\label{structlzma__stream__coder_a19893929521ece9318b515a40ad8384e}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!index\+\_\+encoder@{index\+\_\+encoder}}
+\index{index\+\_\+encoder@{index\+\_\+encoder}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{index\+\_\+encoder}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+stream\+\_\+coder\+::index\+\_\+encoder}
+
+Index encoder. This is separate from Block encoder, because this doesn\textquotesingle{}t take much memory, and when encoding multiple Streams with the same encoding options we avoid reallocating memory. \mbox{\label{structlzma__stream__coder_a460a12a2f6bdb26d1d7a95b610087a5d}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!index@{index}}
+\index{index@{index}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{index}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index}$\ast$ lzma\+\_\+stream\+\_\+coder\+::index}
+
+
+
+Index to hold sizes of the Blocks. 
+
+\mbox{\label{structlzma__stream__coder_a5a95aaa98afb6f35b83a7175bbc3212f}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!buffer\+\_\+pos@{buffer\+\_\+pos}}
+\index{buffer\+\_\+pos@{buffer\+\_\+pos}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{buffer\+\_\+pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+stream\+\_\+coder\+::buffer\+\_\+pos}
+
+
+
+Read position in buffer[]. 
+
+\mbox{\label{structlzma__stream__coder_accef680b4554c3e62bcbbd5584c8fb64}} 
+\index{lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}!buffer\+\_\+size@{buffer\+\_\+size}}
+\index{buffer\+\_\+size@{buffer\+\_\+size}!lzma\+\_\+stream\+\_\+coder@{lzma\+\_\+stream\+\_\+coder}}
+\subsubsection{buffer\+\_\+size}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+stream\+\_\+coder\+::buffer\+\_\+size}
+
+
+
+Total number of bytes in buffer[]. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ stream\+\_\+decoder.\+c}\item 
+liblzma/common/\textbf{ stream\+\_\+encoder.\+c}\end{DoxyCompactItemize}

@@ -1,0 +1,109 @@
+\section{lzma\+\_\+coder Struct Reference}
+\label{structlzma__coder}\index{lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+dict} \textbf{ dict}
+\begin{DoxyCompactList}\small\item\em Dictionary (history buffer) \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+lz\+\_\+decoder} \textbf{ lz}
+\begin{DoxyCompactList}\small\item\em The actual L\+Z-\/based decoder e.\+g. L\+Z\+MA. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ next}
+\begin{DoxyCompactList}\small\item\em Next coder in the chain. \end{DoxyCompactList}\item 
+bool \textbf{ next\+\_\+finished}
+\begin{DoxyCompactList}\small\item\em True if the next filter in the chain has returned L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. \end{DoxyCompactList}\item 
+bool \textbf{ this\+\_\+finished}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>size\_t {\bfseries pos}\\
+\>size\_t {\bfseries size}\\
+\>uint8\_t {\bfseries buffer} [\textbf{ LZMA\_BUFFER\_SIZE}]\\
+\} \textbf{ temp}\\
+
+\end{tabbing}\item 
+\textbf{ lzma\+\_\+lz\+\_\+encoder} \textbf{ lz}
+\begin{DoxyCompactList}\small\item\em L\+Z-\/based encoder e.\+g. L\+Z\+MA. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+mf} \textbf{ mf}
+\begin{DoxyCompactList}\small\item\em History buffer and match finder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__coder_a9b71c6b7424b041a59152060c4670488}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!dict@{dict}}
+\index{dict@{dict}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{dict}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+dict} lzma\+\_\+coder\+::dict}
+
+
+
+Dictionary (history buffer) 
+
+\mbox{\label{structlzma__coder_abc772f1ec88632afa84c9af7490f474b}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!lz@{lz}}
+\index{lz@{lz}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{lz\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+lz\+\_\+decoder} lzma\+\_\+coder\+::lz}
+
+
+
+The actual L\+Z-\/based decoder e.\+g. L\+Z\+MA. 
+
+\mbox{\label{structlzma__coder_a3b1b1d9528e2d3042826bd805fea42d2}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!next@{next}}
+\index{next@{next}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{next}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+coder\+::next}
+
+
+
+Next coder in the chain. 
+
+Next filter in the chain, if any. Note that L\+Z\+MA and L\+Z\+M\+A2 are only allowed as the last filter, but the long-\/range filter in future can be in the middle of the chain. \mbox{\label{structlzma__coder_afb0adcd0e66adaa34ec24df7a3a40cbc}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!next\+\_\+finished@{next\+\_\+finished}}
+\index{next\+\_\+finished@{next\+\_\+finished}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{next\+\_\+finished}
+{\footnotesize\ttfamily bool lzma\+\_\+coder\+::next\+\_\+finished}
+
+
+
+True if the next filter in the chain has returned L\+Z\+M\+A\+\_\+\+S\+T\+R\+E\+A\+M\+\_\+\+E\+ND. 
+
+\mbox{\label{structlzma__coder_acecb640812c1a9f9d023a7f73f3c1485}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!this\+\_\+finished@{this\+\_\+finished}}
+\index{this\+\_\+finished@{this\+\_\+finished}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{this\+\_\+finished}
+{\footnotesize\ttfamily bool lzma\+\_\+coder\+::this\+\_\+finished}
+
+True if the LZ decoder (e.\+g. L\+Z\+MA) has detected end of payload marker. This may become true before next\+\_\+finished becomes true. \mbox{\label{structlzma__coder_a866db081456f41500e0a03dd99c77435}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!temp@{temp}}
+\index{temp@{temp}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{temp}
+{\footnotesize\ttfamily struct \{ ... \}   lzma\+\_\+coder\+::temp}
+
+Temporary buffer needed when the L\+Z-\/based filter is not the last filter in the chain. The output of the next filter is first decoded into buffer[], which is then used as input for the actual L\+Z-\/based decoder. \mbox{\label{structlzma__coder_a0bcea5c6c214f795a18bdb10075bb8be}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!lz@{lz}}
+\index{lz@{lz}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{lz\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+lz\+\_\+encoder} lzma\+\_\+coder\+::lz}
+
+
+
+L\+Z-\/based encoder e.\+g. L\+Z\+MA. 
+
+\mbox{\label{structlzma__coder_ac9d2352827afedf9e66ece02a9113a04}} 
+\index{lzma\+\_\+coder@{lzma\+\_\+coder}!mf@{mf}}
+\index{mf@{mf}!lzma\+\_\+coder@{lzma\+\_\+coder}}
+\subsubsection{mf}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+mf} lzma\+\_\+coder\+::mf}
+
+
+
+History buffer and match finder. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/\textbf{ lz\+\_\+decoder.\+c}\item 
+liblzma/lz/\textbf{ lz\+\_\+encoder.\+c}\end{DoxyCompactItemize}

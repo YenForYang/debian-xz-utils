@@ -1,0 +1,16 @@
+\section{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+fast.c File Reference}
+\label{lzma__encoder__optimum__fast_8c}\index{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+fast.\+c@{liblzma/lzma/lzma\+\_\+encoder\+\_\+optimum\+\_\+fast.\+c}}
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder\+\_\+private.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memcmplen.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__optimum__fast_8c_a6c81740f4cb07ddc494a3daffeb1ab54}} 
+\#define {\bfseries change\+\_\+pair}(small\+\_\+dist,  big\+\_\+dist)~(((big\+\_\+dist) $>$$>$ 7) $>$ (small\+\_\+dist))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma__encoder__optimum__fast_8c_a98a5417f4d43aad0775c0a665dabb294}} 
+void {\bfseries lzma\+\_\+lzma\+\_\+optimum\+\_\+fast} (\textbf{ lzma\+\_\+lzma1\+\_\+encoder} $\ast$restrict coder, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint32\+\_\+t $\ast$restrict back\+\_\+res, uint32\+\_\+t $\ast$restrict len\+\_\+res)
+\end{DoxyCompactItemize}

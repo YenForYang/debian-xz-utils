@@ -1,0 +1,9 @@
+liblzma-dev_5.2.4-1_amd64.deb libdevel optional
+liblzma-doc_5.2.4-1_all.deb doc optional
+liblzma5-dbgsym_5.2.4-1_amd64.deb debug optional automatic=yes
+liblzma5_5.2.4-1_amd64.deb libs required
+xz-utils-dbgsym_5.2.4-1_amd64.deb debug optional automatic=yes
+xz-utils_5.2.4-1_amd64.buildinfo utils required
+xz-utils_5.2.4-1_amd64.deb utils required
+xzdec-dbgsym_5.2.4-1_amd64.deb debug optional automatic=yes
+xzdec_5.2.4-1_amd64.deb utils extra

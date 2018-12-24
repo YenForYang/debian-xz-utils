@@ -1,0 +1,54 @@
+\section{liblzma/lzma/lzma2\+\_\+encoder.c File Reference}
+\label{lzma2__encoder_8c}\index{liblzma/lzma/lzma2\+\_\+encoder.\+c@{liblzma/lzma/lzma2\+\_\+encoder.\+c}}
+
+
+L\+Z\+M\+A2 encoder.  
+
+
+{\ttfamily \#include \char`\"{}lz\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fastpos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma2\+\_\+encoder.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+lzma2\+\_\+coder}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{lzma2__encoder_8c_a72ddcbae0ec246fc03433e24667195dd}} 
+static void {\bfseries lzma2\+\_\+header\+\_\+lzma} (\textbf{ lzma\+\_\+lzma2\+\_\+coder} $\ast$coder)
+\item 
+\mbox{\label{lzma2__encoder_8c_ad60d7b0e3567a5c8131eeaa2e3989e3c}} 
+static void {\bfseries lzma2\+\_\+header\+\_\+uncompressed} (\textbf{ lzma\+\_\+lzma2\+\_\+coder} $\ast$coder)
+\item 
+\mbox{\label{lzma2__encoder_8c_ad7765e6e70b2e709e53983abc2f44395}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma2\+\_\+encode} (void $\ast$coder\+\_\+ptr, \textbf{ lzma\+\_\+mf} $\ast$restrict mf, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\item 
+\mbox{\label{lzma2__encoder_8c_a2da79833932d1170803d3d42d41c2212}} 
+static void {\bfseries lzma2\+\_\+encoder\+\_\+end} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+\mbox{\label{lzma2__encoder_8c_a1fdfc1236d28d956ecd731bbb3af3630}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma2\+\_\+encoder\+\_\+options\+\_\+update} (void $\ast$coder\+\_\+ptr, const \textbf{ lzma\+\_\+filter} $\ast$filter)
+\item 
+\mbox{\label{lzma2__encoder_8c_a48343e34cdbc1a70fef131b3c05e99df}} 
+static \textbf{ lzma\+\_\+ret} {\bfseries lzma2\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+lz\+\_\+encoder} $\ast$lz, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const void $\ast$options, \textbf{ lzma\+\_\+lz\+\_\+options} $\ast$lz\+\_\+options)
+\item 
+\mbox{\label{lzma2__encoder_8c_a7dd1146ceea09c352e705de30d14aace}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma2\+\_\+encoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\mbox{\label{lzma2__encoder_8c_afff5740f7004ed7d3c7b67c3671a30c0}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma2\+\_\+encoder\+\_\+memusage} (const void $\ast$options)
+\item 
+\mbox{\label{lzma2__encoder_8c_aecbff0af1269d11accb87f956e2609d4}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma2\+\_\+props\+\_\+encode} (const void $\ast$options, uint8\+\_\+t $\ast$out)
+\item 
+\mbox{\label{lzma2__encoder_8c_ae1c48f80b363367e094795c60f466624}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma2\+\_\+block\+\_\+size} (const void $\ast$options)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+Z\+M\+A2 encoder. 
+

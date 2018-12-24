@@ -1,0 +1,56 @@
+\section{liblzma/lzma/lzma\+\_\+decoder.h File Reference}
+\label{lzma__decoder_8h}\index{liblzma/lzma/lzma\+\_\+decoder.\+h@{liblzma/lzma/lzma\+\_\+decoder.\+h}}
+
+
+L\+Z\+MA decoder A\+PI.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+lzma\+\_\+decoder\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\begin{DoxyCompactList}\small\item\em Allocates and initializes L\+Z\+MA decoder. \end{DoxyCompactList}\item 
+\mbox{\label{lzma__decoder_8h_aad2f0056516cc2d78de478a41418307e}} 
+uint64\+\_\+t {\bfseries lzma\+\_\+lzma\+\_\+decoder\+\_\+memusage} (const void $\ast$options)
+\item 
+\mbox{\label{lzma__decoder_8h_aa240cbafdddb6c29c61681d01f2fcf04}} 
+\textbf{ lzma\+\_\+ret} {\bfseries lzma\+\_\+lzma\+\_\+props\+\_\+decode} (void $\ast$$\ast$options, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$props, size\+\_\+t props\+\_\+size)
+\item 
+bool \textbf{ lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode} (\textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$options, uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Decodes the L\+Z\+MA Properties byte (lc/lp/pb) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+L\+Z\+MA decoder A\+PI. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{lzma__decoder_8h_aba4aaf8db97928fbdc5143d73beeaa02}} 
+\index{lzma\+\_\+decoder.\+h@{lzma\+\_\+decoder.\+h}!lzma\+\_\+lzma\+\_\+decoder\+\_\+init@{lzma\+\_\+lzma\+\_\+decoder\+\_\+init}}
+\index{lzma\+\_\+lzma\+\_\+decoder\+\_\+init@{lzma\+\_\+lzma\+\_\+decoder\+\_\+init}!lzma\+\_\+decoder.\+h@{lzma\+\_\+decoder.\+h}}
+\subsubsection{lzma\+\_\+lzma\+\_\+decoder\+\_\+init()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+lzma\+\_\+decoder\+\_\+init (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$}]{next,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$}]{filters }\end{DoxyParamCaption})}
+
+
+
+Allocates and initializes L\+Z\+MA decoder. 
+
+\mbox{\label{lzma__decoder_8h_a4907f7d9047a0c9990bdaf943ae8a181}} 
+\index{lzma\+\_\+decoder.\+h@{lzma\+\_\+decoder.\+h}!lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode}}
+\index{lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode@{lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode}!lzma\+\_\+decoder.\+h@{lzma\+\_\+decoder.\+h}}
+\subsubsection{lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode()}
+{\footnotesize\ttfamily bool lzma\+\_\+lzma\+\_\+lclppb\+\_\+decode (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+options\+\_\+lzma} $\ast$}]{options,  }\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+
+
+Decodes the L\+Z\+MA Properties byte (lc/lp/pb) 
+
+\begin{DoxyReturn}{Returns}
+true if error occurred, false on success 
+\end{DoxyReturn}
+
+
+References lzma\+\_\+options\+\_\+lzma\+::lc, lzma\+\_\+options\+\_\+lzma\+::lp, and lzma\+\_\+options\+\_\+lzma\+::pb.
+

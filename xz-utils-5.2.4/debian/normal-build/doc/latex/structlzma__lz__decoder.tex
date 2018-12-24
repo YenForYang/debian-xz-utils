@@ -1,0 +1,64 @@
+\section{lzma\+\_\+lz\+\_\+decoder Struct Reference}
+\label{structlzma__lz__decoder}\index{lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \textbf{ coder}
+\begin{DoxyCompactList}\small\item\em Data specific to the L\+Z-\/based decoder. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret}($\ast$ \textbf{ code} )(void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+dict} $\ast$restrict dict, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Function to decode from in[] to $\ast$dict. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__lz__decoder_af0770fd7569ff750f92a1fe70369bab1}} 
+void($\ast$ {\bfseries reset} )(void $\ast$\textbf{ coder}, const void $\ast$options)
+\item 
+void($\ast$ \textbf{ set\+\_\+uncompressed} )(void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+vli} uncompressed\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Set the uncompressed size. \end{DoxyCompactList}\item 
+void($\ast$ \textbf{ end} )(void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Free allocated resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__lz__decoder_a3c045dd51362e161dd7318ea3054a9fa}} 
+\index{lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}!coder@{coder}}
+\index{coder@{coder}!lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}}
+\subsubsection{coder}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+lz\+\_\+decoder\+::coder}
+
+
+
+Data specific to the L\+Z-\/based decoder. 
+
+\mbox{\label{structlzma__lz__decoder_aeb195129f4b0e17d09c1417445bf85eb}} 
+\index{lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}!code@{code}}
+\index{code@{code}!lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}}
+\subsubsection{code}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+lz\+\_\+decoder\+::code) (void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+dict} $\ast$restrict dict, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size)}
+
+
+
+Function to decode from in[] to $\ast$dict. 
+
+\mbox{\label{structlzma__lz__decoder_a4d75e48e1c29993b18bf7fa788cce1a1}} 
+\index{lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}!set\+\_\+uncompressed@{set\+\_\+uncompressed}}
+\index{set\+\_\+uncompressed@{set\+\_\+uncompressed}!lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}}
+\subsubsection{set\+\_\+uncompressed}
+{\footnotesize\ttfamily void($\ast$ lzma\+\_\+lz\+\_\+decoder\+::set\+\_\+uncompressed) (void $\ast$\textbf{ coder}, \textbf{ lzma\+\_\+vli} uncompressed\+\_\+size)}
+
+
+
+Set the uncompressed size. 
+
+\mbox{\label{structlzma__lz__decoder_abf3359e1ee6f17ae0be1aaf35fad0ab2}} 
+\index{lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}!end@{end}}
+\index{end@{end}!lzma\+\_\+lz\+\_\+decoder@{lzma\+\_\+lz\+\_\+decoder}}
+\subsubsection{end}
+{\footnotesize\ttfamily void($\ast$ lzma\+\_\+lz\+\_\+decoder\+::end) (void $\ast$\textbf{ coder}, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)}
+
+
+
+Free allocated resources. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/lz/\textbf{ lz\+\_\+decoder.\+h}\end{DoxyCompactItemize}

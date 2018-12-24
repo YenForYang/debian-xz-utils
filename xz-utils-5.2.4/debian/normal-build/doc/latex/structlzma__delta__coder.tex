@@ -1,0 +1,73 @@
+\section{lzma\+\_\+delta\+\_\+coder Struct Reference}
+\label{structlzma__delta__coder}\index{lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ next}
+\begin{DoxyCompactList}\small\item\em Next coder in the chain. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ distance}
+\begin{DoxyCompactList}\small\item\em Delta distance. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ pos}
+\begin{DoxyCompactList}\small\item\em Position in history[]. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ history} [L\+Z\+M\+A\+\_\+\+D\+E\+L\+T\+A\+\_\+\+D\+I\+S\+T\+\_\+\+M\+AX]
+\begin{DoxyCompactList}\small\item\em Buffer to hold history of the original data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__delta__coder_a251d2b3771a7556f8b04b745461a81af}} 
+\index{lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}!next@{next}}
+\index{next@{next}!lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}}
+\subsubsection{next}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+delta\+\_\+coder\+::next}
+
+
+
+Next coder in the chain. 
+
+\mbox{\label{structlzma__delta__coder_a739d2bb4ce9e94ba41bd88bf4b8c171a}} 
+\index{lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}!distance@{distance}}
+\index{distance@{distance}!lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}}
+\subsubsection{distance}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+delta\+\_\+coder\+::distance}
+
+
+
+Delta distance. 
+
+
+
+Referenced by copy\+\_\+and\+\_\+encode(), and encode\+\_\+in\+\_\+place().
+
+\mbox{\label{structlzma__delta__coder_a2d672d2955791189ddfc4246c287e65a}} 
+\index{lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+delta\+\_\+coder\+::pos}
+
+
+
+Position in history[]. 
+
+
+
+Referenced by copy\+\_\+and\+\_\+encode(), and encode\+\_\+in\+\_\+place().
+
+\mbox{\label{structlzma__delta__coder_a3e4e19b88a2140ae1e4baac5f1489e94}} 
+\index{lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}!history@{history}}
+\index{history@{history}!lzma\+\_\+delta\+\_\+coder@{lzma\+\_\+delta\+\_\+coder}}
+\subsubsection{history}
+{\footnotesize\ttfamily uint8\+\_\+t lzma\+\_\+delta\+\_\+coder\+::history[L\+Z\+M\+A\+\_\+\+D\+E\+L\+T\+A\+\_\+\+D\+I\+S\+T\+\_\+\+M\+AX]}
+
+
+
+Buffer to hold history of the original data. 
+
+
+
+Referenced by copy\+\_\+and\+\_\+encode(), and encode\+\_\+in\+\_\+place().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/delta/\textbf{ delta\+\_\+private.\+h}\end{DoxyCompactItemize}

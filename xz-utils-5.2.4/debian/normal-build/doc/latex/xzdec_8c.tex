@@ -1,0 +1,72 @@
+\section{xzdec/xzdec.c File Reference}
+\label{xzdec_8c}\index{xzdec/xzdec.\+c@{xzdec/xzdec.\+c}}
+
+
+Simple single-\/threaded tool to uncompress .xz or .lzma files.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}getopt.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tuklib\+\_\+progname.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tuklib\+\_\+exit.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{xzdec_8c_aeb6169de58908cc8d54b70e9caba325c}} 
+\#define {\bfseries T\+O\+O\+L\+\_\+\+F\+O\+R\+M\+AT}~\char`\"{}xz\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{xzdec_8c_a7407a84e0f83a82d1e7bdee869504eff}} 
+static void {\bfseries lzma\+\_\+attribute} ((\+\_\+\+\_\+format\+\_\+\+\_\+(\+\_\+\+\_\+printf\+\_\+\+\_\+, 1, 2)))
+\item 
+\mbox{\label{xzdec_8c_a1957d0c8f6ec2eb4950e67226425ee7c}} 
+static void {\bfseries lzma\+\_\+attribute} ((\+\_\+\+\_\+noreturn\+\_\+\+\_\+))
+\item 
+static void \textbf{ parse\+\_\+options} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Parses command line options. \end{DoxyCompactList}\item 
+\mbox{\label{xzdec_8c_a392ba619796fa4e882d5050ee362e7d4}} 
+static void {\bfseries uncompress} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm}, F\+I\+LE $\ast$file, const char $\ast$\textbf{ filename})
+\item 
+\mbox{\label{xzdec_8c_a3c04138a5bfe5d72780bb7e82a18e627}} 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int \textbf{ display\+\_\+errors} = 2
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Simple single-\/threaded tool to uncompress .xz or .lzma files. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{xzdec_8c_a0dbd116c9d7d88115a71d643de452cef}} 
+\index{xzdec.\+c@{xzdec.\+c}!parse\+\_\+options@{parse\+\_\+options}}
+\index{parse\+\_\+options@{parse\+\_\+options}!xzdec.\+c@{xzdec.\+c}}
+\subsubsection{parse\+\_\+options()}
+{\footnotesize\ttfamily static void parse\+\_\+options (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Parses command line options. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\label{xzdec_8c_ae0bd7452ab2664e23b22789094a20cd5}} 
+\index{xzdec.\+c@{xzdec.\+c}!display\+\_\+errors@{display\+\_\+errors}}
+\index{display\+\_\+errors@{display\+\_\+errors}!xzdec.\+c@{xzdec.\+c}}
+\subsubsection{display\+\_\+errors}
+{\footnotesize\ttfamily unsigned int display\+\_\+errors = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+Error messages are suppressed if this is zero, which is the case when --quiet has been given at least twice. 

@@ -1,0 +1,77 @@
+\section{xz\+\_\+file\+\_\+info Struct Reference}
+\label{structxz__file__info}\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+
+
+Information about a .xz file.  
+
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ lzma\+\_\+index} $\ast$ \textbf{ idx}
+\begin{DoxyCompactList}\small\item\em Combined Index of all Streams in the file. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ stream\+\_\+padding}
+\begin{DoxyCompactList}\small\item\em Total amount of Stream Padding. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ memusage\+\_\+max}
+\begin{DoxyCompactList}\small\item\em Highest memory usage so far. \end{DoxyCompactList}\item 
+bool \textbf{ all\+\_\+have\+\_\+sizes}
+\item 
+uint32\+\_\+t \textbf{ min\+\_\+version}
+\begin{DoxyCompactList}\small\item\em Oldest XZ Utils version that will decompress the file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Information about a .xz file. 
+
+\subsection{Field Documentation}
+\mbox{\label{structxz__file__info_a76baee4f8b030ed51e82f52a3eab7b82}} 
+\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}!idx@{idx}}
+\index{idx@{idx}!xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+\subsubsection{idx}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+index}$\ast$ xz\+\_\+file\+\_\+info\+::idx}
+
+
+
+Combined Index of all Streams in the file. 
+
+\mbox{\label{structxz__file__info_a5a4120e2aef7ba7d162fcd6b79bc6f8c}} 
+\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}!stream\+\_\+padding@{stream\+\_\+padding}}
+\index{stream\+\_\+padding@{stream\+\_\+padding}!xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+\subsubsection{stream\+\_\+padding}
+{\footnotesize\ttfamily uint64\+\_\+t xz\+\_\+file\+\_\+info\+::stream\+\_\+padding}
+
+
+
+Total amount of Stream Padding. 
+
+\mbox{\label{structxz__file__info_a8f1b065dd64bc47ada4911db1967c417}} 
+\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}!memusage\+\_\+max@{memusage\+\_\+max}}
+\index{memusage\+\_\+max@{memusage\+\_\+max}!xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+\subsubsection{memusage\+\_\+max}
+{\footnotesize\ttfamily uint64\+\_\+t xz\+\_\+file\+\_\+info\+::memusage\+\_\+max}
+
+
+
+Highest memory usage so far. 
+
+\mbox{\label{structxz__file__info_a62fca83737e92ef88fc8d1d26c94f3ec}} 
+\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}!all\+\_\+have\+\_\+sizes@{all\+\_\+have\+\_\+sizes}}
+\index{all\+\_\+have\+\_\+sizes@{all\+\_\+have\+\_\+sizes}!xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+\subsubsection{all\+\_\+have\+\_\+sizes}
+{\footnotesize\ttfamily bool xz\+\_\+file\+\_\+info\+::all\+\_\+have\+\_\+sizes}
+
+True if all Blocks so far have Compressed Size and Uncompressed Size fields \mbox{\label{structxz__file__info_a2a1625c5626e4a1dcc280b952ebb0038}} 
+\index{xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}!min\+\_\+version@{min\+\_\+version}}
+\index{min\+\_\+version@{min\+\_\+version}!xz\+\_\+file\+\_\+info@{xz\+\_\+file\+\_\+info}}
+\subsubsection{min\+\_\+version}
+{\footnotesize\ttfamily uint32\+\_\+t xz\+\_\+file\+\_\+info\+::min\+\_\+version}
+
+
+
+Oldest XZ Utils version that will decompress the file. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+xz/\textbf{ list.\+c}\end{DoxyCompactItemize}

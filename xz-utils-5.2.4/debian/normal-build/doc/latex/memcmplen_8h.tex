@@ -1,0 +1,83 @@
+\section{liblzma/common/memcmplen.h File Reference}
+\label{memcmplen_8h}\index{liblzma/common/memcmplen.\+h@{liblzma/common/memcmplen.\+h}}
+
+
+Optimized comparison of two buffers.  
+
+
+{\ttfamily \#include \char`\"{}common.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{memcmplen_8h_a6cf5a36dad20fbc84ea76cd650255915}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+M\+E\+M\+C\+M\+P\+L\+E\+N\+\_\+\+E\+X\+T\+RA}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static uint32\+\_\+t \textbf{ lzma\+\_\+attribute} ((\+\_\+\+\_\+always\+\_\+inline\+\_\+\+\_\+)) lzma\+\_\+memcmplen(const uint8\+\_\+t $\ast$buf1
+\item 
+\mbox{\label{memcmplen_8h_a6058c38d29d04321884dade97f0003a3}} 
+{\bfseries assert} (limit$<$=U\+I\+N\+T32\+\_\+\+M\+AX/2)
+\item 
+\mbox{\label{memcmplen_8h_ac4416a299f38e32e929eefbe84a2a037}} 
+{\bfseries while} (len$<$ limit \&\&buf1[len]==buf2[len])++len
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{memcmplen_8h_ad333ab709687fb6b2f716e8a455432f3}} 
+static uint32\+\_\+t const uint8\+\_\+t $\ast$ {\bfseries buf2}
+\item 
+\mbox{\label{memcmplen_8h_a6c4598f659398364320e3b0f357fc9be}} 
+static uint32\+\_\+t const uint8\+\_\+t uint32\+\_\+t {\bfseries len}
+\item 
+static uint32\+\_\+t const uint8\+\_\+t uint32\+\_\+t uint32\+\_\+t {\bfseries limit}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Optimized comparison of two buffers. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{memcmplen_8h_a157d11c2c46feafcc7a602313ff1a1e6}} 
+\index{memcmplen.\+h@{memcmplen.\+h}!lzma\+\_\+attribute@{lzma\+\_\+attribute}}
+\index{lzma\+\_\+attribute@{lzma\+\_\+attribute}!memcmplen.\+h@{memcmplen.\+h}}
+\subsubsection{lzma\+\_\+attribute()}
+{\footnotesize\ttfamily static uint32\+\_\+t lzma\+\_\+attribute (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+always\+\_\+inline\+\_\+\+\_\+)}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Find out how many equal bytes the two buffers have.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf1} & First buffer \\
+\hline
+{\em buf2} & Second buffer \\
+\hline
+{\em len} & How many bytes have already been compared and will be assumed to match \\
+\hline
+{\em limit} & How many bytes to compare at most, including the already-\/compared bytes. This must be significantly smaller than U\+I\+N\+T32\+\_\+\+M\+AX to avoid integer overflows. Up to L\+Z\+M\+A\+\_\+\+M\+E\+M\+C\+M\+P\+L\+E\+N\+\_\+\+E\+X\+T\+RA bytes may be read past the specified limit from both buf1 and buf2.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Number of equal bytes in the buffers is returned. This is always at least len and at most limit.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+L\+Z\+M\+A\+\_\+\+M\+E\+M\+C\+M\+P\+L\+E\+N\+\_\+\+E\+X\+T\+RA defines how many extra bytes may be read. It\textquotesingle{}s rounded up to 2$^\wedge$n. This extra amount needs to be allocated in the buffers being used. It needs to be initialized too to keep Valgrind quiet. 
+\end{DoxyNote}
+
+
+\subsection{Variable Documentation}
+\mbox{\label{memcmplen_8h_ad688ce47095cb0d331ea6e281ec62c27}} 
+\index{memcmplen.\+h@{memcmplen.\+h}!limit@{limit}}
+\index{limit@{limit}!memcmplen.\+h@{memcmplen.\+h}}
+\subsubsection{limit}
+{\footnotesize\ttfamily uint32\+\_\+t const uint8\+\_\+t uint32\+\_\+t uint32\+\_\+t limit}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+        assert(len <= limit)
+\end{DoxyCode}

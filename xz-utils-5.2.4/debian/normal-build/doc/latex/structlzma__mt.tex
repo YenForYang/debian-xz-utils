@@ -1,0 +1,193 @@
+\section{lzma\+\_\+mt Struct Reference}
+\label{structlzma__mt}\index{lzma\+\_\+mt@{lzma\+\_\+mt}}
+
+
+Multithreading options.  
+
+
+
+
+{\ttfamily \#include $<$container.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ flags}
+\begin{DoxyCompactList}\small\item\em Flags. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ threads}
+\begin{DoxyCompactList}\small\item\em Number of worker threads to use. \end{DoxyCompactList}\item 
+uint64\+\_\+t \textbf{ block\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Maximum uncompressed size of a Block. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ timeout}
+\begin{DoxyCompactList}\small\item\em Timeout to allow \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to return early. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ preset}
+\begin{DoxyCompactList}\small\item\em Compression preset (level and possible flags) \end{DoxyCompactList}\item 
+const \textbf{ lzma\+\_\+filter} $\ast$ \textbf{ filters}
+\begin{DoxyCompactList}\small\item\em Filter chain (alternative to a preset) \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+check} \textbf{ check}
+\begin{DoxyCompactList}\small\item\em Integrity check type. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__mt_a90713ce5b126eccc91f7b41c7c0963ab}} 
+\textbf{ lzma\+\_\+reserved\+\_\+enum} {\bfseries reserved\+\_\+enum1}
+\item 
+\mbox{\label{structlzma__mt_a616b988457524a2160af71d10dd77666}} 
+\textbf{ lzma\+\_\+reserved\+\_\+enum} {\bfseries reserved\+\_\+enum2}
+\item 
+\mbox{\label{structlzma__mt_a26ab0ea3d77e73f8dd7e84cbb4796010}} 
+\textbf{ lzma\+\_\+reserved\+\_\+enum} {\bfseries reserved\+\_\+enum3}
+\item 
+\mbox{\label{structlzma__mt_abd3ad75d10d2ab9da65e8f8ccf68bc1b}} 
+uint32\+\_\+t {\bfseries reserved\+\_\+int1}
+\item 
+\mbox{\label{structlzma__mt_a6b39d2e1a743440022e003a0d04f2738}} 
+uint32\+\_\+t {\bfseries reserved\+\_\+int2}
+\item 
+\mbox{\label{structlzma__mt_a03f69e05665bd4ca16b86aa481d84170}} 
+uint32\+\_\+t {\bfseries reserved\+\_\+int3}
+\item 
+\mbox{\label{structlzma__mt_a8364bc8d729e0a331edfe4e55b76f75f}} 
+uint32\+\_\+t {\bfseries reserved\+\_\+int4}
+\item 
+\mbox{\label{structlzma__mt_a59c58a8936c88c9e9edd722e2b98a801}} 
+uint64\+\_\+t {\bfseries reserved\+\_\+int5}
+\item 
+\mbox{\label{structlzma__mt_a58590f93aad02bbcac831eb242697ffe}} 
+uint64\+\_\+t {\bfseries reserved\+\_\+int6}
+\item 
+\mbox{\label{structlzma__mt_aa194b90e00f0f786f3bcacd80c57e6b2}} 
+uint64\+\_\+t {\bfseries reserved\+\_\+int7}
+\item 
+\mbox{\label{structlzma__mt_af21d83022bf74796434638551fdc29c6}} 
+uint64\+\_\+t {\bfseries reserved\+\_\+int8}
+\item 
+\mbox{\label{structlzma__mt_a465ad20994dee78b4e006d9789597383}} 
+void $\ast$ {\bfseries reserved\+\_\+ptr1}
+\item 
+\mbox{\label{structlzma__mt_a884fd0d4aefadaded10fc0d9f31883e3}} 
+void $\ast$ {\bfseries reserved\+\_\+ptr2}
+\item 
+\mbox{\label{structlzma__mt_aa3418f4b62cb1e15ec54211e42e199a1}} 
+void $\ast$ {\bfseries reserved\+\_\+ptr3}
+\item 
+\mbox{\label{structlzma__mt_a1062faa3620aca6a10b9c31f1ca5b3a1}} 
+void $\ast$ {\bfseries reserved\+\_\+ptr4}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Multithreading options. 
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__mt_a1c2fe028f547bf58b48b5199557d9a9f}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!flags@{flags}}
+\index{flags@{flags}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{flags}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mt\+::flags}
+
+
+
+Flags. 
+
+Set this to zero if no flags are wanted.
+
+No flags are currently supported. 
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{structlzma__mt_a881761f858dbda33c697e74acde0be70}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!threads@{threads}}
+\index{threads@{threads}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{threads}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mt\+::threads}
+
+
+
+Number of worker threads to use. 
+
+
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{structlzma__mt_a20cdc7865266ccb88da36a6e68f84d15}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!block\+\_\+size@{block\+\_\+size}}
+\index{block\+\_\+size@{block\+\_\+size}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{block\+\_\+size}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+mt\+::block\+\_\+size}
+
+
+
+Maximum uncompressed size of a Block. 
+
+The encoder will start a new .xz Block every block\+\_\+size bytes. Using L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+F\+L\+U\+SH or L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER with \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} the caller may tell liblzma to start a new Block earlier.
+
+With L\+Z\+M\+A2, a recommended block size is 2-\/4 times the L\+Z\+M\+A2 dictionary size. With very small dictionaries, it is recommended to use at least 1 MiB block size for good compression ratio, even if this is more than four times the dictionary size. Note that these are only recommendations for typical use cases; feel free to use other values. Just keep in mind that using a block size less than the L\+Z\+M\+A2 dictionary size is waste of R\+AM.
+
+Set this to 0 to let liblzma choose the block size depending on the compression options. For L\+Z\+M\+A2 it will be 3$\ast$dict\+\_\+size or 1 MiB, whichever is more.
+
+For each thread, about 3 $\ast$ block\+\_\+size bytes of memory will be allocated. This may change in later liblzma versions. If so, the memory usage will probably be reduced, not increased. 
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{structlzma__mt_a298992bf7d2154d8dd814560219d10c2}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!timeout@{timeout}}
+\index{timeout@{timeout}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{timeout}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mt\+::timeout}
+
+
+
+Timeout to allow \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to return early. 
+
+Multithreading can make liblzma to consume input and produce output in a very bursty way\+: it may first read a lot of input to fill internal buffers, then no input or output occurs for a while.
+
+In single-\/threaded mode, \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} won\textquotesingle{}t return until it has either consumed all the input or filled the output buffer. If this is done in multithreaded mode, it may cause a call \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} to take even tens of seconds, which isn\textquotesingle{}t acceptable in all applications.
+
+To avoid very long blocking times in \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}, a timeout (in milliseconds) may be set here. If \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} would block longer than this number of milliseconds, it will return with L\+Z\+M\+A\+\_\+\+OK. Reasonable values are 100 ms or more. The xz command line tool uses 300 ms.
+
+If long blocking times are fine for you, set timeout to a special value of 0, which will disable the timeout mechanism and will make \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} block until all the input is consumed or the output buffer has been filled.
+
+\begin{DoxyNote}{Note}
+Even with a timeout, \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} might sometimes take somewhat long time to return. No timing guarantees are made. 
+\end{DoxyNote}
+\mbox{\label{structlzma__mt_ab3883b5644752cdd15f01387d58dd050}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!preset@{preset}}
+\index{preset@{preset}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{preset}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mt\+::preset}
+
+
+
+Compression preset (level and possible flags) 
+
+The preset is set just like with \doxyref{lzma\+\_\+easy\+\_\+encoder()}{p.}{container_8h_acbdad999c544872f0f5d242f0d1a4ed4}. The preset is ignored if filters below is non-\/\+N\+U\+LL. 
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{structlzma__mt_ad43a62ef2178c76405e5be0ece7a98b4}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!filters@{filters}}
+\index{filters@{filters}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{filters}
+{\footnotesize\ttfamily const \textbf{ lzma\+\_\+filter}$\ast$ lzma\+\_\+mt\+::filters}
+
+
+
+Filter chain (alternative to a preset) 
+
+If this is N\+U\+LL, the preset above is used. Otherwise the preset is ignored and the filter chain specified here is used. 
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{structlzma__mt_ae38846e8aca5b20d2a86a2364283b730}} 
+\index{lzma\+\_\+mt@{lzma\+\_\+mt}!check@{check}}
+\index{check@{check}!lzma\+\_\+mt@{lzma\+\_\+mt}}
+\subsubsection{check}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+check} lzma\+\_\+mt\+::check}
+
+
+
+Integrity check type. 
+
+See check.\+h for available checks. The xz command line tool defaults to L\+Z\+M\+A\+\_\+\+C\+H\+E\+C\+K\+\_\+\+C\+R\+C64, which is a good choice if you are unsure. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/api/lzma/\textbf{ container.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,170 @@
+\section{liblzma/lz/lz\+\_\+encoder\+\_\+mf.c File Reference}
+\label{lz__encoder__mf_8c}\index{liblzma/lz/lz\+\_\+encoder\+\_\+mf.\+c@{liblzma/lz/lz\+\_\+encoder\+\_\+mf.\+c}}
+
+
+Match finders.  
+
+
+{\ttfamily \#include \char`\"{}lz\+\_\+encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lz\+\_\+encoder\+\_\+hash.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}memcmplen.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE}~0
+\item 
+\#define \textbf{ M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS}~U\+I\+N\+T32\+\_\+\+M\+AX
+\item 
+\#define \textbf{ header}(is\+\_\+bt,  len\+\_\+min,  ret\+\_\+op)
+\item 
+\#define \textbf{ header\+\_\+find}(is\+\_\+bt,  len\+\_\+min)
+\item 
+\#define \textbf{ header\+\_\+skip}(is\+\_\+bt,  len\+\_\+min)~\textbf{ header}(is\+\_\+bt, len\+\_\+min, continue)
+\item 
+\#define \textbf{ call\+\_\+find}(func,  len\+\_\+best)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \textbf{ lzma\+\_\+mf\+\_\+find} (\textbf{ lzma\+\_\+mf} $\ast$mf, uint32\+\_\+t $\ast$count\+\_\+ptr, \textbf{ lzma\+\_\+match} $\ast$matches)
+\begin{DoxyCompactList}\small\item\em Find matches starting from the current byte. \end{DoxyCompactList}\item 
+static void \textbf{ normalize} (\textbf{ lzma\+\_\+mf} $\ast$mf)
+\begin{DoxyCompactList}\small\item\em Normalizes hash values. \end{DoxyCompactList}\item 
+static void \textbf{ move\+\_\+pos} (\textbf{ lzma\+\_\+mf} $\ast$mf)
+\begin{DoxyCompactList}\small\item\em Mark the current byte as processed from point of view of the match finder. \end{DoxyCompactList}\item 
+static void \textbf{ move\+\_\+pending} (\textbf{ lzma\+\_\+mf} $\ast$mf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Match finders. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{lz__encoder__mf_8c_aa84dd0b4f5690a4f890f7be99792feeb}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE@{E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE}}
+\index{E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE@{E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE}
+{\footnotesize\ttfamily \#define E\+M\+P\+T\+Y\+\_\+\+H\+A\+S\+H\+\_\+\+V\+A\+L\+UE~0}
+
+Hash value to indicate unused element in the hash. Since we start the positions from dict\+\_\+size + 1, zero is always too far to qualify as usable match position. \mbox{\label{lz__encoder__mf_8c_a73a2d7ca0b7c574a5043d0236fec29c8}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS@{M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS}}
+\index{M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS@{M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS}
+{\footnotesize\ttfamily \#define M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS~U\+I\+N\+T32\+\_\+\+M\+AX}
+
+Normalization must be done when \doxyref{lzma\+\_\+mf.\+offset}{p.}{structlzma__mf__s_a2f61158f799c0c4e77e6316038757fee} + \doxyref{lzma\+\_\+mf.\+read\+\_\+pos}{p.}{structlzma__mf__s_a2d75d309fc59e61e468fcd9e3a38c150} reaches M\+U\+S\+T\+\_\+\+N\+O\+R\+M\+A\+L\+I\+Z\+E\+\_\+\+P\+OS. \mbox{\label{lz__encoder__mf_8c_aafda9f47948ddd2342f44150a3489908}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!header@{header}}
+\index{header@{header}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{header}
+{\footnotesize\ttfamily \#define header(\begin{DoxyParamCaption}\item[{}]{is\+\_\+bt,  }\item[{}]{len\+\_\+min,  }\item[{}]{ret\+\_\+op }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+uint32\_t len\_limit = mf_avail(mf); \(\backslash\)
+        if (mf->nice\_len <= len\_limit) \{ \(\backslash\)
+                len\_limit = mf->nice\_len; \(\backslash\)
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (len\_limit < (len\_min) \(\backslash\)
+                        || (is\_bt && mf->action == LZMA_SYNC_FLUSH)) \{ \(\backslash\)
+                assert(mf->action != LZMA_RUN); \(\backslash\)
+                move\_pending(mf); \(\backslash\)
+                ret\_op; \(\backslash\)
+        \} \(\backslash\)
+        const uint8\_t *cur = mf_ptr(mf); \(\backslash\)
+        const uint32\_t pos = mf->read\_pos + mf->offset
+\end{DoxyCode}
+Calculate len\+\_\+limit and determine if there is enough input to run the actual match finder code. Sets up \char`\"{}cur\char`\"{} and \char`\"{}pos\char`\"{}. This macro is used by all find functions and binary tree skip functions. Hash chain skip function doesn\textquotesingle{}t need len\+\_\+limit so a simpler code is used in them. \mbox{\label{lz__encoder__mf_8c_a8b1ccc141b3c8be0a63b15fec7f9c8b2}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!header\+\_\+find@{header\+\_\+find}}
+\index{header\+\_\+find@{header\+\_\+find}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{header\+\_\+find}
+{\footnotesize\ttfamily \#define header\+\_\+find(\begin{DoxyParamCaption}\item[{}]{is\+\_\+bt,  }\item[{}]{len\+\_\+min }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+header(is\_bt, len\_min, \textcolor{keywordflow}{return} 0); \(\backslash\)
+        uint32\_t matches\_count = 0
+\end{DoxyCode}
+Header for find functions. \char`\"{}return 0\char`\"{} indicates that zero matches were found. \mbox{\label{lz__encoder__mf_8c_acbaeadaaa3485eaebf078fb5ed712a36}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!header\+\_\+skip@{header\+\_\+skip}}
+\index{header\+\_\+skip@{header\+\_\+skip}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{header\+\_\+skip}
+{\footnotesize\ttfamily \#define header\+\_\+skip(\begin{DoxyParamCaption}\item[{}]{is\+\_\+bt,  }\item[{}]{len\+\_\+min }\end{DoxyParamCaption})~\textbf{ header}(is\+\_\+bt, len\+\_\+min, continue)}
+
+Header for a loop in a skip function. \char`\"{}continue\char`\"{} tells to skip the rest of the code in the loop. \mbox{\label{lz__encoder__mf_8c_a0e7fce36bf4da7e7bd9651901d22eddb}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!call\+\_\+find@{call\+\_\+find}}
+\index{call\+\_\+find@{call\+\_\+find}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{call\+\_\+find}
+{\footnotesize\ttfamily \#define call\+\_\+find(\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{len\+\_\+best }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        matches\_count = func(len\_limit, pos, cur, cur\_match, mf->depth, \(\backslash\)
+                                mf->son, mf->cyclic\_pos, mf->cyclic\_size, \(\backslash\)
+                                matches + matches\_count, len\_best) \(\backslash\)
+                        - matches; \(\backslash\)
+        move\_pos(mf); \(\backslash\)
+        return matches\_count; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Calls hc\+\_\+find\+\_\+func() or bt\+\_\+find\+\_\+func() and calculates the total number of matches found. Updates the dictionary position and returns the number of matches found. 
+
+\subsection{Function Documentation}
+\mbox{\label{lz__encoder__mf_8c_a47b5a3f51e46b7ba5908fbf7150d3343}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!lzma\+\_\+mf\+\_\+find@{lzma\+\_\+mf\+\_\+find}}
+\index{lzma\+\_\+mf\+\_\+find@{lzma\+\_\+mf\+\_\+find}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{lzma\+\_\+mf\+\_\+find()}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+mf\+\_\+find (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+mf} $\ast$}]{mf,  }\item[{uint32\+\_\+t $\ast$}]{count\+\_\+ptr,  }\item[{\textbf{ lzma\+\_\+match} $\ast$}]{matches }\end{DoxyParamCaption})}
+
+
+
+Find matches starting from the current byte. 
+
+\begin{DoxyReturn}{Returns}
+The length of the longest match found 
+\end{DoxyReturn}
+
+
+References lzma\+\_\+mf\+\_\+s\+::find.
+
+\mbox{\label{lz__encoder__mf_8c_a648138094aea5aa00a259061633ab848}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!normalize@{normalize}}
+\index{normalize@{normalize}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{normalize()}
+{\footnotesize\ttfamily static void normalize (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+mf} $\ast$}]{mf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Normalizes hash values. 
+
+The hash arrays store positions of match candidates. The positions are relative to an arbitrary offset that is not the same as the absolute offset in the input stream. The relative position of the current byte is \doxyref{lzma\+\_\+mf.\+offset}{p.}{structlzma__mf__s_a2f61158f799c0c4e77e6316038757fee} + \doxyref{lzma\+\_\+mf.\+read\+\_\+pos}{p.}{structlzma__mf__s_a2d75d309fc59e61e468fcd9e3a38c150}. The distances of the matches are the differences of the current read position and the position found from the hash.
+
+To prevent integer overflows of the offsets stored in the hash arrays, we need to \char`\"{}normalize\char`\"{} the stored values now and then. During the normalization, we drop values that indicate distance greater than the dictionary size, thus making space for new values. \mbox{\label{lz__encoder__mf_8c_a664d6298d1e02fb4817f416382953f20}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!move\+\_\+pos@{move\+\_\+pos}}
+\index{move\+\_\+pos@{move\+\_\+pos}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{move\+\_\+pos()}
+{\footnotesize\ttfamily static void move\+\_\+pos (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+mf} $\ast$}]{mf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mark the current byte as processed from point of view of the match finder. 
+
+
+
+References lzma\+\_\+mf\+\_\+s\+::read\+\_\+pos.
+
+\mbox{\label{lz__encoder__mf_8c_a38834174a29ae811fbd2ee848f069866}} 
+\index{lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}!move\+\_\+pending@{move\+\_\+pending}}
+\index{move\+\_\+pending@{move\+\_\+pending}!lz\+\_\+encoder\+\_\+mf.\+c@{lz\+\_\+encoder\+\_\+mf.\+c}}
+\subsubsection{move\+\_\+pending()}
+{\footnotesize\ttfamily static void move\+\_\+pending (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+mf} $\ast$}]{mf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+When flushing, we cannot run the match finder unless there is nice\+\_\+len bytes available in the dictionary. Instead, we skip running the match finder (indicating that no match was found), and count how many bytes we have ignored this way.
+
+When new data is given after the flushing was completed, the match finder is restarted by rewinding mf-\/$>$read\+\_\+pos backwards by mf-\/$>$pending. Then the missed bytes are added to the hash using the match finder\textquotesingle{}s skip function (with small amount of input, it may start using mf-\/$>$pending again if flushing).
+
+Due to this rewinding, we don\textquotesingle{}t touch cyclic\+\_\+pos or test for normalization. It will be done when the match finder\textquotesingle{}s skip function catches up after a flush. 
+
+References lzma\+\_\+mf\+\_\+s\+::read\+\_\+pos.
+

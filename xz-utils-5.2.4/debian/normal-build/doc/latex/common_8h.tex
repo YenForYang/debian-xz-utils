@@ -1,0 +1,393 @@
+\section{liblzma/common/common.h File Reference}
+\label{common_8h}\index{liblzma/common/common.\+h@{liblzma/common/common.\+h}}
+
+
+Common functions needed in many places in liblzma.  
+
+
+{\ttfamily \#include \char`\"{}sysdefs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mythread.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tuklib\+\_\+integer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lzma\+\_\+filter\+\_\+info\+\_\+s}
+\item 
+struct \textbf{ lzma\+\_\+next\+\_\+coder\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Hold data and function pointers of the next filter in the chain. \end{DoxyCompactList}\item 
+struct \textbf{ lzma\+\_\+internal\+\_\+s}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{common_8h_aea970a4daa1798994b600e03da8955d1}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+A\+P\+I\+\_\+\+E\+X\+P\+O\+RT}
+\item 
+\mbox{\label{common_8h_abfd99ac68c941953a426e005b4af82dc}} 
+\#define {\bfseries L\+Z\+M\+A\+\_\+\+A\+PI}(type)~L\+Z\+M\+A\+\_\+\+A\+P\+I\+\_\+\+E\+X\+P\+O\+RT type L\+Z\+M\+A\+\_\+\+A\+P\+I\+\_\+\+C\+A\+LL
+\item 
+\mbox{\label{common_8h_aa0672ea7123854cc5f51902a06c473fb}} 
+\#define {\bfseries likely}(expr)~(expr)
+\item 
+\mbox{\label{common_8h_ad8700448546b3b5111404cc021061fd5}} 
+\#define {\bfseries unlikely}(expr)~(expr)
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~4096
+\begin{DoxyCompactList}\small\item\em Size of temporary buffers needed in some filters. \end{DoxyCompactList}\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX}~16384
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE}~(U\+I\+N\+T64\+\_\+C(1) $<$$<$ 15)
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT}~(\textbf{ L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+C}(1) $<$$<$ 62)
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS}
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX}~((unsigned int)(\textbf{ L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER}))
+\begin{DoxyCompactList}\small\item\em Largest valid lzma\+\_\+action value as unsigned integer. \end{DoxyCompactList}\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT}~32
+\item 
+\#define \textbf{ L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}
+\begin{DoxyCompactList}\small\item\em Macro to initialize lzma\+\_\+next\+\_\+coder structure. \end{DoxyCompactList}\item 
+\#define \textbf{ return\+\_\+if\+\_\+error}(expr)
+\begin{DoxyCompactList}\small\item\em Return if expression doesn\textquotesingle{}t evaluate to L\+Z\+M\+A\+\_\+\+OK. \end{DoxyCompactList}\item 
+\#define \textbf{ lzma\+\_\+next\+\_\+coder\+\_\+init}(func,  next,  allocator)
+\item 
+\#define \textbf{ lzma\+\_\+next\+\_\+strm\+\_\+init}(func,  \textbf{ strm}, ...)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{common_8h_a734a9065645913446bd51d3a276b2c94}} 
+typedef struct \textbf{ lzma\+\_\+next\+\_\+coder\+\_\+s} {\bfseries lzma\+\_\+next\+\_\+coder}
+\item 
+\mbox{\label{common_8h_afce19774e821baaff5d300663dc9e8d0}} 
+typedef struct \textbf{ lzma\+\_\+filter\+\_\+info\+\_\+s} {\bfseries lzma\+\_\+filter\+\_\+info}
+\item 
+typedef \textbf{ lzma\+\_\+ret}($\ast$ \textbf{ lzma\+\_\+init\+\_\+function}) (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\begin{DoxyCompactList}\small\item\em Type of a function used to initialize a filter encoder or decoder. \end{DoxyCompactList}\item 
+typedef \textbf{ lzma\+\_\+ret}($\ast$ \textbf{ lzma\+\_\+code\+\_\+function}) (void $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)
+\item 
+typedef void($\ast$ \textbf{ lzma\+\_\+end\+\_\+function}) (void $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Type of a function to free the memory allocated for the coder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \textbf{ lzma\+\_\+alloc} (size\+\_\+t size, const \textbf{ lzma\+\_\+allocator} $\ast$allocator) \textbf{ lzma\+\_\+attribute}((\+\_\+\+\_\+malloc\+\_\+\+\_\+)) lzma\+\_\+attr\+\_\+alloc\+\_\+size(1)
+\begin{DoxyCompactList}\small\item\em Allocates memory. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ lzma\+\_\+attribute} ((\+\_\+\+\_\+malloc\+\_\+\+\_\+)) lzma\+\_\+attr\+\_\+alloc\+\_\+size(1) lzma\+\_\+alloc\+\_\+zero(size\+\_\+t size
+\item 
+void \textbf{ lzma\+\_\+free} (void $\ast$ptr, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\begin{DoxyCompactList}\small\item\em Frees memory. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+strm\+\_\+init} (\textbf{ lzma\+\_\+stream} $\ast$\textbf{ strm})
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+next\+\_\+filter\+\_\+init} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})
+\item 
+\textbf{ lzma\+\_\+ret} \textbf{ lzma\+\_\+next\+\_\+filter\+\_\+update} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter} $\ast$reversed\+\_\+filters)
+\item 
+void \textbf{ lzma\+\_\+next\+\_\+end} (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)
+\item 
+size\+\_\+t \textbf{ lzma\+\_\+bufcpy} (const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{common_8h_af0e1768cbc158eaecee14b19f6f49d82}} 
+void const \textbf{ lzma\+\_\+allocator} $\ast$ {\bfseries allocator}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Common functions needed in many places in liblzma. 
+
+Definitions common to the whole liblzma library.
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{common_8h_a1b621fc6aec40a92c6bcef56a7994ae7}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~4096}
+
+
+
+Size of temporary buffers needed in some filters. 
+
+\mbox{\label{common_8h_aa4b23f9eb51a547255386963c9ff0529}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX@{L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX}}
+\index{L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX@{L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+T\+H\+R\+E\+A\+D\+S\+\_\+\+M\+AX~16384}
+
+Maximum number of worker threads within one multithreaded component. The limit exists solely to make it simpler to prevent integer overflows when allocating structures etc. This should be big enough for now... the code won\textquotesingle{}t scale anywhere close to this number anyway. 
+
+Referenced by get\+\_\+options().
+
+\mbox{\label{common_8h_a3c4e3d305aea4ca9f30c5a05b3ad7570}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE@{L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE}}
+\index{L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE@{L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+M\+E\+M\+U\+S\+A\+G\+E\+\_\+\+B\+A\+SE~(U\+I\+N\+T64\+\_\+C(1) $<$$<$ 15)}
+
+Starting value for memory usage estimates. Instead of calculating size of {\itshape every} structure and taking into account malloc() overhead etc., we add a base size to all memory usage estimates. It\textquotesingle{}s not very accurate but should be easily good enough. \mbox{\label{common_8h_a50d12a2d492921171aab3404ca56a55c}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT@{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT}}
+\index{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT@{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+F\+I\+L\+T\+E\+R\+\_\+\+R\+E\+S\+E\+R\+V\+E\+D\+\_\+\+S\+T\+A\+RT~(\textbf{ L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+C}(1) $<$$<$ 62)}
+
+Start of internal Filter ID space. These I\+Ds must never be used in Streams. 
+
+Referenced by lzma\+\_\+filter\+\_\+flags\+\_\+encode(), and lzma\+\_\+filter\+\_\+flags\+\_\+size().
+
+\mbox{\label{common_8h_a3469962f4605c82d5ccff2b1a8cd91a1}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS@{L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS}}
+\index{L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS@{L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+S\+U\+P\+P\+O\+R\+T\+E\+D\+\_\+\+F\+L\+A\+GS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+( LZMA_TELL_NO_CHECK \(\backslash\)
+        | LZMA_TELL_UNSUPPORTED_CHECK \(\backslash\)
+        | LZMA_TELL_ANY_CHECK \(\backslash\)
+        | LZMA_IGNORE_CHECK \(\backslash\)
+        | LZMA_CONCATENATED )
+\end{DoxyCode}
+Supported flags that can be passed to \doxyref{lzma\+\_\+stream\+\_\+decoder()}{p.}{container_8h_a02b7683ef98d8049788961370a8b28c0} or \doxyref{lzma\+\_\+auto\+\_\+decoder()}{p.}{container_8h_a21cbebf2771617bb1e956385cfb353e3}. \mbox{\label{common_8h_a688bb202234b7ce0eb4c3541b340c051}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX@{L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX}}
+\index{L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX@{L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+A\+C\+T\+I\+O\+N\+\_\+\+M\+AX~((unsigned int)(\textbf{ L\+Z\+M\+A\+\_\+\+F\+U\+L\+L\+\_\+\+B\+A\+R\+R\+I\+ER}))}
+
+
+
+Largest valid lzma\+\_\+action value as unsigned integer. 
+
+
+
+Referenced by lzma\+\_\+code().
+
+\mbox{\label{common_8h_a5a83432c1a68661c54047121d17197dd}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT@{L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT}}
+\index{L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT@{L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+T\+I\+M\+E\+D\+\_\+\+O\+UT~32}
+
+Special return value (lzma\+\_\+ret) to indicate that a timeout was reached and \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957} must not return L\+Z\+M\+A\+\_\+\+B\+U\+F\+\_\+\+E\+R\+R\+OR. This is converted to L\+Z\+M\+A\+\_\+\+OK in \doxyref{lzma\+\_\+code()}{p.}{base_8h_a28cc09bc422d5ba1e0187c9f2af5d957}. This is not in the lzma\+\_\+ret enumeration because there\textquotesingle{}s no need to have it in the public A\+PI. \mbox{\label{common_8h_a1fca27f3d292f89fffbf7162d34a5bc3}} 
+\index{common.\+h@{common.\+h}!L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT@{L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}}
+\index{L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT@{L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}!common.\+h@{common.\+h}}
+\subsubsection{L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}
+{\footnotesize\ttfamily \#define L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(lzma_next_coder)\{ \(\backslash\)
+                .coder = NULL, \(\backslash\)
+                .init = (uintptr\_t)(NULL), \(\backslash\)
+                .id = LZMA_VLI_UNKNOWN, \(\backslash\)
+                .code = NULL, \(\backslash\)
+                .end = NULL, \(\backslash\)
+                .get\_progress = NULL, \(\backslash\)
+                .get\_check = NULL, \(\backslash\)
+                .memconfig = NULL, \(\backslash\)
+                .update = NULL, \(\backslash\)
+        \}
+\end{DoxyCode}
+
+
+Macro to initialize lzma\+\_\+next\+\_\+coder structure. 
+
+
+
+Referenced by initialize\+\_\+new\+\_\+thread(), lzma\+\_\+next\+\_\+end(), and lzma\+\_\+strm\+\_\+init().
+
+\mbox{\label{common_8h_a3e1bf9f33b917e883b886b8a10458d66}} 
+\index{common.\+h@{common.\+h}!return\+\_\+if\+\_\+error@{return\+\_\+if\+\_\+error}}
+\index{return\+\_\+if\+\_\+error@{return\+\_\+if\+\_\+error}!common.\+h@{common.\+h}}
+\subsubsection{return\+\_\+if\+\_\+error}
+{\footnotesize\ttfamily \#define return\+\_\+if\+\_\+error(\begin{DoxyParamCaption}\item[{}]{expr }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        const lzma_ret ret\_ = (expr); \(\backslash\)
+        if (ret\_ != LZMA_OK) \(\backslash\)
+                return ret\_; \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+
+
+Return if expression doesn\textquotesingle{}t evaluate to L\+Z\+M\+A\+\_\+\+OK. 
+
+There are several situations where we want to return immediately with the value of expr if it isn\textquotesingle{}t L\+Z\+M\+A\+\_\+\+OK. This macro shortens the code a little. 
+
+Referenced by lzma\+\_\+block\+\_\+header\+\_\+encode(), lzma\+\_\+block\+\_\+header\+\_\+size(), lzma\+\_\+decoder\+\_\+init(), lzma\+\_\+filter\+\_\+flags\+\_\+encode(), lzma\+\_\+filter\+\_\+flags\+\_\+size(), lzma\+\_\+index\+\_\+buffer\+\_\+decode(), lzma\+\_\+index\+\_\+hash\+\_\+append(), lzma\+\_\+index\+\_\+hash\+\_\+decode(), and lzma\+\_\+index\+\_\+stream\+\_\+flags().
+
+\mbox{\label{common_8h_a4e5a35bc05ca572acdae55a294c8cc89}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+next\+\_\+coder\+\_\+init@{lzma\+\_\+next\+\_\+coder\+\_\+init}}
+\index{lzma\+\_\+next\+\_\+coder\+\_\+init@{lzma\+\_\+next\+\_\+coder\+\_\+init}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+next\+\_\+coder\+\_\+init}
+{\footnotesize\ttfamily \#define lzma\+\_\+next\+\_\+coder\+\_\+init(\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{next,  }\item[{}]{allocator }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        if ((uintptr\_t)(func) != (next)->init) \(\backslash\)
+                lzma\_next\_end(next, allocator); \(\backslash\)
+        (next)->init = (uintptr\_t)(func); \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+If next isn\textquotesingle{}t already initialized, free the previous coder. Then mark that next is {\itshape possibly} initialized for the coder using this macro. \char`\"{}\+Possibly\char`\"{} means that if e.\+g. allocation of next-\/$>$coder fails, the structure isn\textquotesingle{}t actually initialized for this coder, but leaving next-\/$>$init to func is still OK. 
+
+Referenced by lzma\+\_\+next\+\_\+filter\+\_\+init().
+
+\mbox{\label{common_8h_a844da62faaaf4c19a9a297129bc30a8c}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+next\+\_\+strm\+\_\+init@{lzma\+\_\+next\+\_\+strm\+\_\+init}}
+\index{lzma\+\_\+next\+\_\+strm\+\_\+init@{lzma\+\_\+next\+\_\+strm\+\_\+init}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+next\+\_\+strm\+\_\+init}
+{\footnotesize\ttfamily \#define lzma\+\_\+next\+\_\+strm\+\_\+init(\begin{DoxyParamCaption}\item[{}]{func,  }\item[{}]{\textbf{ strm},  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+        return\_if\_error(lzma_strm_init(strm)); \(\backslash\)
+        const lzma_ret ret\_ = func(&(strm)->internal->next, \(\backslash\)
+                        (strm)->allocator, \_\_VA\_ARGS\_\_); \(\backslash\)
+        if (ret\_ != LZMA_OK) \{ \(\backslash\)
+                lzma\_end(strm); \(\backslash\)
+                return ret\_; \(\backslash\)
+        \} \(\backslash\)
+\} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+Initializes lzma\+\_\+strm and calls func() to initialize strm-\/$>$internal-\/$>$next. (The function being called will use \doxyref{lzma\+\_\+next\+\_\+coder\+\_\+init()}{p.}{common_8h_a4e5a35bc05ca572acdae55a294c8cc89}). If initialization fails, memory that wasn\textquotesingle{}t freed by func() is freed along strm-\/$>$internal. 
+
+Referenced by lzma\+\_\+alone\+\_\+decoder(), lzma\+\_\+alone\+\_\+encoder(), lzma\+\_\+auto\+\_\+decoder(), lzma\+\_\+block\+\_\+decoder(), lzma\+\_\+block\+\_\+encoder(), lzma\+\_\+index\+\_\+decoder(), lzma\+\_\+index\+\_\+encoder(), lzma\+\_\+raw\+\_\+decoder(), lzma\+\_\+raw\+\_\+encoder(), lzma\+\_\+stream\+\_\+decoder(), lzma\+\_\+stream\+\_\+encoder(), and lzma\+\_\+stream\+\_\+encoder\+\_\+mt().
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\label{common_8h_a8dc88670cdd1a06325fc3710db6e98bc}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+init\+\_\+function@{lzma\+\_\+init\+\_\+function}}
+\index{lzma\+\_\+init\+\_\+function@{lzma\+\_\+init\+\_\+function}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+init\+\_\+function}
+{\footnotesize\ttfamily typedef \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+init\+\_\+function) (\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$next, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$\textbf{ filters})}
+
+
+
+Type of a function used to initialize a filter encoder or decoder. 
+
+\mbox{\label{common_8h_a7002df828a3550687620deca32120c89}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+code\+\_\+function@{lzma\+\_\+code\+\_\+function}}
+\index{lzma\+\_\+code\+\_\+function@{lzma\+\_\+code\+\_\+function}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+code\+\_\+function}
+{\footnotesize\ttfamily typedef \textbf{ lzma\+\_\+ret}($\ast$ lzma\+\_\+code\+\_\+function) (void $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator, const uint8\+\_\+t $\ast$restrict in, size\+\_\+t $\ast$restrict in\+\_\+pos, size\+\_\+t in\+\_\+size, uint8\+\_\+t $\ast$restrict out, size\+\_\+t $\ast$restrict out\+\_\+pos, size\+\_\+t out\+\_\+size, \textbf{ lzma\+\_\+action} action)}
+
+Type of a function to do some kind of coding work (filters, Stream, Block encoders/decoders etc.). Some special coders use don\textquotesingle{}t use both input and output buffers, but for simplicity they still use this same function prototype. \mbox{\label{common_8h_ad3f7c71e8c7f980775ba05444bf5ad89}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+end\+\_\+function@{lzma\+\_\+end\+\_\+function}}
+\index{lzma\+\_\+end\+\_\+function@{lzma\+\_\+end\+\_\+function}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+end\+\_\+function}
+{\footnotesize\ttfamily typedef void($\ast$ lzma\+\_\+end\+\_\+function) (void $\ast$coder, const \textbf{ lzma\+\_\+allocator} $\ast$allocator)}
+
+
+
+Type of a function to free the memory allocated for the coder. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{common_8h_a9749605a4202f4b3d4323a41f693c997}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+alloc@{lzma\+\_\+alloc}}
+\index{lzma\+\_\+alloc@{lzma\+\_\+alloc}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+alloc()}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+alloc (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+
+
+Allocates memory. 
+
+
+
+Referenced by index\+\_\+dup\+\_\+stream(), index\+\_\+stream\+\_\+init(), initialize\+\_\+new\+\_\+thread(), and lzma\+\_\+strm\+\_\+init().
+
+\mbox{\label{common_8h_a54c976bb0fab08d506aadacd45936f63}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+attribute@{lzma\+\_\+attribute}}
+\index{lzma\+\_\+attribute@{lzma\+\_\+attribute}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+attribute()}
+{\footnotesize\ttfamily void$\ast$ lzma\+\_\+attribute (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+malloc\+\_\+\+\_\+)}]{ }\end{DoxyParamCaption})}
+
+Allocates memory and zeroes it (like calloc()). This can be faster than \doxyref{lzma\+\_\+alloc()}{p.}{common_8h_a9749605a4202f4b3d4323a41f693c997} + memzero() while being backward compatible with custom allocators. 
+
+Referenced by lzma\+\_\+version\+\_\+string().
+
+\mbox{\label{common_8h_a5505ba477682a9fa6009b54540c6f9d0}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+free@{lzma\+\_\+free}}
+\index{lzma\+\_\+free@{lzma\+\_\+free}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+free()}
+{\footnotesize\ttfamily void lzma\+\_\+free (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+
+
+Frees memory. 
+
+
+
+References lzma\+\_\+allocator\+::free, and lzma\+\_\+allocator\+::opaque.
+
+
+
+Referenced by index\+\_\+stream\+\_\+end(), lzma\+\_\+end(), lzma\+\_\+index\+\_\+end(), and lzma\+\_\+next\+\_\+end().
+
+\mbox{\label{common_8h_a83455498798efe8409f8b9f11a77b2aa}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+strm\+\_\+init@{lzma\+\_\+strm\+\_\+init}}
+\index{lzma\+\_\+strm\+\_\+init@{lzma\+\_\+strm\+\_\+init}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+strm\+\_\+init()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+strm\+\_\+init (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+stream} $\ast$}]{strm }\end{DoxyParamCaption})}
+
+Allocates strm-\/$>$internal if it is N\+U\+LL, and initializes $\ast$strm and strm-\/$>$internal. This function is only called via lzma\+\_\+next\+\_\+strm\+\_\+init macro. 
+
+References lzma\+\_\+stream\+::allocator, lzma\+\_\+stream\+::internal, lzma\+\_\+alloc(), L\+Z\+M\+A\+\_\+\+M\+E\+M\+\_\+\+E\+R\+R\+OR, L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, and lzma\+\_\+internal\+\_\+s\+::next.
+
+\mbox{\label{common_8h_a2428177b22ae4ca339dd49d9cb72ddfa}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+next\+\_\+filter\+\_\+init@{lzma\+\_\+next\+\_\+filter\+\_\+init}}
+\index{lzma\+\_\+next\+\_\+filter\+\_\+init@{lzma\+\_\+next\+\_\+filter\+\_\+init}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+next\+\_\+filter\+\_\+init()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+next\+\_\+filter\+\_\+init (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$}]{next,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const \textbf{ lzma\+\_\+filter\+\_\+info} $\ast$}]{filters }\end{DoxyParamCaption})}
+
+Initializes the next filter in the chain, if any. This takes care of freeing the memory of previously initialized filter if it is different than the filter being initialized now. This way the actual filter initialization functions don\textquotesingle{}t need to use lzma\+\_\+next\+\_\+coder\+\_\+init macro. 
+
+References lzma\+\_\+filter\+\_\+info\+\_\+s\+::id, lzma\+\_\+next\+\_\+coder\+\_\+s\+::id, lzma\+\_\+filter\+\_\+info\+\_\+s\+::init, lzma\+\_\+next\+\_\+coder\+\_\+init, and L\+Z\+M\+A\+\_\+\+OK.
+
+\mbox{\label{common_8h_aaa9217b1205dd81f29363b4df1155152}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+next\+\_\+filter\+\_\+update@{lzma\+\_\+next\+\_\+filter\+\_\+update}}
+\index{lzma\+\_\+next\+\_\+filter\+\_\+update@{lzma\+\_\+next\+\_\+filter\+\_\+update}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+next\+\_\+filter\+\_\+update()}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+ret} lzma\+\_\+next\+\_\+filter\+\_\+update (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$}]{next,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator,  }\item[{const \textbf{ lzma\+\_\+filter} $\ast$}]{reversed\+\_\+filters }\end{DoxyParamCaption})}
+
+Update the next filter in the chain, if any. This checks that the application is not trying to change the Filter I\+Ds. 
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::id, L\+Z\+M\+A\+\_\+\+OK, L\+Z\+M\+A\+\_\+\+P\+R\+O\+G\+\_\+\+E\+R\+R\+OR, and L\+Z\+M\+A\+\_\+\+V\+L\+I\+\_\+\+U\+N\+K\+N\+O\+WN.
+
+\mbox{\label{common_8h_ae000b50b68fda291c15fb61cde902dcc}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+next\+\_\+end@{lzma\+\_\+next\+\_\+end}}
+\index{lzma\+\_\+next\+\_\+end@{lzma\+\_\+next\+\_\+end}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+next\+\_\+end()}
+{\footnotesize\ttfamily void lzma\+\_\+next\+\_\+end (\begin{DoxyParamCaption}\item[{\textbf{ lzma\+\_\+next\+\_\+coder} $\ast$}]{next,  }\item[{const \textbf{ lzma\+\_\+allocator} $\ast$}]{allocator }\end{DoxyParamCaption})}
+
+Frees the memory allocated for next-\/$>$coder either using next-\/$>$end or, if next-\/$>$end is N\+U\+LL, using lzma\+\_\+free. 
+
+References lzma\+\_\+next\+\_\+coder\+\_\+s\+::coder, lzma\+\_\+next\+\_\+coder\+\_\+s\+::end, lzma\+\_\+next\+\_\+coder\+\_\+s\+::init, lzma\+\_\+stream\+::internal, lzma\+\_\+free(), L\+Z\+M\+A\+\_\+\+N\+E\+X\+T\+\_\+\+C\+O\+D\+E\+R\+\_\+\+I\+N\+IT, and strm.
+
+
+
+Referenced by lzma\+\_\+end().
+
+\mbox{\label{common_8h_a9ffbf0181223d38d596508a3b47488b0}} 
+\index{common.\+h@{common.\+h}!lzma\+\_\+bufcpy@{lzma\+\_\+bufcpy}}
+\index{lzma\+\_\+bufcpy@{lzma\+\_\+bufcpy}!common.\+h@{common.\+h}}
+\subsubsection{lzma\+\_\+bufcpy()}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+bufcpy (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$restrict}]{in,  }\item[{size\+\_\+t $\ast$restrict}]{in\+\_\+pos,  }\item[{size\+\_\+t}]{in\+\_\+size,  }\item[{uint8\+\_\+t $\ast$restrict}]{out,  }\item[{size\+\_\+t $\ast$restrict}]{out\+\_\+pos,  }\item[{size\+\_\+t}]{out\+\_\+size }\end{DoxyParamCaption})}
+
+Copy as much data as possible from in[] to out[] and update $\ast$in\+\_\+pos and $\ast$out\+\_\+pos accordingly. Returns the number of bytes copied. 
+
+Referenced by dict\+\_\+write().
+

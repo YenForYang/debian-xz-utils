@@ -1,0 +1,137 @@
+\section{lzma\+\_\+block\+\_\+coder Struct Reference}
+\label{structlzma__block__coder}\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__block__coder_a22c984447eb22efeceeca077cf196e67}} 
+enum \{ {\bfseries S\+E\+Q\+\_\+\+C\+O\+DE}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+H\+E\+CK}
+ \}
+\item 
+\mbox{\label{structlzma__block__coder_a9f737a59391bfa7fab7b71577fcd06e6}} 
+enum \{ {\bfseries S\+E\+Q\+\_\+\+C\+O\+DE}, 
+{\bfseries S\+E\+Q\+\_\+\+P\+A\+D\+D\+I\+NG}, 
+{\bfseries S\+E\+Q\+\_\+\+C\+H\+E\+CK}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{structlzma__block__coder_a481422b69edf1e9882da38686dedfb4f}} 
+enum lzma\+\_\+block\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+\textbf{ lzma\+\_\+next\+\_\+coder} \textbf{ next}
+\begin{DoxyCompactList}\small\item\em The filters in the chain; initialized with lzma\+\_\+raw\+\_\+decoder\+\_\+init(). \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+block} $\ast$ \textbf{ block}
+\item 
+\textbf{ lzma\+\_\+vli} \textbf{ compressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Compressed Size calculated while decoding. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ uncompressed\+\_\+size}
+\begin{DoxyCompactList}\small\item\em Uncompressed Size calculated while decoding. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+vli} \textbf{ compressed\+\_\+limit}
+\item 
+size\+\_\+t \textbf{ check\+\_\+pos}
+\begin{DoxyCompactList}\small\item\em Position when reading the Check field. \end{DoxyCompactList}\item 
+\textbf{ lzma\+\_\+check\+\_\+state} \textbf{ check}
+\begin{DoxyCompactList}\small\item\em Check of the uncompressed data. \end{DoxyCompactList}\item 
+bool \textbf{ ignore\+\_\+check}
+\begin{DoxyCompactList}\small\item\em True if the integrity check won\textquotesingle{}t be calculated and verified. \end{DoxyCompactList}\item 
+\mbox{\label{structlzma__block__coder_a4a860b7c1d308f1004f1c85ebf2ecf89}} 
+enum lzma\+\_\+block\+\_\+coder\+:: \{ ... \}  {\bfseries sequence}
+\item 
+size\+\_\+t \textbf{ pos}
+\begin{DoxyCompactList}\small\item\em Position in the Check field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{structlzma__block__coder_a339694baef116dbcd2d9955d79889f15}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!next@{next}}
+\index{next@{next}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{next}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+next\+\_\+coder} lzma\+\_\+block\+\_\+coder\+::next}
+
+
+
+The filters in the chain; initialized with lzma\+\_\+raw\+\_\+decoder\+\_\+init(). 
+
+\mbox{\label{structlzma__block__coder_aa609e1d995965a3b951971963a7e48fd}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!block@{block}}
+\index{block@{block}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{block}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+block} $\ast$ lzma\+\_\+block\+\_\+coder\+::block}
+
+Decoding options; we also write Compressed Size and Uncompressed Size back to this structure when the decoding has been finished.
+
+Encoding options; we also write Unpadded Size, Compressed Size, and Uncompressed Size back to this structure when the encoding has been finished. \mbox{\label{structlzma__block__coder_afc40c2393b45f23e21adb8cb7848e421}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!compressed\+\_\+size@{compressed\+\_\+size}}
+\index{compressed\+\_\+size@{compressed\+\_\+size}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{compressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+block\+\_\+coder\+::compressed\+\_\+size}
+
+
+
+Compressed Size calculated while decoding. 
+
+Compressed Size calculated while encoding. \mbox{\label{structlzma__block__coder_af5921bd99942b38b57ab54519e01ccb9}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!uncompressed\+\_\+size@{uncompressed\+\_\+size}}
+\index{uncompressed\+\_\+size@{uncompressed\+\_\+size}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{uncompressed\+\_\+size}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+block\+\_\+coder\+::uncompressed\+\_\+size}
+
+
+
+Uncompressed Size calculated while decoding. 
+
+Uncompressed Size calculated while encoding. \mbox{\label{structlzma__block__coder_affdde33879d0de53dc8c92aca3a298d1}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!compressed\+\_\+limit@{compressed\+\_\+limit}}
+\index{compressed\+\_\+limit@{compressed\+\_\+limit}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{compressed\+\_\+limit}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+vli} lzma\+\_\+block\+\_\+coder\+::compressed\+\_\+limit}
+
+Maximum allowed Compressed Size; this takes into account the size of the Block Header and Check fields when Compressed Size is unknown. \mbox{\label{structlzma__block__coder_a1cd9a2b3c5e44f1210bb88425be6c9ca}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!check\+\_\+pos@{check\+\_\+pos}}
+\index{check\+\_\+pos@{check\+\_\+pos}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{check\+\_\+pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+block\+\_\+coder\+::check\+\_\+pos}
+
+
+
+Position when reading the Check field. 
+
+\mbox{\label{structlzma__block__coder_a0a019ad945822110027367d0b7fc54b2}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!check@{check}}
+\index{check@{check}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{check}
+{\footnotesize\ttfamily \textbf{ lzma\+\_\+check\+\_\+state} lzma\+\_\+block\+\_\+coder\+::check}
+
+
+
+Check of the uncompressed data. 
+
+\mbox{\label{structlzma__block__coder_a4f1f71a49e3985d29de10e927a1a23b8}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!ignore\+\_\+check@{ignore\+\_\+check}}
+\index{ignore\+\_\+check@{ignore\+\_\+check}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{ignore\+\_\+check}
+{\footnotesize\ttfamily bool lzma\+\_\+block\+\_\+coder\+::ignore\+\_\+check}
+
+
+
+True if the integrity check won\textquotesingle{}t be calculated and verified. 
+
+\mbox{\label{structlzma__block__coder_ab3d31683916ce485c8ff0a4060b35b02}} 
+\index{lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}!pos@{pos}}
+\index{pos@{pos}!lzma\+\_\+block\+\_\+coder@{lzma\+\_\+block\+\_\+coder}}
+\subsubsection{pos}
+{\footnotesize\ttfamily size\+\_\+t lzma\+\_\+block\+\_\+coder\+::pos}
+
+
+
+Position in the Check field. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+liblzma/common/\textbf{ block\+\_\+decoder.\+c}\item 
+liblzma/common/\textbf{ block\+\_\+encoder.\+c}\end{DoxyCompactItemize}

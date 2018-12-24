@@ -1,0 +1,62 @@
+\section{liblzma/api/lzma/hardware.h File Reference}
+\label{liblzma_2api_2lzma_2hardware_8h}\index{liblzma/api/lzma/hardware.\+h@{liblzma/api/lzma/hardware.\+h}}
+
+
+Hardware information.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint64\+\_\+t \textbf{ lzma\+\_\+physmem} (void) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Get the total amount of physical memory (R\+AM) in bytes. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ lzma\+\_\+cputhreads} (void) lzma\+\_\+nothrow
+\begin{DoxyCompactList}\small\item\em Get the number of processor cores or threads. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Hardware information. 
+
+Since liblzma can consume a lot of system resources, it also provides ways to limit the resource usage. Applications linking against liblzma need to do the actual decisions how much resources to let liblzma to use. To ease making these decisions, liblzma provides functions to find out the relevant capabilities of the underlaying hardware. Currently there is only a function to find out the amount of R\+AM, but in the future there will be also a function to detect how many concurrent threads the system can run.
+
+\begin{DoxyNote}{Note}
+On some operating systems, these function may temporarily load a shared library or open file descriptor(s) to find out the requested hardware information. Unless the application assumes that specific file descriptors are not touched by other threads, this should have no effect on thread safety. Possible operations involving file descriptors will restart the syscalls if they return E\+I\+N\+TR. 
+\end{DoxyNote}
+
+
+\subsection{Function Documentation}
+\mbox{\label{liblzma_2api_2lzma_2hardware_8h_a85363e453b34272a9f26c9fdffb041ee}} 
+\index{liblzma/api/lzma/hardware.\+h@{liblzma/api/lzma/hardware.\+h}!lzma\+\_\+physmem@{lzma\+\_\+physmem}}
+\index{lzma\+\_\+physmem@{lzma\+\_\+physmem}!liblzma/api/lzma/hardware.\+h@{liblzma/api/lzma/hardware.\+h}}
+\subsubsection{lzma\+\_\+physmem()}
+{\footnotesize\ttfamily uint64\+\_\+t lzma\+\_\+physmem (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the total amount of physical memory (R\+AM) in bytes. 
+
+This function may be useful when determining a reasonable memory usage limit for decompressing or how much memory it is OK to use for compressing.
+
+\begin{DoxyReturn}{Returns}
+On success, the total amount of physical memory in bytes is returned. If the amount of R\+AM cannot be determined, zero is returned. This can happen if an error occurs or if there is no code in liblzma to detect the amount of R\+AM on the specific operating system. 
+\end{DoxyReturn}
+
+
+Referenced by hardware\+\_\+init().
+
+\mbox{\label{liblzma_2api_2lzma_2hardware_8h_a22f7a882b7a4b741a226abf62bdf46ca}} 
+\index{liblzma/api/lzma/hardware.\+h@{liblzma/api/lzma/hardware.\+h}!lzma\+\_\+cputhreads@{lzma\+\_\+cputhreads}}
+\index{lzma\+\_\+cputhreads@{lzma\+\_\+cputhreads}!liblzma/api/lzma/hardware.\+h@{liblzma/api/lzma/hardware.\+h}}
+\subsubsection{lzma\+\_\+cputhreads()}
+{\footnotesize\ttfamily uint32\+\_\+t lzma\+\_\+cputhreads (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the number of processor cores or threads. 
+
+This function may be useful when determining how many threads to use. If the hardware supports more than one thread per C\+PU core, the number of hardware threads is returned if that information is available.
+
+On success, the number of available C\+PU threads or cores is returned. If this information isn\textquotesingle{}t available or an error occurs, zero is returned. 
+
+Referenced by hardware\+\_\+threads\+\_\+set().
+
